@@ -16,6 +16,10 @@
   "files": [
     "dist"
   ],
+  "bugs": {
+    "url": "https://github.com/chennlang/js-analyzer/issues"
+  },
+  "homepage": "https://github.com/chennlang/js-analyzer#readme",
   "publishConfig": {
     "access": "public"
   },

@@ -12,6 +12,10 @@
     "login": "npm login  --registry=https://registry.npmjs.org/",
     "publish": "npm publish  --registry=https://registry.npmjs.org/ --tag beta"
   },
+  "bugs": {
+    "url": "https://github.com/chennlang/js-analyzer/issues"
+  },
+  "homepage": "https://github.com/chennlang/js-analyzer#readme",
   "publishConfig": {
     "access": "public"
   },
