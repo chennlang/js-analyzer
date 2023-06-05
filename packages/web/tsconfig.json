@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ES2018",
+    "module": "ESNext",
+    "useDefineForClassFields": true,
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "lib": ["ESNext", "ESNext.AsyncIterable", "DOM", "ES2018"],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "types": ["@types/node"],
+  "include": ["./src/**/*.ts", "./src/**/*.d.ts", "./src/**/*.tsx", "./src/**/*.vue", "global.d.ts"],
+  "exclude": ["node_modules/**/*", "**/*.spec.ts"],
+}

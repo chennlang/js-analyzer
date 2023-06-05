@@ -1,0 +1,12 @@
+{
+  "name": "root",
+  "author": "Alang",
+  "private": true,
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "dev": "lerna run --scope '@js-analyzer/core' --scope @js-analyzer/server dev"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}

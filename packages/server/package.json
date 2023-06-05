@@ -1,0 +1,39 @@
+{
+  "name": "@js-analyzer/server",
+  "version": "1.0.21-beta",
+  "main": "src/index.js",
+  "author": "chennlang",
+  "description": "一个可视化可交互的 Web 文件依赖分析工具",
+  "keywords": ["utils", "analyzer", "js", "management"],
+  "license": "MIT",
+  "scripts": {
+    "dev": "node ./bin/service.js  --config ./config.js",
+    "rm": "rm -rf ./pubblic/data/",
+    "login": "npm login  --registry=https://registry.npmjs.org/",
+    "publish": "npm publish  --registry=https://registry.npmjs.org/ --tag beta"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {},
+  "bin": {
+    "js-analyzer": "bin/service.js"
+  },
+  "files": [
+    "bin",
+    "public/dist",
+    "src",
+    "plugins"
+  ],
+  "dependencies": {
+    "@js-analyzer/core": "*",
+    "art-template": "^4.13.2",
+    "commander": "^9.3.0",
+    "koa": "^2.13.4",
+    "koa-router": "^10.1.1",
+    "koa-static": "^5.0.0",
+    "koa2-cors": "^2.0.6",
+    "launch-editor": "^2.3.0",
+    "open": "^8.4.0"
+  }
+}

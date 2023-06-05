@@ -1,0 +1,12 @@
+{
+  "version": "independent",
+  "npmClient": "pnpm",
+  "useWorkspaces": true,
+  "command": {
+    "publish": {
+      "ignoreChanges": [".gitignore", "*.md", ".log", "public"],
+      "message": "chore(release): publish",
+      "registry": "https://npm.pkg.github.com"
+    }
+  }
+}

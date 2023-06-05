@@ -1,0 +1,22 @@
+@import './var.less';
+a {
+    color: red;
+    text-align: center;
+}
+
+.test1 {
+    background: url(/packages/web/public/favicon.ico);
+    background: none;
+    background-image: url(/packages/web/public/favicon.ico);
+}
+
+.test2 {
+    color: beige;
+    .test2-1 {
+        color: blue;
+        .test2-1-1 {
+            content: 'test2-1-1';
+        }
+    }
+}
+
