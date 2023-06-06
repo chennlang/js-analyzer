@@ -1,0 +1,3012 @@
+{
+  "raf/polyfill": {
+    "num": 1,
+    "using": [
+      {
+        "source": "raf/polyfill",
+        "vars": "requireDefault",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/test-setup.js",
+        "loc": {}
+      }
+    ]
+  },
+  "whatwg-fetch": {
+    "num": 1,
+    "using": [
+      {
+        "source": "whatwg-fetch",
+        "vars": "requireDefault",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/test-setup.js",
+        "loc": {}
+      }
+    ]
+  },
+  "cypress": {
+    "num": 1,
+    "using": [
+      {
+        "source": "cypress",
+        "vars": "defineConfig",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/cypress/cypress.config.js",
+        "loc": {}
+      }
+    ]
+  },
+  "cypress-vite": {
+    "num": 1,
+    "using": [
+      {
+        "source": "cypress-vite",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/cypress/cypress.config.js",
+        "loc": {}
+      }
+    ]
+  },
+  "express": {
+    "num": 1,
+    "using": [
+      {
+        "source": "express",
+        "vars": "requireDefault",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/cypress/server.js",
+        "loc": {}
+      }
+    ]
+  },
+  "path": {
+    "num": 7,
+    "using": [
+      {
+        "source": "path",
+        "vars": "requireDefault",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/cypress/server.js",
+        "loc": {}
+      },
+      {
+        "source": "path",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/examples/crm/vite.config.ts",
+        "loc": {}
+      },
+      {
+        "source": "path",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/examples/demo/vite.config.ts",
+        "loc": {}
+      },
+      {
+        "source": "path",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/examples/no-code/vite.config.ts",
+        "loc": {}
+      },
+      {
+        "source": "path",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/examples/simple/vite.config.js",
+        "loc": {}
+      },
+      {
+        "source": "path",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/generateProject.ts",
+        "loc": {}
+      },
+      {
+        "source": "path",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-no-code/src/Admin.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "{{ site.url }}/assets/logo_white.png": {
+    "num": 2,
+    "using": [
+      {
+        "source": "{{ site.url }}/assets/logo_white.png",
+        "vars": "html@src",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/docs/documentation.html",
+        "loc": {}
+      },
+      {
+        "source": "{{ site.url }}/assets/logo_white.png",
+        "vars": "html@src",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/docs/_layouts/default.html",
+        "loc": {}
+      }
+    ]
+  },
+  "cypress-plugin-tab": {
+    "num": 1,
+    "using": [
+      {
+        "source": "cypress-plugin-tab",
+        "vars": "",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/cypress/support/index.js",
+        "loc": {}
+      }
+    ]
+  },
+  "vite": {
+    "num": 4,
+    "using": [
+      {
+        "source": "vite",
+        "vars": "defineConfig",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/examples/crm/vite.config.ts",
+        "loc": {}
+      },
+      {
+        "source": "vite",
+        "vars": "defineConfig",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/examples/demo/vite.config.ts",
+        "loc": {}
+      },
+      {
+        "source": "vite",
+        "vars": "defineConfig",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/examples/tutorial/vite.config.ts",
+        "loc": {}
+      },
+      {
+        "source": "vite",
+        "vars": "defineConfig",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/templates/common/vite.config.ts",
+        "loc": {}
+      }
+    ]
+  },
+  "fs": {
+    "num": 5,
+    "using": [
+      {
+        "source": "fs",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/examples/crm/vite.config.ts",
+        "loc": {}
+      },
+      {
+        "source": "fs",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/examples/demo/vite.config.ts",
+        "loc": {}
+      },
+      {
+        "source": "fs",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/examples/simple/vite.config.js",
+        "loc": {}
+      },
+      {
+        "source": "fs",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/generateProject.ts",
+        "loc": {}
+      },
+      {
+        "source": "fs",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-no-code/src/Admin.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "web-vitals": {
+    "num": 1,
+    "using": [
+      {
+        "source": "web-vitals",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/examples/crm/src/reportWebVitals.js",
+        "loc": {}
+      }
+    ]
+  },
+  "@testing-library/jest-dom": {
+    "num": 1,
+    "using": [
+      {
+        "source": "@testing-library/jest-dom",
+        "vars": "",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/examples/crm/src/setupTests.js",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/Stack.js": {
+    "num": 6,
+    "using": [
+      {
+        "source": "./Stack.js",
+        "vars": "Stack",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/SelectInputChoice.tsx",
+        "loc": {}
+      },
+      {
+        "source": "./Stack.js",
+        "vars": "Stack",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/StepAuthProvider.tsx",
+        "loc": {}
+      },
+      {
+        "source": "./Stack.js",
+        "vars": "Stack",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/StepDataProvider.tsx",
+        "loc": {}
+      },
+      {
+        "source": "./Stack.js",
+        "vars": "Stack",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/StepInstall.tsx",
+        "loc": {}
+      },
+      {
+        "source": "./Stack.js",
+        "vars": "Stack",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/StepName.tsx",
+        "loc": {}
+      },
+      {
+        "source": "./Stack.js",
+        "vars": "Stack",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/StepResources.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/SelectInputChoice.js": {
+    "num": 3,
+    "using": [
+      {
+        "source": "./SelectInputChoice.js",
+        "vars": "ChoiceType,SelectInputChoice",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/StepAuthProvider.tsx",
+        "loc": {}
+      },
+      {
+        "source": "./SelectInputChoice.js",
+        "vars": "ChoiceType,SelectInputChoice",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/StepDataProvider.tsx",
+        "loc": {}
+      },
+      {
+        "source": "./SelectInputChoice.js",
+        "vars": "ChoiceType,SelectInputChoice",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/StepInstall.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/ProjectState.js": {
+    "num": 2,
+    "using": [
+      {
+        "source": "./ProjectState.js",
+        "vars": "InitialProjectConfiguration,ProjectConfiguration",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/app.tsx",
+        "loc": {}
+      },
+      {
+        "source": "./ProjectState.js",
+        "vars": "ProjectConfiguration",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/generateProject.ts",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/generateProject.js": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./generateProject.js",
+        "vars": "generateProject",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/app.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/StepDataProvider.js": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./StepDataProvider.js",
+        "vars": "StepDataProvider",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/app.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/StepAuthProvider.js": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./StepAuthProvider.js",
+        "vars": "StepAuthProvider",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/app.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/StepResources.js": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./StepResources.js",
+        "vars": "StepResources",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/app.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/StepInstall.js": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./StepInstall.js",
+        "vars": "StepInstall",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/app.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/useInstallDeps.js": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./useInstallDeps.js",
+        "vars": "useInstallDeps",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/app.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/StepName.js": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./StepName.js",
+        "vars": "StepName",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/app.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/app.js": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./app.js",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/src/cli.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  ".": {
+    "num": 5,
+    "using": [
+      {
+        "source": ".",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-data-simple-rest/src/index.spec.ts",
+        "loc": {}
+      },
+      {
+        "source": ".",
+        "vars": "useAuthenticated",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/auth/useAuthenticated.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": ".",
+        "vars": "SearchInput",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/SearchInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": ".",
+        "vars": "Layout,Menu,Title",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/layout/Menu.stories.tsx",
+        "loc": {}
+      },
+      {
+        "source": ".",
+        "vars": "Layout,LayoutProps,Menu",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/layout/ResourceMenuItem.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "expect": {
+    "num": 126,
+    "using": [
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-input-rich-text/src/RichTextInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/react-admin/src/defaultI18nProvider.spec.ts",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/AdminContext.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/Labeled.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/auth/Authenticated.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/auth/useAuthState.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/auth/useAuthenticated.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/auth/useCheckAuth.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/auth/useHandleAuthCallback.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/auth/useLogin.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/auth/useLogout.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/auth/useLogoutIfAccessDenied.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/auth/usePermissions.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/useReference.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/core/CoreAdminRoutes.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/core/Resource.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/core/useConfigureAdminRouterFromChildren.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/convertLegacyDataProvider.spec.ts",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/fetch.spec.ts",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useCreate.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useDataProvider.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useDelete.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useDeleteMany.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useGetList.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useGetMany.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useGetManyAggregate.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useGetOne.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useInfiniteGetList.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useUpdate.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useUpdateMany.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/withLifecycleCallbacks.spec.ts",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/export/fetchRelatedRecords.spec.ts",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/form/FormDataConsumer.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/form/sanitizeEmptyValues.spec.ts",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/form/useChoices.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/form/useFormGroup.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/form/useSuggestions.spec.ts",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/form/useWarnWhenUnsavedChanges.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/i18n/TranslationUtils.spec.ts",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/i18n/useSetLocale.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/i18n/useTranslate.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/inference/inferTypesFromValues.spec.ts",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/routing/linkToRecord.spec.ts",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/routing/resolveRedirectTo.spec.ts",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/routing/useRedirect.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/store/localStorageStore.spec.ts",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/store/memoryStore.spec.ts",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/util/FieldTitle.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/util/getFieldLabelTranslationArgs.spec.ts",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/util/getValue.spec.ts",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/util/removeEmpty.spec.ts",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/util/removeKey.spec.ts",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/button/BulkExportButton.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/button/CloneButton.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/button/CreateButton.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/button/DeleteWithConfirmButton.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/button/DeleteWithUndoButton.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/button/ExportButton.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/button/SaveButton.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/button/ToggleThemeButton.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/detail/Create.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/detail/Edit.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/detail/EditGuesser.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/detail/Show.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/detail/ShowGuesser.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/detail/TabbedShowLayout.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/BooleanField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ChipField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/DateField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/EmailField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/FileField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ImageField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/NumberField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ReferenceArrayField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ReferenceField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ReferenceManyField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/RichTextField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/SelectField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/TextField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/TranslatableFields.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/UrlField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/form/FormTab.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/form/SimpleForm.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/form/SimpleFormConfigurable.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/CheckboxGroupInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/DateInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/DateTimeInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/InputHelperText.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/NullableBooleanInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/RadioButtonGroupInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/ReferenceInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/SelectArrayInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/TimeInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/TranslatableInputs.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/List.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/ListGuesser.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/preferences/Configurable.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/preferences/Inspector.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/button/useDeleteWithConfirmController.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/button/useDeleteWithUndoController.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/create/CreateBase.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/create/useCreateController.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/edit/EditBase.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/edit/useEditController.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/field/useReferenceArrayFieldController.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/field/useReferenceManyFieldController.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/field/useReferenceOneFieldController.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/input/useReferenceArrayInputController.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/input/useReferenceInputController.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/list/queryReducer.spec.ts",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/list/useInfiniteListController.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/list/useList.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/list/useListContext.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/list/useListController.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/list/useListParams.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/show/useShowController.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/ArrayInput/SimpleFormIterator.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/layout/Theme/ThemeProvider.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/layout/Theme/useTheme.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/datagrid/DatagridConfigurable.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/datagrid/DatagridHeaderCell.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/datagrid/SelectColumnsButton.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/filter/FilterButton.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/filter/FilterForm.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/filter/FilterListItem.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "expect",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/pagination/Pagination.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "@testing-library/react": {
+    "num": 161,
+    "using": [
+      {
+        "source": "@testing-library/react",
+        "vars": "render,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-input-rich-text/src/RichTextInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-no-code/src/Admin.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/react-admin/src/Admin.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/AdminContext.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/Labeled.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/auth/Authenticated.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/auth/addRefreshAuthToAuthProvider.spec.ts",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "waitFor,render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/auth/useAuthState.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/auth/useAuthenticated.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "screen,render,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/auth/useCheckAuth.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,fireEvent,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/auth/useGetIdentity.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/auth/useHandleAuthCallback.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,fireEvent,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/auth/useLogin.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,fireEvent,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/auth/useLogout.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/auth/useLogoutIfAccessDenied.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "waitFor,render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/auth/usePermissions.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/useFilterState.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/useReference.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/core/CoreAdmin.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/core/CoreAdminRoutes.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/core/CustomRoutes.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/core/Resource.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/core/useConfigureAdminRouterFromChildren.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/core/useGetRecordRepresentation.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "screen,render",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/core/useGetResourceLabel.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/core/useResourceDefinition.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/core/useResourceDefinitions.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useCreate.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,act",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useDataProvider.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "screen,render,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useDelete.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "waitFor,render",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useDeleteMany.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useGetList.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useGetMany.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useGetManyAggregate.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useGetOne.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useGetRecordId.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "screen,render,waitFor,fireEvent",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useInfiniteGetList.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useUpdate.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useUpdateMany.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,screen,render,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/form/Form.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,waitFor,screen,fireEvent",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/form/FormDataConsumer.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/form/ValidationError.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/form/useChoices.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/form/useFormGroup.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/form/useInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/form/useWarnWhenUnsavedChanges.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,fireEvent,waitFor,act,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/i18n/useSetLocale.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/i18n/useTranslate.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/notification/useNotify.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/routing/useCreatePath.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/routing/useRedirect.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,fireEvent",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/store/localStorageStore.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,fireEvent",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/store/useStore.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/util/FieldTitle.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/util/useEvent.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/auth/Logout.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "screen,render,waitFor,fireEvent",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/button/BulkExportButton.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/button/CloneButton.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/button/CreateButton.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "screen,render,waitFor,fireEvent",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/button/DeleteWithConfirmButton.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "screen,render,waitFor,fireEvent",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/button/DeleteWithUndoButton.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "screen,render,waitFor,fireEvent",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/button/ExportButton.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen,waitFor,within",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/button/LocalesMenuButton.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/button/SaveButton.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/button/ToggleThemeButton.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "screen,render",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/detail/Create.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor,fireEvent,act",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/detail/Edit.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/detail/EditGuesser.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/detail/Show.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/detail/ShowGuesser.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/detail/SimpleShowLayout.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/detail/TabbedShowLayout.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ArrayField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "screen,render",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/BooleanField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ChipField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/DateField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/EmailField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/FileField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/FunctionField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ImageField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/NumberField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,act,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ReferenceArrayField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ReferenceField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ReferenceManyCount.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor,fireEvent",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ReferenceManyField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ReferenceOneField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,fireEvent",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/RichTextField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/SelectField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "screen,render,getNodeText",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/TextField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/TranslatableFields.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/UrlField.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/form/FormTab.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/form/SimpleForm.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,fireEvent",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/form/SimpleFormConfigurable.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,isInaccessible,render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/form/TabbedForm.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/AutocompleteArrayInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/AutocompleteInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/BooleanInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/CheckboxGroupInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/DateInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/DateTimeInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen,waitFor,waitForElementToBeRemoved",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/FileInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,fireEvent,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/FileInputPreview.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/ImageInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/InputHelperText.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/NullableBooleanInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/NumberInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/RadioButtonGroupInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor,within,fireEvent",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/ReferenceArrayInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor,fireEvent",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/ReferenceInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/SearchInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/SelectArrayInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/SelectInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,fireEvent,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/TextInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/TimeInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/TranslatableInputs.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/layout/ResourceMenuItem.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/Count.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,fireEvent,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/List.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/ListGuesser.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/SingleFieldList.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "screen,render,waitFor,fireEvent",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/preferences/Configurable.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/preferences/Inspector.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,screen,render,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/button/useDeleteWithConfirmController.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,screen,render,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/button/useDeleteWithUndoController.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "screen,render,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/create/CreateBase.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "act,fireEvent,render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/create/useCreateController.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/edit/EditBase.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "act,fireEvent,render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/edit/useEditController.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/field/useReferenceArrayFieldController.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/field/useReferenceManyFieldController.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/field/useReferenceOneFieldController.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor,fireEvent",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/input/useReferenceArrayInputController.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,fireEvent,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/input/useReferenceInputController.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/list/InfiniteListBase.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,fireEvent,waitFor,screen,act",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/list/useInfiniteListController.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/list/useList.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/list/useListContext.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,fireEvent,waitFor,screen,act",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/list/useListController.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,fireEvent,screen,waitFor,act",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/list/useListController.storeKey.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/list/useListParams.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/list/useListParams.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/show/useShowController.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/ArrayInput/ArrayInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "screen,render,fireEvent,waitFor,getByLabelText",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/ArrayInput/SimpleFormIterator.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/layout/Theme/ThemeProvider.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/layout/Theme/useTheme.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,waitFor,within",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/SimpleList/SimpleList.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,fireEvent",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/datagrid/Datagrid.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/datagrid/DatagridCell.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen,fireEvent",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/datagrid/DatagridConfigurable.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/datagrid/DatagridHeaderCell.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,fireEvent,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/datagrid/DatagridRow.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,fireEvent,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/datagrid/ExpandAllButton.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/datagrid/SelectColumnsButton.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/filter/Filter.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,fireEvent,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/filter/FilterButton.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "fireEvent,render,screen,waitFor",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/filter/FilterForm.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/filter/FilterListItem.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/pagination/Pagination.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react",
+        "vars": "render,screen",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/pagination/PaginationActions.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-input-rich-text/src/RichTextInput.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./RichTextInput.stories",
+        "vars": "Basic",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-input-rich-text/src/RichTextInput.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "@testing-library/user-event": {
+    "num": 5,
+    "using": [
+      {
+        "source": "@testing-library/user-event",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-no-code/src/Admin.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/user-event",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/AutocompleteArrayInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/user-event",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/AutocompleteInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/user-event",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/NumberInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/user-event",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/ArrayInput/ArrayInput.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/react-admin/src/Admin.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./Admin.stories",
+        "vars": "Basic,InsideRouter,SubPath",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/react-admin/src/Admin.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/Labeled.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./Labeled.stories",
+        "vars": "Basic,CustomLabel,ExplicitLabel,NoLabel,NonField,NoDoubleLabel",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/Labeled.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "csstype": {
+    "num": 1,
+    "using": [
+      {
+        "source": "csstype",
+        "vars": "Property",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/Labeled.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "@mui/system": {
+    "num": 12,
+    "using": [
+      {
+        "source": "@mui/system",
+        "vars": "ResponsiveStyleValue",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/Labeled.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@mui/system",
+        "vars": "SxProps",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/types.ts",
+        "loc": {}
+      },
+      {
+        "source": "@mui/system",
+        "vars": "ResponsiveStyleValue,SxProps",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/detail/SimpleShowLayout.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@mui/system",
+        "vars": "ResponsiveStyleValue",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/detail/Tab.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@mui/system",
+        "vars": "ResponsiveStyleValue,SxProps",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/detail/TabbedShowLayout.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@mui/system",
+        "vars": "SxProps",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/FileField.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@mui/system",
+        "vars": "SxProps",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ImageField.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@mui/system",
+        "vars": "SxProps",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ReferenceArrayField.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@mui/system",
+        "vars": "SxProps",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/FileInput.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@mui/system",
+        "vars": "SxProps",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/layout/LoadingIndicator.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@mui/system",
+        "vars": "SxProps",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/ListView.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@mui/system",
+        "vars": "SxProps",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/filter/FilterLiveSearch.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/auth/useGetIdentity.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./useGetIdentity.stories",
+        "vars": "Basic,ErrorCase,ResetIdentity",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/auth/useGetIdentity.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "@testing-library/react-hooks": {
+    "num": 8,
+    "using": [
+      {
+        "source": "@testing-library/react-hooks",
+        "vars": "act,renderHook",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/useFilterState.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react-hooks",
+        "vars": "act,renderHook",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/usePaginationState.spec.ts",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react-hooks",
+        "vars": "act,renderHook",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/useSortState.spec.ts",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react-hooks",
+        "vars": "renderHook",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/store/useStore.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react-hooks",
+        "vars": "act",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/AutocompleteInput.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react-hooks",
+        "vars": "renderHook",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/list/useExpanded.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react-hooks",
+        "vars": "renderHook",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/list/useRecordSelection.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "@testing-library/react-hooks",
+        "vars": "renderHook",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/layout/Theme/useTheme.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/core/CustomRoutes.authenticated.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./CustomRoutes.authenticated.stories",
+        "vars": "AuthenticatedCustomRoute",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/core/CustomRoutes.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/core/CustomRoutes.unauthenticated.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./CustomRoutes.unauthenticated.stories",
+        "vars": "UnauthenticatedCustomRoute",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/core/CustomRoutes.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/core/CustomRoutes.withLayout.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./CustomRoutes.withLayout.stories",
+        "vars": "WithLayoutCustomRoute",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/core/CustomRoutes.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "..": {
+    "num": 8,
+    "using": [
+      {
+        "source": "..",
+        "vars": "AuthProvider,ResourceProps",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/core/useConfigureAdminRouterFromChildren.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "..",
+        "vars": "GetListResult",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useDataProvider.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "..",
+        "vars": "RecordContextProvider",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useGetRecordId.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "..",
+        "vars": "useInfiniteGetList",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useInfiniteGetList.stories.tsx",
+        "loc": {}
+      },
+      {
+        "source": "..",
+        "vars": "Identifier",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useUpdateMany.ts",
+        "loc": {}
+      },
+      {
+        "source": "..",
+        "vars": "Loading",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/auth/AuthCallback.tsx",
+        "loc": {}
+      },
+      {
+        "source": "..",
+        "vars": "RaThemeOptions",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/button/ToggleThemeLegacyButton.tsx",
+        "loc": {}
+      },
+      {
+        "source": "..",
+        "vars": "EditContextProvider,SaveContextProvider,useEditController",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/edit/useEditController.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useDelete.pessimistic.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./useDelete.pessimistic.stories",
+        "vars": "ErrorCase,SuccessCase",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useDelete.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useDelete.optimistic.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./useDelete.optimistic.stories",
+        "vars": "ErrorCase,SuccessCase",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useDelete.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useDelete.undoable.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./useDelete.undoable.stories",
+        "vars": "ErrorCase,SuccessCase",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useDelete.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useInfiniteGetList.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./useInfiniteGetList.stories",
+        "vars": "Basic,PageInfo",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useInfiniteGetList.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useUpdate.pessimistic.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./useUpdate.pessimistic.stories",
+        "vars": "ErrorCase,SuccessCase",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useUpdate.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useUpdate.optimistic.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./useUpdate.optimistic.stories",
+        "vars": "ErrorCase,SuccessCase",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useUpdate.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useUpdate.undoable.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./useUpdate.undoable.stories",
+        "vars": "ErrorCase,SuccessCase",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/dataProvider/useUpdate.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "@hookform/resolvers/yup": {
+    "num": 1,
+    "using": [
+      {
+        "source": "@hookform/resolvers/yup",
+        "vars": "yupResolver",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/form/Form.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "yup": {
+    "num": 1,
+    "using": [
+      {
+        "source": "yup",
+        "vars": "object,string,number",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/form/Form.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "assert": {
+    "num": 2,
+    "using": [
+      {
+        "source": "assert",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/form/Form.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "assert",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/input/referenceDataStatus.spec.ts",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/form/Form.stories": {
+    "num": 2,
+    "using": [
+      {
+        "source": "./Form.stories",
+        "vars": "SanitizeEmptyValues",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/form/Form.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "./Form.stories",
+        "vars": "NullValue",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/form/Form.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/routing/useCreatePath.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./useCreatePath.stories",
+        "vars": "AtRoot,SubPath",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/routing/useCreatePath.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/auth/Logout.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./Logout.stories",
+        "vars": "UserAuthenticated,UserUnauthenticated",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/auth/Logout.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/button/LocalesMenuButton.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./LocalesMenuButton.stories",
+        "vars": "Basic,FullApp",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/button/LocalesMenuButton.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/button/ToggleThemeButton.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./ToggleThemeButton.stories",
+        "vars": "Basic",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/button/ToggleThemeButton.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/detail/Show.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./Show.stories",
+        "vars": "Default,Actions,Basic,Component",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/detail/Show.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/detail/SimpleShowLayout.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./SimpleShowLayout.stories",
+        "vars": "Basic,CustomChild,CustomLabel",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/detail/SimpleShowLayout.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ArrayField.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./ArrayField.stories",
+        "vars": "ListContext",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ArrayField.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ReferenceArrayField.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./ReferenceArrayField.stories",
+        "vars": "DifferentIdTypes",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ReferenceArrayField.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ReferenceField.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./ReferenceField.stories",
+        "vars": "Children,EmptyWithTranslate,MissingReference",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ReferenceField.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ReferenceManyCount.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./ReferenceManyCount.stories",
+        "vars": "Basic,ErrorState,WithFilter,Wrapper",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ReferenceManyCount.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ReferenceManyField.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./ReferenceManyField.stories",
+        "vars": "Basic",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ReferenceManyField.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ReferenceOneField.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./ReferenceOneField.stories",
+        "vars": "RecordRepresentation,Basic,EmptyWithTranslate,QueryOptions",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/ReferenceOneField.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/RichTextField.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./RichTextField.stories",
+        "vars": "Secure",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/RichTextField.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "hotscript": {
+    "num": 1,
+    "using": [
+      {
+        "source": "hotscript",
+        "vars": "Call,Objects",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/field/types.ts",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/form/SimpleForm.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./SimpleForm.stories",
+        "vars": "GlobalValidation,InputBasedValidation",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/form/SimpleForm.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/form/SimpleFormConfigurable.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./SimpleFormConfigurable.stories",
+        "vars": "Basic,Omit,PreferenceKey",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/form/SimpleFormConfigurable.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/AutocompleteArrayInput.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./AutocompleteArrayInput.stories",
+        "vars": "InsideReferenceArrayInput",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/AutocompleteArrayInput.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/AutocompleteInput.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./AutocompleteInput.stories",
+        "vars": "DifferentShapeInGetMany,InsideReferenceInput,InsideReferenceInputDefaultValue,Nullable,NullishValuesSupport,VeryLargeOptionsNumber",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/AutocompleteInput.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/RadioButtonGroupInput.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./RadioButtonGroupInput.stories",
+        "vars": "InsideReferenceArrayInput",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/RadioButtonGroupInput.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/ReferenceArrayInput.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./ReferenceArrayInput.stories",
+        "vars": "DifferentIdTypes",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/ReferenceArrayInput.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/ReferenceInput.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./ReferenceInput.stories",
+        "vars": "Basic,WithSelectInput,dataProviderWithAuthors,SelfReference",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/ReferenceInput.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/SelectArrayInput.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./SelectArrayInput.stories",
+        "vars": "DifferentIdTypes",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/SelectArrayInput.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/SelectInput.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./SelectInput.stories",
+        "vars": "EmptyText,InsideReferenceInput,InsideReferenceInputDefaultValue,Sort",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/SelectInput.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/TextInput.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./TextInput.stories",
+        "vars": "ValueNull,Parse",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/TextInput.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/Count.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./Count.stories",
+        "vars": "Basic,ErrorState,WithFilter,Wrapper",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/Count.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/preferences/Configurable.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./Configurable.stories",
+        "vars": "Basic,Unmount",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/preferences/Configurable.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/preferences/Inspector.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./Inspector.stories",
+        "vars": "Inspector",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/preferences/Inspector.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/templates/common/src/App": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./App",
+        "vars": "App",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/create-react-admin/templates/common/src/index.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/list/InfiniteListBase.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./InfiniteListBase.stories",
+        "vars": "Basic",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/list/InfiniteListBase.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "lolex": {
+    "num": 2,
+    "using": [
+      {
+        "source": "lolex",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/list/useInfiniteListController.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "lolex",
+        "vars": "Default",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/list/useListController.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/list/useListController.storeKey.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./useListController.storeKey.stories",
+        "vars": "ListsUsingSameResource",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-core/src/controller/list/useListController.storeKey.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/ArrayInput/ArrayInput.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./ArrayInput.stories",
+        "vars": "GlobalValidation,ValidationInFormTab",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/input/ArrayInput/ArrayInput.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/datagrid/DatagridConfigurable.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./DatagridConfigurable.stories",
+        "vars": "Basic,Omit,PreferenceKey,LabelElement,NullChildren",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/datagrid/DatagridConfigurable.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/datagrid/Datagrid.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./Datagrid.stories",
+        "vars": "Expand",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/datagrid/ExpandAllButton.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/datagrid/SelectColumnsButton.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./SelectColumnsButton.stories",
+        "vars": "Basic,WithPreferenceKey",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/datagrid/SelectColumnsButton.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/filter/FilterButton.stories": {
+    "num": 2,
+    "using": [
+      {
+        "source": "./FilterButton.stories",
+        "vars": "Basic",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/filter/FilterButton.spec.tsx",
+        "loc": {}
+      },
+      {
+        "source": "./FilterButton.stories",
+        "vars": "Basic",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/filter/FilterForm.spec.tsx",
+        "loc": {}
+      }
+    ]
+  },
+  "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/filter/FilterList.stories": {
+    "num": 1,
+    "using": [
+      {
+        "source": "./FilterList.stories",
+        "vars": "Cumulative",
+        "fullPath": "/Users/ll/Downloads/react-admin-master/packages/ra-ui-materialui/src/list/filter/FilterListItem.spec.tsx",
+        "loc": {}
+      }
+    ]
+  }
+}

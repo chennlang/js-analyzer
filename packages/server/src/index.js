@@ -1,7 +1,7 @@
 const path = require('path')
 const Koa = require('koa')
 const router = require("koa-router")()
-const static = require("koa-static")
+const koaStatic = require("koa-static")
 const cors  = require('koa2-cors')
 const launch = require('launch-editor')
 const open = require('open')
@@ -12,7 +12,7 @@ const { JsAnalyzer } = require('@js-analyzer/core')
 
 const app = new Koa();
 app.use(cors())
-app.use(static(
+app.use(koaStatic(
   path.join( __dirname,  '../public/')
 ));
 
@@ -50,9 +50,6 @@ router.get("/code", async ctx => {
 app.use(router.routes()).use(router.allowedMethods());
 
 function startServer (config) {
-    const instance = new JsAnalyzer(config)
-    instance.init()
-    
     const serverOpts = config.server = Object.assign({
       port: 8666,
       host: 'localhost',
@@ -60,10 +57,15 @@ function startServer (config) {
     }, config.server || {})
 
     app.context.config = config
-    app.listen(serverOpts.port, () => {
-      const url = `http://${serverOpts.host}:${serverOpts.port}/`
-      serverOpts.openBrowser && open(url)
-      console.log(`Service started：${url}`)
+    
+    const instance = new JsAnalyzer(config)
+
+    instance.init().then(() => {
+      app.listen(serverOpts.port, () => {
+        const url = `http://${serverOpts.host}:${serverOpts.port}`
+        serverOpts.openBrowser && open(url)
+        console.log('\033[32m Service started:  \033[0m' + url)
+      })
     })
 }
 

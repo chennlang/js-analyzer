@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit --skipLibCheck && vite build",
+    "build:demo": "vue-tsc --noEmit --skipLibCheck && vite build  --mode demo",
     "serve": "vite preview"
   },
   "dependencies": {

@@ -1,6 +1,6 @@
 import * as Echart from 'echarts'
 import { getPackage } from '../../api/remote-data'
-import { ImportDeps, ImportDepItem } from '@js-analyzer/core/types/index';
+import { ImportDeps, ImportDepItem } from '@js-analyzer/core/dist/js-analyzer-core';
 
 let instance: any
 

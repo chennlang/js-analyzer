@@ -325,8 +325,10 @@ async function main(config: Config): Promise<DataCollector> {
             injectFileDeps(importDeps, file, fileQuote, packageQuote, dependencies, unknownQuote, config)
             injectExportInfo(exportInfo, file, exportQuote)
         } catch (error) {
-            console.log(error)
-            logger.error(`main, file: ${file}`)
+            logger.error(error, {
+                fn: 'main',
+                file: file,
+            })
         }
     })
     injectExportQuoteNum({

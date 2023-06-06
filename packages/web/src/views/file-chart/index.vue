@@ -13,7 +13,7 @@ import { useRouter } from 'vue-router';
 import { IQuoteInfo } from '@/types/index';
 import { IChartExtendData } from '@/types/chart';
 import { getImport, getExport } from '@/api/remote-data';
-import type { ExportDepItem } from '@js-analyzer/core/types';
+import type { ExportDepItem } from '@js-analyzer/core/dist/js-analyzer-core';
 import { TNode } from '@/components/Tree/Tree.d';
 
 const router = useRouter();

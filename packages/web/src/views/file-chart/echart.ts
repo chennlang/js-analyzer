@@ -2,7 +2,7 @@ import $ from 'jquery'
 import * as EChart from 'echarts'
 import { getImport } from '../../api/remote-data'
 import { IChartExtendData, IChartNode, IChartLink } from '@/types/chart'
-import { ImportDeps } from '@js-analyzer/core/types/index';
+import { ImportDeps } from '@js-analyzer/core/dist/js-analyzer-core';
 
 const ID_PATH_MAP: Record<string, string> = {} // path ---> id
 let instance: EChart.ECharts | null

@@ -3,6 +3,7 @@ const { createLogger, format, transports } = require("winston");
 
 export default createLogger({
     format: format.combine(
+        format.colorize(),
         format.label({ label: 'Js Analyzer' }),
         format.timestamp({ format: "MMM-DD-YYYY HH:mm:ss" }),
         format.align(),

@@ -1,10 +1,15 @@
 {
   "name": "@js-analyzer/server",
-  "version": "1.0.21-beta",
+  "version": "1.0.22-beta",
   "main": "src/index.js",
   "author": "chennlang",
   "description": "一个可视化可交互的 Web 文件依赖分析工具",
-  "keywords": ["utils", "analyzer", "js", "management"],
+  "keywords": [
+    "utils",
+    "analyzer",
+    "js",
+    "management"
+  ],
   "license": "MIT",
   "scripts": {
     "dev": "node ./bin/service.js  --config ./config.js",
@@ -19,7 +24,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "devDependencies": {},
   "bin": {
     "js-analyzer": "bin/service.js"
   },

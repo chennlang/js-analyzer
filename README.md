@@ -2,7 +2,7 @@
     <h1 style="text-align: center;">Js Analyzer</h1>
     <p style="text-align: center;">一个可视化可交互的 Web 文件依赖分析工具</p>
     <p style="text-align: center;">跨框架,可用于 Vue React Svelte Angular Node 等前端项目</p>
-    <img src="http://oss.ailan.top/20230603000655.png" style="height: 350px" />
+    <img src="http://oss.ailan.top/20230603000655.png" style="width: 100%;height: auto;" />
 </div>
 
 ## 功能
@@ -31,8 +31,8 @@
 - 适用于 ES6、CommonJs
 - 支持的文件类型：JS、TS、JSX、TSX、Vue、Sass、Less、Css、html
 - 支持 package 依赖分析
-- 支持未引用 文件、npm 包 分析
-- `非常安全`：所有文件本地存储，不涉及联网和上传
+- 支持未引用 文件、npm 包分析
+- 本地存储 `非常安全`，不涉及联网和上传
 
 ## 场景
 
