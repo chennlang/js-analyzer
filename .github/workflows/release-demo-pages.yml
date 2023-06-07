@@ -33,10 +33,12 @@ jobs:
         with:
           node-version: "14"
       - name: 安装依赖
-        run: npm install
+        run: |
+          npm install -g pnpm
+          pnpm install
         working-directory: packages/web
       - name: web打包
-        run: npm run build:demo
+        run: pnpm run build:demo
         working-directory: packages/web
       - name: 生成 demo 文件夹
         run: |
