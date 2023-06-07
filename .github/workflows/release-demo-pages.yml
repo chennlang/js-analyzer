@@ -43,7 +43,7 @@ jobs:
       - name: 生成 demo 文件夹
         run: |
           mkdir web
-          cp -r ./packages/server/public/dist ./web/
+          cp -r ./packages/server/public/dist/* ./web/
           cp -r ./materials ./web/data
           
       - name: Setup Pages
