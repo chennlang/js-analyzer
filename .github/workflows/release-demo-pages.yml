@@ -29,9 +29,9 @@ jobs:
       - name: 签出代码
         uses: actions/checkout@v3
       - name: 安装 nodejs
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v2.5.2
         with:
-          node-version: "14"
+          node-version: "16.15.0"
       - name: 安装依赖
         run: |
           npm install -g pnpm
