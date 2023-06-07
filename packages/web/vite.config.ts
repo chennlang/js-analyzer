@@ -39,9 +39,9 @@ export default defineConfig(({ mode }) => {
     server: {
       port: 3003
     },
-    base: 'dist',
+    base: '/',
     build: {
-      outDir: path.resolve(__dirname, '../server/public/dist'),
+      outDir: path.resolve(__dirname, '../server/public'),
     },
     alias: {
       '@': path.join(__dirname, "./src")

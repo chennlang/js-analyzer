@@ -19,7 +19,7 @@ app.use(koaStatic(
 // index.html
 router.get("/", async ctx => {
   ctx.set('Content-Type', 'text/html;charset=UTF-8')
-  const content = template(path.resolve(__dirname, '../public/dist/index.html'), {
+  const content = template(path.resolve(__dirname, '../public/index.html'), {
     TITLE: 'JsAnalyzer | 依赖分析工具',
     ROOT: ctx.config.root,
   })
