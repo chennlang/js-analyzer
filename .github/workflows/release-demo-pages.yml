@@ -35,7 +35,7 @@ jobs:
       - name: 安装依赖
         run: |
           npm install -g pnpm
-          pnpm install
+          pnpm install --no-frozen-lockfile
         working-directory: packages/web
       - name: web打包
         run: pnpm run build:demo
