@@ -26,6 +26,10 @@ router.get("/", async ctx => {
   ctx.body = content
 });
 
+router.get('/config', ctx => {
+  ctx.body = ctx.config
+})
+
 // open file in editor
 router.get("/launch", async ctx => {
   const file = ctx.query.file

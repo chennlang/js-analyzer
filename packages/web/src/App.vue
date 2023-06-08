@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onBeforeMount } from 'vue';
 import { useRoute } from 'vue-router';
+import { getConfig } from '@/api/remote-data';
 const route = useRoute();
 
 const menus = [
@@ -25,6 +26,11 @@ const onSwitchTheme = () => {
     document.body.classList.add('theme-dark');
   }
 };
+onBeforeMount(() => {
+  getConfig().then((res) => {
+    window.CONFIG = res;
+  });
+});
 </script>
 
 <template>

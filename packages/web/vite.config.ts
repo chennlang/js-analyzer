@@ -12,7 +12,8 @@ const htmlPlugin = (vs: Record<string, any> = {}) => {
       },
       transformIndexHtml(html: string) {
           // dev
-          if (config.command === 'serve') {
+          // if (config.command === 'serve') {
+          if (1) {
             return html.replace(/{{(.*?)}}/g, function (match, p1) {
                 return vs[p1.trim()]
             })
@@ -33,7 +34,6 @@ export default defineConfig(({ mode }) => {
       vueJsx(),
       htmlPlugin({
         TITLE: env.TITLE,
-        ROOT: env.VITE_ROOT_PATH,
       })
     ],
     server: {

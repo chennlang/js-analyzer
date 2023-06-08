@@ -24,7 +24,7 @@ onMounted(() => {
       ],
       data: extendData.using.map((m) => ({
         ...m,
-        path: m.fullPath?.replace(window.ROOT, ''),
+        path: m.fullPath?.replace(window.CONFIG.root, ''),
       })),
     };
     isShowInfoDrawer.value = true;

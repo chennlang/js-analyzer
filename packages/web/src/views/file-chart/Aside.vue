@@ -39,7 +39,7 @@ getImport().then((res: any) => {
 });
 
 const getFileImport = (sortPath: string) => {
-  return fileImportInfo.value[(window as any).ROOT + sortPath]?.num ?? '-';
+  return fileImportInfo.value[window.CONFIG.root + sortPath]?.num ?? '-';
 };
 
 /**
@@ -60,7 +60,7 @@ const filterTreeData = (matchText = '') => {
   }
 
   // list to tree
-  treeInfo.data = path2tree(list, (window as any).ROOT);
+  treeInfo.data = path2tree(list, window.CONFIG.root);
 
   nextTick(() => {
     treeInfo.loading = false;

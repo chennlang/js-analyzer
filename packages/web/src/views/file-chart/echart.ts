@@ -108,7 +108,7 @@ function createNodes (map: ImportDeps) {
             extendData: {
                 ...map[file],
                 fullPath: file,
-                sortPath: file.replace(window.ROOT, ''),
+                sortPath: file.replace(window.CONFIG.root, ''),
                 name: fileName,
                 ext: fileName.split('.').pop(),
                 num: map[file].num

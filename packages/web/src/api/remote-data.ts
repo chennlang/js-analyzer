@@ -2,7 +2,6 @@ import $ from 'jquery'
 import { MaterialPackage } from '@js-analyzer/core/dist/js-analyzer-core';
 
 // api base
-console.log(import.meta.env.DEV, 'import.meta.env.DEV')
 const BASE_URL = import.meta.env.DEV ? import.meta.env.VITE_API_PROXY : location.origin
 console.log(BASE_URL, 'BASE_URLBASE_URL')
 function loadJson (url: string, cacheKey?: string) {
@@ -65,13 +64,17 @@ export const getNames = () => {
 }
 
 export const openEditor = (path: string) => {
-    if (path.startsWith(window.ROOT)) {
+    if (path.startsWith(window.CONFIG.root)) {
         return loadJson(`/launch/?file=${path}`)
     } else {
-        return loadJson(`/launch/?file=${window.ROOT}${path}`)
+        return loadJson(`/launch/?file=${window.CONFIG.root}${path}`)
     }
 }
 
 export const getFileContent = (path: string) => {
     return load(`/code/?file=${path}`)
+}
+
+export const getConfig = () => {
+    return load(`/config`)
 }

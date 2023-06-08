@@ -23,7 +23,7 @@ let currFile = ref<string>('');
 const handleTreeNodeClick = (node: TNode) => {
   updateChartView({
     sortPath: node.data.path,
-    fullPath: window.ROOT + node.data.path,
+    fullPath: window.CONFIG.root + node.data.path,
     isFolder: !node.isLeaf,
   });
 };
@@ -143,7 +143,7 @@ const getExportInfo = async (file: string) => {
   return Object.keys(data).map((vars) => {
     const detail = data[vars];
     detail.using = detail.using.map((path: string) =>
-      path.replace(window.ROOT, ''),
+      path.replace(window.CONFIG.root, ''),
     );
     return {
       vars: vars,
@@ -156,7 +156,7 @@ const getExportInfo = async (file: string) => {
 const getInfoByFile = async (fullPath: string) => {
   const res = await getImport();
   const fileName = fullPath.split('/').pop() || '';
-  const sortPath = fullPath.replace(window.ROOT, '');
+  const sortPath = fullPath.replace(window.CONFIG.root, '');
 
   const data = res[fullPath];
   fileInfo.value = {
