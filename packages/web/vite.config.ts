@@ -39,7 +39,7 @@ export default defineConfig(({ mode }) => {
     server: {
       port: 3003
     },
-    base: '/',
+    base: './',
     build: {
       outDir: path.resolve(__dirname, '../server/public'),
     },
