@@ -45,6 +45,7 @@ jobs:
           mkdir web
           cp -r ./packages/server/public/* ./web/
           cp -r ./materials ./web/data
+          ls -l
           
       - name: Setup Pages
         uses: actions/configure-pages@v3
