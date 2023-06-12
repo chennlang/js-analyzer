@@ -1,6 +1,6 @@
 {
   "name": "@js-analyzer/server",
-  "version": "1.0.22-beta",
+  "version": "1.0.26",
   "main": "src/index.js",
   "author": "chennlang",
   "description": "一个可视化可交互的 Web 文件依赖分析工具",
@@ -29,7 +29,9 @@
   },
   "files": [
     "bin",
-    "public/dist",
+    "public/assets",
+    "public/favicon.png",
+    "public/index.html",
     "src",
     "plugins"
   ],

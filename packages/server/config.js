@@ -1,6 +1,6 @@
 
 module.exports = {
-    root: '/Users/ll/Downloads/react-admin-master',
+    root: '/Users/ll/Desktop/work/deepexi/dxp-cdp-data-ui',
     extensions: ['.js', '.ts','.tsx','.vue', '.json', '.jsx'],
     ignore: ['**/node_modules/**', '**/dist/**', '**/static/**'],
     server: {

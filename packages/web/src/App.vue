@@ -42,7 +42,7 @@ onBeforeMount(() => {
     >
       <router-link
         v-for="(item, index) in menus"
-        class="flex items-center w-full text-center h-10 cursor-pointer hover:text-active px-2 py-1 text-normal"
+        class="flex items-center w-full text-center h-10 cursor-pointer hover:text-active px-2 py-1"
         :class="{
           'text-active border-l-2 border-active border-solid': isActiveMenu(
             item.path,
@@ -51,19 +51,13 @@ onBeforeMount(() => {
         :key="index"
         :to="item.path"
       >
-        <i
-          class="iconfont"
-          :class="[item.icon, { 'text-active': isActiveMenu(item.path) }]"
-          style="font-size: 20px"
-        ></i>
+        <IconBtn :icon="item.icon" :active="isActiveMenu(item.path)"></IconBtn>
       </router-link>
       <div class="absolute left-0 bottom-0 w-full py-5 flex justify-center">
-        <span class="cursor-pointer" @click="onSwitchTheme">
-          <i
-            class="iconfont text-normal"
-            :class="isDarkModel ? 'icon-dark' : 'icon-baitianmoshi'"
-          ></i>
-        </span>
+        <IconBtn
+          :icon="isDarkModel ? 'icon-dark' : 'icon-baitianmoshi'"
+          @click="onSwitchTheme"
+        ></IconBtn>
       </div>
     </ul>
     <div class="float-left h-full" style="width: calc(100% - 40px)">

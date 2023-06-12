@@ -13,6 +13,7 @@ const props = defineProps({
     default: 'normal',
   },
   icon: String,
+  active: Boolean,
 });
 
 const react = computed(() => {
@@ -34,8 +35,14 @@ const react = computed(() => {
       :style="{
         fontSize: map[props.size],
       }"
-      :class="[props.icon]"
-      class="inline-block text-xs iconfont text-normal hover:text-active"
+      :class="[
+        props.icon,
+        {
+          'text-active': props.active,
+          'text-normal': !props.active,
+        },
+      ]"
+      class="inline-block text-xs iconfont hover:text-active"
     ></i>
     <slot />
   </span>
