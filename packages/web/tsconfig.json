@@ -16,7 +16,7 @@
       "@/*": ["./src/*"]
     }
   },
-  "types": ["@types/node"],
+  "types": ["@types/node", "@js-analyzer/core"],
   "include": ["./src/**/*.ts", "./src/**/*.d.ts", "./src/**/*.tsx", "./src/**/*.vue", "global.d.ts"],
   "exclude": ["node_modules/**/*", "**/*.spec.ts"],
 }
