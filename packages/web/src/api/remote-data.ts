@@ -26,6 +26,20 @@ function load (url: string) {
     })
 }
 
+function request (method: string, url: string, data: any) {
+    return new Promise<any>((resolve, reject) => {
+        $.ajax({
+            url: BASE_URL + url,
+            method,
+            data: JSON.stringify(data),
+            dataType: 'json',
+            success: resolve,
+            error: reject,
+            contentType: 'application/json; charset=utf-8',
+        })
+    })
+}
+
 
 type IState = Record<string, any>
 
@@ -77,4 +91,9 @@ export const getFileContent = (path: string) => {
 
 export const getConfig = () => {
     return load(`/config`)
+}
+
+export const updateConfig = (config: typeof window.CONFIG) => {
+    console.log(config, 'config')
+    return request('put', '/config', config)
 }

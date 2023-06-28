@@ -8,10 +8,12 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@types/dagre": "^0.7.48",
     "@types/jquery": "^3.5.6",
     "@types/wordcloud": "^1.2.0",
     "@vitejs/plugin-vue-jsx": "^1.1.8",
     "autoprefixer": "^10.3.4",
+    "dagre": "^0.8.5",
     "echarts": "^5.2.0",
     "ignore": "^5.1.8",
     "jquery": "^3.6.0",

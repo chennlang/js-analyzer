@@ -3,6 +3,7 @@ const Koa = require('koa')
 const router = require("koa-router")()
 const koaStatic = require("koa-static")
 const cors  = require('koa2-cors')
+const { koaBody } = require('koa-body')
 const launch = require('launch-editor')
 const open = require('open')
 const template = require('art-template')
@@ -12,6 +13,7 @@ const { JsAnalyzer } = require('@js-analyzer/core')
 
 const app = new Koa();
 app.use(cors())
+app.use(koaBody())
 app.use(koaStatic(
   path.join( __dirname,  '../public/')
 ));
@@ -28,6 +30,24 @@ router.get("/", async ctx => {
 
 router.get('/config', ctx => {
   ctx.body = ctx.config
+})
+
+router.put('/config', async ctx => {
+  if (!ctx.request.body) {
+    ctx.status = 500
+    ctx.body = 'config error or null'
+    return
+  }
+
+  app.context.config = ctx.request.body
+  const instance = new JsAnalyzer(ctx.request.body)
+  await instance.init().then(() => {
+    ctx.body = 'ok'
+  }).catch(error => {
+    console.log(error)
+    ctx.status = 500
+    ctx.body = error.toString()
+  })
 })
 
 // open file in editor
@@ -48,7 +68,6 @@ router.get("/code", async ctx => {
   } catch (error) {
     ctx.body = error
   }
-  
 });
 
 app.use(router.routes()).use(router.allowedMethods());

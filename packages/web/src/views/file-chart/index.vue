@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import Aside from './Aside.vue';
 import Echart from './Echart.vue';
-import History from './History.vue';
 import InfoDrawer from '@/components/InfoDrawer.vue';
 import {
-  updateChartByFile,
-  updateChartByFolder,
+  CHART_VIEW_TYPE,
+  switchChartView,
   resize as resizeChart,
 } from './echart';
 import { ref, watch, reactive } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 import { IQuoteInfo } from '@/types/index';
 import { IChartExtendData } from '@/types/chart';
 import { getImport, getExport } from '@/api/remote-data';
@@ -17,42 +16,22 @@ import type { ExportDepItem } from '@js-analyzer/core/dist/js-analyzer-core';
 import { TNode } from '@/components/Tree/Tree.d';
 
 const router = useRouter();
+const route = useRoute();
 const isShowInfoDrawer = ref(false);
 let currFile = ref<string>('');
 
 const handleTreeNodeClick = (node: TNode) => {
-  updateChartView({
-    sortPath: node.data.path,
-    fullPath: window.CONFIG.root + node.data.path,
-    isFolder: !node.isLeaf,
-  });
+  getInfoByFile(window.CONFIG.root + node.data.path);
+  updateRouter(node.data.path, !node.isLeaf);
 };
 
-/**
- * 更新视图
- * @param opt
- */
-const updateChartView = (opt: {
-  sortPath: string;
-  fullPath: string;
-  isFolder: boolean;
-}) => {
-  const { sortPath, fullPath, isFolder = false } = opt;
-  currFile.value = sortPath;
-
+const updateRouter = (sortPath: string, isFolder = false) => {
   router.push({
-    name: 'FileChart',
     query: {
       file: encodeURI(sortPath),
+      isFolder: String(isFolder),
     },
   });
-
-  if (isFolder) {
-    updateChartByFolder(sortPath);
-  } else {
-    getInfoByFile(fullPath);
-    updateChartByFile(sortPath);
-  }
 };
 
 let clickTimer: any;
@@ -66,20 +45,35 @@ const handleChartNodeClick = (data: IChartExtendData) => {
 
 const handleChartNodeDblclick = (data: IChartExtendData) => {
   clickTimer && clearTimeout(clickTimer);
-  updateChartView({
-    sortPath: data.sortPath,
-    fullPath: data.fullPath,
-    isFolder: false,
-  });
+  getInfoByFile(window.CONFIG.root + data.sortPath);
+  updateRouter(data.sortPath);
 };
 
 let chartQueue: any[] = [];
 const handleChartLoad = () => {
   chartQueue.forEach((item) => {
-    item.fn.apply(null, item.params);
+    item.apply(null, item.params);
   });
   chartQueue = [];
 };
+
+const updateViewByQuery = () => {
+  const file = route.query.file;
+  const isFolder = route.query.isFolder === 'true';
+  if (file && typeof file === 'string') {
+    currFile.value = file;
+    switchChartView(
+      isFolder ? CHART_VIEW_TYPE.folder : CHART_VIEW_TYPE.file,
+      file,
+    );
+  } else {
+    switchChartView(CHART_VIEW_TYPE.folder, '/');
+  }
+};
+
+chartQueue.push(updateViewByQuery);
+
+watch(route, updateViewByQuery);
 
 const leftTreeContainer = ref<HTMLElement>();
 const rightChartContainer = ref<HTMLElement>();
@@ -175,25 +169,17 @@ const getInfoByFile = async (fullPath: string) => {
     title: sortPath.split('/').pop(),
   };
 };
-
-const currTab = ref('0');
-const tabs = ref([
-  { label: '文件', value: '0' },
-  { label: '历史', value: '1' },
-]);
 </script>
 
 <template>
-  <!-- menus -->
   <div class="w-full h-full">
-    <!-- tree -->
     <div
       ref="leftTreeContainer"
       class="float-left dir-list h-full border-r border-solid border-gray"
     >
       <Aside @node-click="handleTreeNodeClick" />
 
-      {{ currTab }}
+      <!-- {{ currTab }} -->
       <div class="move-line" @mousedown="onMousedown"></div>
     </div>
 

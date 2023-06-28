@@ -120,23 +120,4 @@ const handleTreeNodeClick = (tnode: any) => {
   </div>
 </template>
 
-<style lang="less">
-.ui-input {
-  -webkit-appearance: none;
-  background-color: var(--an-bg);
-  background-image: none;
-  border-radius: 4px;
-  border: 1px solid var(--an-c-light);
-  box-sizing: border-box;
-  color: var(--an-c-light);
-  display: inline-block;
-  font-size: inherit;
-  height: 28px;
-  line-height: 28px;
-  outline: none;
-  padding: 0 15px;
-  transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
-  width: 100%;
-  font-size: 12px;
-}
-</style>
+<style lang="less"></style>

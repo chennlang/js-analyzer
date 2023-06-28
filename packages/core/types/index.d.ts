@@ -58,9 +58,9 @@ export interface Plugin {
 // 配置信息
 export interface Config {
     root: string,
-    ignore: (string | RegExp) [],
-    extensions: string [],
-    alias: Record<string, string>,
+    ignore?: (string | RegExp) [],
+    extensions?: string [],
+    alias?: Record<string, string>,
     path?: string,
     outputPath?: string,
     plugins?: Plugin []

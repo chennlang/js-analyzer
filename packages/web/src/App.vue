@@ -2,6 +2,7 @@
 import { ref, onBeforeMount } from 'vue';
 import { useRoute } from 'vue-router';
 import { getConfig } from '@/api/remote-data';
+import ProjectManage from './components/ProjectManage.vue';
 const route = useRoute();
 
 const menus = [
@@ -31,6 +32,11 @@ onBeforeMount(() => {
     window.CONFIG = res;
   });
 });
+
+const showProject = ref(false);
+function openProject() {
+  showProject.value = true;
+}
 </script>
 
 <template>
@@ -53,11 +59,19 @@ onBeforeMount(() => {
       >
         <IconBtn :icon="item.icon" :active="isActiveMenu(item.path)"></IconBtn>
       </router-link>
-      <div class="absolute left-0 bottom-0 w-full py-5 flex justify-center">
+      <div
+        class="absolute left-0 bottom-0 w-full py-8 px-2 flex-col justify-center"
+      >
+        <IconBtn
+          :icon="isDarkModel ? 'icon-settings-fill' : 'icon-settings-fill'"
+          class="mb-4"
+          @click="openProject"
+        ></IconBtn>
         <IconBtn
           :icon="isDarkModel ? 'icon-dark' : 'icon-baitianmoshi'"
           @click="onSwitchTheme"
-        ></IconBtn>
+        >
+        </IconBtn>
       </div>
     </ul>
     <div class="float-left h-full" style="width: calc(100% - 40px)">
@@ -67,6 +81,7 @@ onBeforeMount(() => {
         </keep-alive>
       </router-view>
     </div>
+    <ProjectManage v-model="showProject" />
   </div>
 </template>
 
@@ -125,5 +140,46 @@ body,
   overflow: hidden;
   color: var(--an-text-normal);
   background: var(--an-bg);
+}
+
+button:disabled,
+button[disabled] {
+  cursor: not-allowed;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.ui-input {
+  -webkit-appearance: none;
+  background-color: var(--an-bg);
+  background-image: none;
+  border-radius: 4px;
+  border: 1px solid var(--an-c-light);
+  box-sizing: border-box;
+  color: var(--an-c-light);
+  display: inline-block;
+  font-size: inherit;
+  height: 28px;
+  line-height: 28px;
+  outline: none;
+  padding: 0 15px;
+  transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  width: 100%;
+  font-size: 12px;
+}
+.ui-textarea {
+  display: block;
+  resize: vertical;
+  padding: 5px 15px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: inherit;
+  color: var(--an-c-light);
+  background-color: var(--an-bg);
+  background-image: none;
+  border: 1px solid var(--an-c-light);
+  border-radius: 4px;
+  transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 </style>
