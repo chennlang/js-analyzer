@@ -1,6 +1,6 @@
 
 import { IQuoteInfo } from '@/types/index'
-import { ImportDepItem } from '@js-analyzer/core/dist/js-analyzer-core';
+import { ImportDepItem } from '@js-analyzer/core/dist/js-analyzer-core.d';
 
 export interface IChartExtendData  extends ImportDepItem{
     fullPath: string,

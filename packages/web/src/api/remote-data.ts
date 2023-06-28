@@ -1,5 +1,5 @@
 import $ from 'jquery'
-import { MaterialPackage } from '@js-analyzer/core/dist/js-analyzer-core';
+import { MaterialPackage } from '@js-analyzer/core/dist/js-analyzer-core.d';
 
 // api base
 const BASE_URL = import.meta.env.DEV ? import.meta.env.VITE_API_PROXY : location.origin

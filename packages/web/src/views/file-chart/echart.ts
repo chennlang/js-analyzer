@@ -2,7 +2,7 @@ import $ from 'jquery'
 import * as EChart from 'echarts'
 import { getImport } from '../../api/remote-data'
 import { IChartExtendData, IChartNode, IChartLink } from '@/types/chart'
-import { ImportDeps, UsingItem} from '@js-analyzer/core/dist/js-analyzer-core';
+import { ImportDeps, UsingItem} from '@js-analyzer/core/dist/js-analyzer-core.d';
 import { ChartLayout } from './layout'
 import { chartEmitter } from './event'
 
