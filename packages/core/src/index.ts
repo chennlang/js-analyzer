@@ -22,6 +22,8 @@ import type {
     MaterialPackage
 } from '../types'
 
+type LocalConfig = Required<Config>
+
 // --------------------------------------------------------global variable-------------------------------------
 
 const defEmptyDeps = (): FileDeps => ({
@@ -57,7 +59,7 @@ function defDependencies (filePath: string): {
  * @param {String} filePath 当前所在文件路径
  * @returns 
  */
-function resolvePath(targetPath: string, filePath: string, config: Config): string {
+function resolvePath(targetPath: string, filePath: string, config: LocalConfig): string {
     const relativePathReg = /\.\/|\.\.\//
     const alias = config.alias
 
@@ -74,6 +76,17 @@ function resolvePath(targetPath: string, filePath: string, config: Config): stri
     }
     
     if (relativePathReg.test(targetPath)) {
+        // if (targetPath.indexOf('index-card.png') > -1) {
+        //     console.log({
+        //         targetPath,
+        //         filePath,
+        //         dir: path.dirname(filePath),
+        //         res01: path.resolve(filePath, targetPath),
+        //         res0: path.join(filePath, targetPath),
+        //         res1: path.join(path.dirname(filePath), targetPath),
+        //         res2: path.resolve(path.dirname(filePath), targetPath),
+        //     })
+        // }
         const dir = path.dirname(filePath)
         return path.resolve(dir, targetPath)
     }
@@ -86,7 +99,7 @@ function resolvePath(targetPath: string, filePath: string, config: Config): stri
  * @param {*} filePath 文件路径
  * @returns 待后缀名的文件路径
  */
-function addExtension(filePath: string, config: Config) {
+function addExtension(filePath: string, config: LocalConfig) {
     if (path.extname(filePath) === '' && filePath.indexOf(config.root) > -1) {
         const extFile = config.extensions.find(ext => fs.existsSync(filePath + ext))
 
@@ -118,8 +131,10 @@ function addExtension(filePath: string, config: Config) {
  * @param {String} filePath 当前所在文件路径
  * @returns targetPath 的全路径
  */
-function getDepFullPath(targetPath: string, filePath: string, config: Config): string {
-    const r = resolvePath(targetPath, filePath, config)
+function getDepFullPath(targetPath: string, filePath: string, config: LocalConfig): string {
+    // 去掉前单引号 | 双引号
+    const s = targetPath.replace(/(^['"])|(['"]$)/g, '')
+    const r = resolvePath(s, filePath, config)
     const f = addExtension(r, config)
     return f
 }
@@ -129,7 +144,7 @@ function getDepFullPath(targetPath: string, filePath: string, config: Config): s
  * @param {String} file 文件路径
  * @returns importDeps, exportInfo
  */
-function getFileDeps (file: string, config: Config): FileDeps {
+function getFileDeps (file: string, config: LocalConfig): FileDeps {
     const extname = path.extname(file)
 
     // 目前仅支持以下文件解析
@@ -230,7 +245,7 @@ function injectFileDeps(
     packageQuote: ImportDeps,
     dependencies: string [],
     unknownQuote: ImportDeps,
-    config: Config
+    config: LocalConfig
 ) {
     for (const item of deps) {
         const { source, vars, loc } = item
@@ -282,7 +297,7 @@ function injectFileDeps(
 /**
  * 主程序
  */
-async function main(config: Config): Promise<DataCollector> {
+async function main(config: LocalConfig): Promise<DataCollector> {
     if (!config.root) {
         throw new Error('root must be in the config file')
     }
@@ -291,7 +306,11 @@ async function main(config: Config): Promise<DataCollector> {
     const exportQuote: ExportDeps = {}
     const unknownQuote: ImportDeps = {}
 
-    const files: string [] = await fg([(config.path || config.root) + '/**/*'], {
+    const configPath = config.path || config.root
+    const searchPath = fs.lstatSync(configPath).isDirectory()
+        ? configPath + '/**/*'
+        : configPath
+    const files: string [] = await fg([searchPath], {
         ignore: config.ignore || ['**/node_modules/**', '**/dist/**']
     })
 
@@ -346,7 +365,7 @@ async function main(config: Config): Promise<DataCollector> {
 }
 
 export class JsAnalyzer {
-    private config: Config
+    private config: LocalConfig
     private materialPackage: MaterialPackage = {
         'import-files': {},
         'import-package': {},
@@ -355,7 +374,7 @@ export class JsAnalyzer {
         'export': {},
     }
     
-    constructor (config: Config){
+    constructor (config: LocalConfig){
         this.config = config
     }
     
@@ -364,7 +383,7 @@ export class JsAnalyzer {
      * @param config 配置文件
      * @returns MaterialPackage 物料包
      */
-    async init (config: Partial<Config>): Promise<MaterialPackage> {
+    async init (config: Partial<LocalConfig>): Promise<MaterialPackage> {
         this.config = Object.assign(this.config, config)
         this.config.outputPath && await clearDist(this.config.outputPath)
 

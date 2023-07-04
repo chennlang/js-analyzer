@@ -12,6 +12,11 @@ function addNum (obj: ExportDepItem, key: string, origin: string) {
     }
 }
 
+/**
+ * 将引用信息插入到导入物料包中
+ * @param quoteMap 引用物料
+ * @param exportMap 导出物料
+ */
 export default function injectExportQuoteNum (quoteMap: Record<string, ImportDeps>, exportMap: ExportDeps) {
     Object.keys(quoteMap).forEach(key => {
         const depMap = quoteMap[key]
