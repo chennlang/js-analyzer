@@ -27,14 +27,16 @@ const htmlPlugin = (vs: Record<string, any> = {}) => {
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
-  console.log(env)
   return {
+    optimizeDeps: {
+      include: ['dagre']
+    },
     plugins: [
       vue(),
       vueJsx(),
       htmlPlugin({
         TITLE: env.TITLE,
-      })
+      }),
     ],
     server: {
       port: 3003
@@ -42,9 +44,16 @@ export default defineConfig(({ mode }) => {
     base: './',
     build: {
       outDir: path.resolve(__dirname, '../server/public'),
+      commonjsOptions: {
+        include: [/dagre/, /node_modules/],
+      },
+      // sourcemap: 'inline',
+      // minify: false,
     },
-    alias: {
-      '@': path.join(__dirname, "./src")
-    }
+    resolve: {
+      alias: {
+        '@': path.join(__dirname, "./src"),
+      }
+    },
   }
 })

@@ -94,6 +94,5 @@ export const getConfig = () => {
 }
 
 export const updateConfig = (config: typeof window.CONFIG) => {
-    console.log(config, 'config')
     return request('put', '/config', config)
 }

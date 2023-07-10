@@ -1,4 +1,4 @@
-import dagre from 'dagre'
+import dagre from 'dagre-esm'
 import { IChartNode, IChartLink } from '@/types/chart'
 
 export class ChartLayout {
