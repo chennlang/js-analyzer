@@ -2,7 +2,10 @@ import $ from 'jquery'
 import { MaterialPackage } from '@js-analyzer/core/types/index';
 
 // api base
-const BASE_URL = import.meta.env.DEV ? import.meta.env.VITE_API_PROXY : location.origin
+const BASE_URL = import.meta.env.DEV
+    ? import.meta.env.VITE_API_PROXY
+    : location.origin + import.meta.env.VITE_HAS_API_PATH_PREFIX ? location.pathname : ''
+
 console.log(BASE_URL, 'BASE_URLBASE_URL')
 function loadJson (url: string, cacheKey?: string) {
     // has cache
