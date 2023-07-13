@@ -1,27 +1,18 @@
 <div align="center" style="text-align: center;">
     <h1 style="text-align: center;">Js Analyzer</h1>
-    <p style="text-align: center;">一个可视化可交互的 Web 文件依赖分析工具</p>
-    <p style="text-align: center;">跨框架,可用于 Vue React Svelte Angular Node 等前端项目</p>
-    <img src="http://oss.ailan.top/20230603000655.png" style="width: 100%;height: auto;" />
+    <p style="text-align: center;">一个可视化可交互的前端依赖分析工具</p>
+    <p style="text-align: center;">可用于 Vue React Svelte Angular Node 等任何前端项目</p>
+    <p style="text-align: center;">https://chennlang.github.io/js-analyzer</p>
 </div>
 
-## 功能
+## 为什么
 
 - 代码重构：通过分析依赖关系，我们可以更好地理解代码的结构和逻辑，从而更容易地进行代码重构和优化。
 - 模块化开发：通过分析依赖关系，我们可以将项目拆分成多个模块，每个模块都有清晰的职责和依赖关系，从而实现模块化开发和管理。
 - 代码测试：通过分析依赖关系，我们可以更容易地编写和运行单元测试，从而提高代码的质量和可靠性。
 - 代码维护：通过分析依赖关系，我们可以更容易地定位和解决代码中的问题，从而提高代码的可维护性和可扩展性。
 
-## NEWS
-
-- 支持 VUE SETUP 类型
-- 可自定义插件，生成你想要的数据
-- 内置项目热词插件支持
-- 文件依赖视图：支持单个文件夹内依赖关系视图
-- Sass、Less、Css 等样式文件分析(New, 已支持)
-- 支持项目变量热词图
-
-## 功能/特性
+## 功能
 
 - 可交互的一体化`可视化`依赖分析系统
 - 支持动态切换入口文件
@@ -34,22 +25,44 @@
 - 支持未引用 文件、npm 包分析
 - 本地存储 `非常安全`，不涉及联网和上传
 
-## 场景
+<h3 style="text-align: center;">被依赖视图</h3>
 
-- 代码模块越来越多,依赖关系越来越复杂?使用我们的依赖分析工具,一秒钟了解你的整个代码架构,清晰知道每个模块的输入输出关系。
-- 发现大量的文件需要删除，删除这些文件很简单，不过想要删除这些文件间接引用的文件就变得很难，需要挨个文件去查看它们的依赖信息，用它！
-- 正在修改一个被多处引用的公共组件（模块），想要知道该组件的影响范围，正在被哪些文件（模块）引用，用它！
-- 想要删除项目中未使用的文件、未使用的库、未被引用的导出变量，用它！
-- 查看项目中引用最多的组件、函数，添加单元测试，用它！
-- 查看组件间的引用关系，清晰的知道被组件的影响范围，用它！
+> 双击某个节点，可进入该节点的依赖视图
+
+![单文件](http://oss.ailan.top/20230713103748.png)
+
+<h3 style="text-align: center;">上游依赖图</h3>
+
+> 双击某个节点后，点击左上角的正数第三个图标，切换成 上游依赖图
+
+![上游依赖图](http://oss.ailan.top/20230713104701.png)
+
+<h3 style="text-align: center;">单个文件依赖详情信息</h3>
+
+> 单击视图中的某个节点，弹出文件依赖详情信息
+
+![单个文件依赖详情信息](http://oss.ailan.top/20230713104922.png)
+
+## 更新
+
+- 支持 VUE SETUP 类型
+- 可自定义插件，生成你想要的数据
+- 内置项目热词插件支持
+- 文件依赖视图：支持单个文件夹内依赖关系视图
+- Sass、Less、Css 等样式文件分析(New, 已支持)
+- 支持项目变量热词图
 
 ## 全局安装
 
+### 1. 安装
+
 ```shell
 npm install @js-analyzer/server -g
+# yarn add @js-analyzer/server -g
+# pnpm install @js-analyzer/server -g
 ```
 
-**使用**
+### 2. 使用
 
 控制台进入到任意项目根目录下，执行 `js-analyzer --root ./`
 
@@ -61,13 +74,17 @@ js-analyzer --root ./
 
 ## 局部安装
 
+### 1. 安装
+
 ```shell
 npm install @js-analyzer/server -D
+# yarn add @js-analyzer/server -D
+# pnpm install @js-analyzer/server -D
 ```
 
-**使用**
+### 2. 使用
 
-1.在 scripts 中添加 js-analyzer 命令
+#### 1.在 scripts 中添加 js-analyzer 命令
 
 ```json
 "scripts": {
@@ -75,10 +92,10 @@ npm install @js-analyzer/server -D
 },
 ```
 
-2.在控制台输入 yarn js-analyzer，访问 http://localhost:8088/ 就能看到了。
+#### 2.在控制台输入 npm run js-analyzer，访问 http://localhost:8088/ 就能看到了。
 
 ```shell
-yarn js-analyzer
+npm run js-analyzer
 # Service started：http://localhost:8088/
 ```
 
@@ -99,9 +116,9 @@ js-analyzer.js
 ```js
 module.exports = {
   // 根目录
-  root: "./",
+  root: "/Users/ll/Downloads/react-admin-master",
   // 不需要分析的目录
-  ignore: ["**/node_modules/**", "**/dist/**"], 
+  ignore: ["**/node_modules/**", "**/dist/**"],
   // 解析没有扩展名的文件时优先查找顺序
   extensions: [".js", ".ts", ".tsx", ".vue", ".json", "jsx"],
   // 项目的别名映射路径
@@ -120,7 +137,7 @@ module.exports = {
 };
 ```
 
-## TODO LIST
+## TODO
 
 - 项目组件文档生成共享模块
 - 循环依赖分析
@@ -128,7 +145,9 @@ module.exports = {
 
 ## 插件开发
 
-自定义生成数据，默认访问地址 'http://localhost:8087/data/test.json'
+该工具原理是通过解析 AST 收集了相关依赖信息，理论上用户同样可以在这个过程中收集到自己想要的任何信息。所以提供了插件的方式，暴露出各个阶段的生命周期，允许用户在生命周期函数中执行任何逻辑。
+
+### 示例：一个项目内使用到的变量名收集插件
 
 ```js
 const myCustomPlugin = {
@@ -156,6 +175,8 @@ module.exports = {
 };
 ```
 
+自定义生成数据，默认访问地址 'http://localhost:8087/data/test.json'
+
 ## 邀请
 
-继承整洁代码意志，希望更多的人加入到这个项目中，目标是构建一个能帮助所有前端程序员重构/整洁代码的辅助工具。
+秉承整洁代码意志，希望更多的人加入到这个项目中，目标是构建一个能帮助所有前端程序员重构/整洁代码的辅助工具。
