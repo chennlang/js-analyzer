@@ -154,12 +154,12 @@ The principle of this tool is to collect relevant dependency information by pars
 ```js
 const myCustomPlugin = {
   name: "MyCustomPlugin",
-  // 输出信息
+  // output information
   output: {
     data: [],
     file: "test.json",
   },
-  // 解析 script 时执行
+  // Executed when parsing script
   ScriptParser({ file, content }) {
     const self = this;
     return {
@@ -168,7 +168,7 @@ const myCustomPlugin = {
       },
     };
   },
-  // 解析完 script 时执行
+  // Executed when the script is parsed
   AfterScriptParser() {},
 };
 
