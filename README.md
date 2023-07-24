@@ -1,60 +1,62 @@
 <div align="center" style="text-align: center;">
-    <h1 style="text-align: center;">Js Analyzer</h1>
-    <p style="text-align: center;">一个可视化可交互的前端依赖分析工具</p>
-    <p style="text-align: center;">可用于 Vue React Svelte Angular Node 等任何前端项目</p>
-    <p style="text-align: center;">https://chennlang.github.io/js-analyzer</p>
+    <h1 style="text-align: center;">🧬Js Analyzer</h1>
+    <p style="text-align: center;"> A visual and interactive front-end dependency analysis tool</p>
+    <p style="text-align: center;">Can be used in any extension project like Vue React Svelte Angular Node</p>
+    <p align='center'>
+<b>English</b> | <a href="https://github.com/chennlang/js-analyzer/blob/main/README_zh.md">简体中文</a>
+</p>
 </div>
 
-## 为什么
+## Scenes
 
-- 代码重构：通过分析依赖关系，我们可以更好地理解代码的结构和逻辑，从而更容易地进行代码重构和优化。
-- 模块化开发：通过分析依赖关系，我们可以将项目拆分成多个模块，每个模块都有清晰的职责和依赖关系，从而实现模块化开发和管理。
-- 代码测试：通过分析依赖关系，我们可以更容易地编写和运行单元测试，从而提高代码的质量和可靠性。
-- 代码维护：通过分析依赖关系，我们可以更容易地定位和解决代码中的问题，从而提高代码的可维护性和可扩展性。
+- Code refactoring: By analyzing dependencies, we can better understand the structure and logic of the code, making it easier to refactor and optimize the code.
+- Modular development: By analyzing dependencies, we can split the project into multiple modules, each module has clear responsibilities and dependencies, so as to achieve modular development and management.
+- Code testing: By analyzing dependencies, we can more easily write and run unit tests, thereby improving the quality and reliability of the code.
+- Code maintenance: By analyzing dependencies, we can more easily locate and solve problems in the code, thereby improving the maintainability and scalability of the code.
 
-## 功能
+## Features
 
-- 可交互的一体化`可视化`依赖分析系统
-- 支持动态切换入口文件
-- 支持`依赖反转`
-- 支持显示文件被引用次数，以及引用地址
-- 支持显示文件的导出变量被引用信息
-- 适用于 ES6、CommonJs
-- 支持的文件类型：JS、TS、JSX、TSX、Vue、Sass、Less、Css、html
-- 支持 package 依赖分析
-- 支持未引用 文件、npm 包分析
-- 本地存储 `非常安全`，不涉及联网和上传
+- An interactive integrated `visual` dependency analysis system
+- Support dynamic switching of entry files
+- Support `Dependency Inversion`
+- Supports displaying the number of times a file is cited, as well as the reference address
+- Support displaying the referenced information of exported variables of files
+- Compatible with ES6, CommonJs
+- Supported file types: JS, TS, JSX, TSX, Vue, Sass, Less, Css, html
+- Support package dependency analysis
+- Support unreferenced files, npm package analysis
+- Local storage is `very safe`, does not involve networking and uploading
 
-<h3 style="text-align: center;">被依赖视图</h3>
+<h3 style="text-align: center;">Dependent view</h3>
 
-> 双击某个节点，可进入该节点的依赖视图
+> Double-click a node to enter the dependency view of the node
 
 ![单文件](http://oss.ailan.top/20230713103748.png)
 
-<h3 style="text-align: center;">上游依赖图</h3>
+<h3 style="text-align: center;">Upstream Dependency Graph</h3>
 
-> 双击某个节点后，点击左上角的正数第三个图标，切换成 上游依赖图
+> After double-clicking a node, click the third positive icon in the upper left corner to switch to the upstream dependency graph
 
 ![上游依赖图](http://oss.ailan.top/20230713104701.png)
 
-<h3 style="text-align: center;">单个文件依赖详情信息</h3>
+<h3 style="text-align: center;">File dependency details</h3>
 
-> 单击视图中的某个节点，弹出文件依赖详情信息
+> Click a node in the view to pop up file dependency details
 
 ![单个文件依赖详情信息](http://oss.ailan.top/20230713104922.png)
 
-## 更新
+## renew
 
-- 支持 VUE SETUP 类型
-- 可自定义插件，生成你想要的数据
-- 内置项目热词插件支持
-- 文件依赖视图：支持单个文件夹内依赖关系视图
-- Sass、Less、Css 等样式文件分析(New, 已支持)
-- 支持项目变量热词图
+- Support VUE SETUP
+- Customizable plug-ins to generate the data you want
+- Built-in project hotword plug-in support
+- File dependency view: support dependency view within a single folder
+- Sass, Less, Css and other style file analysis (New, supported)
+- Support project variable hot word map
 
-## 全局安装
+## Global Install
 
-### 1. 安装
+### 1. Install
 
 ```shell
 npm install @js-analyzer/server -g
@@ -62,9 +64,9 @@ npm install @js-analyzer/server -g
 # pnpm install @js-analyzer/server -g
 ```
 
-### 2. 使用
+### 2. Use
 
-控制台进入到任意项目根目录下，执行 `js-analyzer --root ./`
+Go to the root directory of any project and execute `js-analyzer --root ./`
 
 ```shell
 cd /xxx/project
@@ -72,9 +74,9 @@ cd /xxx/project
 js-analyzer --root ./
 ```
 
-## 局部安装
+## Local Install
 
-### 1. 安装
+### 1. Install
 
 ```shell
 npm install @js-analyzer/server -D
@@ -82,9 +84,9 @@ npm install @js-analyzer/server -D
 # pnpm install @js-analyzer/server -D
 ```
 
-### 2. 使用
+### 2. Use
 
-#### 1.在 scripts 中添加 js-analyzer 命令
+#### 1.Add js-analyzer command in scripts
 
 ```json
 "scripts": {
@@ -92,18 +94,18 @@ npm install @js-analyzer/server -D
 },
 ```
 
-#### 2.在控制台输入 npm run js-analyzer，访问 http://localhost:8088/ 就能看到了。
+#### 2.Enter npm run js-analyzer in the console and visit http://localhost:8088/ to see it.
 
 ```shell
 npm run js-analyzer
 # Service started：http://localhost:8088/
 ```
 
-## 配置文件
+## Configuration file
 
-通过上面的命令已经能很快启动一个分析服务了，可是每个项目的整体架构不同，想要 js-analyzer 更好的更准确的分析，还需要配置一些必要信息。
+An analysis service can be quickly started through the above command, but the overall structure of each project is different. If you want js-analyzer to analyze better and more accurately, you need to configure some necessary information.
 
-指定配置文件只需要将上面的启动命令修改一下
+To specify a configuration file, you only need to modify the above startup command
 
 ```json
 "scripts": {
@@ -115,39 +117,39 @@ js-analyzer.js
 
 ```js
 module.exports = {
-  // 根目录
+  // Root directory
   root: "/Users/ll/Downloads/react-admin-master",
-  // 不需要分析的目录
+  // Directories that do not need to be analyzed
   ignore: ["**/node_modules/**", "**/dist/**"],
-  // 解析没有扩展名的文件时优先查找顺序
+  // Priority search order when parsing files without extensions
   extensions: [".js", ".ts", ".tsx", ".vue", ".json", "jsx"],
-  // 项目的别名映射路径
+  // The project's alias
   alias: {
     "@@/": "/",
     "~~/": "/",
     "@/": "/src/",
     "~/": "/src/",
   },
-  // 启动的服务器和端口相关
+  // The started server is related to the port
   server: {
     port: 8088,
     host: "localhost",
-    openBrowser: true, // 启动后自动在浏览器打开
+    openBrowser: true, // auto open in the browser
   },
 };
 ```
 
 ## TODO
 
-- 项目组件文档生成共享模块
-- 循环依赖分析
-- 模块稳定性指标分析
+- Project component documentation to generate shared modules
+- Cyclic dependency analysis
+- Module stability index analysis
 
-## 插件开发
+## Plugin development
 
-该工具原理是通过解析 AST 收集了相关依赖信息，理论上用户同样可以在这个过程中收集到自己想要的任何信息。所以提供了插件的方式，暴露出各个阶段的生命周期，允许用户在生命周期函数中执行任何逻辑。
+The principle of this tool is to collect relevant dependency information by parsing AST. In theory, users can also collect any information they want in this process. Therefore, a plug-in method is provided to expose the life cycle of each stage and allow users to execute any logic in the life cycle function.
 
-### 示例：一个项目内使用到的变量名收集插件
+### Example: A variable name collection plugin used in a project
 
 ```js
 const myCustomPlugin = {
@@ -175,8 +177,8 @@ module.exports = {
 };
 ```
 
-自定义生成数据，默认访问地址 'http://localhost:8087/data/test.json'
+Custom generated data, default access address 'http://localhost:8087/data/test.json'
 
-## 邀请
+## Invite
 
-秉承整洁代码意志，希望更多的人加入到这个项目中，目标是构建一个能帮助所有前端程序员重构/整洁代码的辅助工具。
+More interested people are very welcome to join in
