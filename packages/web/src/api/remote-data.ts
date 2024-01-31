@@ -4,21 +4,37 @@ import { MaterialPackage } from '@js-analyzer/core/types/index';
 // api base
 const BASE_URL = import.meta.env.DEV
     ? import.meta.env.VITE_API_PROXY
-    : location.origin + import.meta.env.VITE_HAS_API_PATH_PREFIX ? location.pathname : ''
+    : location.origin + (import.meta.env.VITE_HAS_API_PATH_PREFIX ? location.pathname : '')
 
-console.log(BASE_URL, 'BASE_URLBASE_URL')
+console.log('BASE_URLBASE_URL:', BASE_URL)
 function loadJson (url: string, cacheKey?: string) {
     // has cache
-    if (cacheKey && state['cacheState']) {
-        return Promise.resolve(state['cacheState'])
+    if (cacheKey && state[cacheKey]) {
+        return Promise.resolve(state[cacheKey])
     }
 
-    return new Promise<any>((resolve, reject) => {
+    // has sync result
+    if (cacheKey && promiseState[cacheKey] !== undefined) {
+        return promiseState[cacheKey]
+    }
+
+    const syncResult = new Promise<any>((resolve, reject) => {
         $.getJSON(BASE_URL + url, (res: any) => {
-            if (cacheKey) state[cacheKey] = res
+            if (cacheKey) {
+                state[cacheKey] = res
+                // clear sync result
+                delete promiseState[cacheKey]
+            }
             resolve(res)
         }, err => reject(err))
     })
+
+    // cache sync result
+    if (cacheKey) {
+        promiseState[cacheKey] = syncResult
+    }
+
+    return syncResult
 }
 
 function load (url: string) {
@@ -55,6 +71,8 @@ const state: IState = {
     package: null,
     unknown: null
 }
+
+const promiseState: Record<string, Promise<any>> = {}
 
 export const getFiles = () => {
     return loadJson('/data/files.json', 'files')

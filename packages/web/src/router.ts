@@ -1,39 +1,33 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import FileChart from '@/views/file-chart/index.vue'
-import PackageChart from '@/views/package-chart/index.vue'
-import UnknownChart from '@/views/unknown-chart/index.vue'
-import Code from '@/views/code.vue'
-import HotWord from '@/views/hot-word/index.vue'
+import FileChart from '@/views/chart/index.vue'
+import PackageChart from '@/views/packages/index.vue'
+import UnknownChart from '@/views/unknowns/index.vue'
+import HotWord from '@/views/words/index.vue'
 
 const routes: RouteRecordRaw [] = [
     {
         path: '/',
-        redirect: '/file-chart'
+        redirect: '/chart'
     },
     {
-        path: '/file-chart',
+        path: '/chart',
         name: 'FileChart',
         component: FileChart
     },
     {
-        path: '/package-chart',
+        path: '/packages',
         name: 'PackageChart',
         component: PackageChart
     },
     {
-        path: '/unknown-chart',
+        path: '/unknowns',
         name: 'UnknownChart',
         component: UnknownChart
     },
     {
-        path: '/hot-word',
+        path: '/words',
         name: 'HotWord',
         component: HotWord
-    },
-    {
-        path: '/code',
-        name: 'Code',
-        component: Code
     },
 ]
 

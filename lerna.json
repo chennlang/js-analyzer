@@ -2,11 +2,17 @@
   "version": "independent",
   "npmClient": "pnpm",
   "useWorkspaces": true,
+  "packages": [
+    "packages/core",
+    "packages/server",
+    "packages/shared",
+    "packages/web"
+  ],
   "command": {
     "publish": {
       "ignoreChanges": [".gitignore", "*.md", ".log", "public"],
       "message": "chore(release): publish",
-      "registry": "https://npm.pkg.github.com"
+      "registry": "https://registry.npmjs.org/"
     }
   }
 }

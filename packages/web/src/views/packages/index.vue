@@ -20,7 +20,7 @@ onMounted(() => {
       columns: [
         { label: '引用名', prop: 'vars', width: '120px' },
         { label: '引用源', prop: 'source', width: '200px' },
-        { label: '引用文件', prop: 'path', open: true },
+        { label: '引用文件', prop: 'path', open: true, preview: true },
       ],
       data: extendData.using.map((m) => ({
         ...m,

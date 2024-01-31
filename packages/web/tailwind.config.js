@@ -4,23 +4,24 @@ module.exports = {
   theme: {
     extend: {
       borderColor: {
-        'active': 'var(--an-c-active)',
-        'gray': 'var(--an-c-gray)',
+        active: 'var(--an-c-active)',
+        gray: 'var(--an-c-gray)',
       },
       backgroundColor: {
-        'active': 'var(--an-active-bg)',
-        'gray': 'var(--an-c-gray)',
-      }
+        active: 'var(--an-active-bg)',
+        gray: 'var(--an-c-gray)',
+      },
     },
     textColor: {
-      'active': 'var(--an-c-active)',
-      'normal': 'var(--an-c-normal)',
-      'white': 'var(--an-c-white)',
-      'gray': 'var(--an-c-gray)',
+      active: 'var(--an-c-active)',
+      normal: 'var(--an-c-normal)',
+      white: 'var(--an-c-white)',
+      gray: 'var(--an-c-gray)',
+      light: 'var(--an-c-light)',
     },
   },
   variants: {
     extend: {},
   },
   plugins: [],
-}
+};

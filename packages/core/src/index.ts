@@ -272,7 +272,7 @@ function injectFileDeps(
                     source: source,
                     vars: vars,
                     fullPath: file,
-                    loc: {}
+                    loc,
                 })
             } else {
                 unknownQuote[depName] = {
@@ -281,7 +281,7 @@ function injectFileDeps(
                         source: source,
                         vars: vars,
                         fullPath: file,
-                        loc: {}
+                        loc,
                     }]
                 }
             }

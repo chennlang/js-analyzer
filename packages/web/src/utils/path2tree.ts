@@ -1,5 +1,3 @@
-// import ignore from 'ignore'
-
 export interface ITreeListItem {
     label: string,
     value?: string,

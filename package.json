@@ -2,7 +2,12 @@
   "name": "root",
   "author": "Alang",
   "private": true,
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/core",
+    "packages/server",
+    "packages/web",
+    "packages/shared"
+  ],
   "scripts": {
     "dev": "lerna run --scope '@js-analyzer/core' --scope @js-analyzer/server dev"
   },

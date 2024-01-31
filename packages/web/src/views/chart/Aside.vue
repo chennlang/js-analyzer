@@ -2,11 +2,14 @@
 import { getFiles, getImport } from '@/api/remote-data';
 </script>
 <script setup lang="ts">
-import { reactive, watch, ref, nextTick } from 'vue';
+import { reactive, watch, computed, ref, nextTick } from 'vue';
+import { useRoute } from 'vue-router';
 import Tree from '@/components/Tree/Tree.vue';
 import path2tree, { ITreeListItem } from '@/utils/path2tree';
 
 const emit = defineEmits(['node-click']);
+const route = useRoute();
+const activeFile = computed(() => (route.query.file as string) || '');
 
 interface ITreeInfo {
   loading: boolean;
@@ -96,7 +99,7 @@ const handleTreeNodeClick = (tnode: any) => {
 </script>
 
 <template>
-  <div class="h-full overflow-y-auto px-2 py-4">
+  <div class="h-full overflow-y-auto px-2 py-4 flex flex-col">
     <div class="border-b border-gray border-solid">
       <input
         v-model="treeInfo.filterText"
@@ -105,11 +108,12 @@ const handleTreeNodeClick = (tnode: any) => {
         placeholder="搜索"
       />
     </div>
-    <div class="pt-2">
+    <div class="pt-2 flex-1 overflow-y-auto">
       <Tree
         v-if="!treeInfo.loading && !importLoading"
         ref="dirTreeRef"
         :data="treeInfo.data"
+        :default-value="activeFile"
         @node-click="handleTreeNodeClick"
       >
         <template v-slot:extend="{ node }">

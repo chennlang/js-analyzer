@@ -30,11 +30,15 @@ const TreeNode = defineComponent({
       type: Number as PropType<number>,
       default: 0,
     },
+    parent: {
+      type: Object as PropType<INode | null>,
+      default: () => ({}),
+    },
   },
   setup({ node, level }, { emit, slots }) {
     const isChildren = !node.children;
-    let isOpen = ref(false);
     const nodeId = generateUUID();
+    const isOpen = ref(false);
 
     const onContainerClick = (e: Event) => {
       activeNodeId.value = nodeId;
@@ -54,6 +58,16 @@ const TreeNode = defineComponent({
         isLeaf: true,
       });
     };
+
+    const autoOpen = () => {
+      if (node.children && props.defaultValue?.indexOf(node.path) === 0) {
+        isOpen.value = true;
+      }
+      if (node.path === props.defaultValue) {
+        activeNodeId.value = nodeId;
+      }
+    };
+    autoOpen();
 
     emitter.on('expand', ({ id, val }) => {
       if (id === ALL_NODE_ID || id === nodeId) {
@@ -115,7 +129,12 @@ const TreeNode = defineComponent({
           </div>
           {node.children &&
             node.children.map((item) => (
-              <TreeNode node={item} level={level + 1} v-slots={slots} />
+              <TreeNode
+                node={item}
+                level={level + 1}
+                v-slots={slots}
+                parent={node}
+              />
             ))}
         </ul>
       );
@@ -125,7 +144,12 @@ const TreeNode = defineComponent({
 
 const props = defineProps({
   data: Array as PropType<INode[]>,
+  defaultValue: {
+    type: String as PropType<string | undefined>,
+    default: '',
+  },
 });
+
 const emit = defineEmits(['node-click']);
 let list = ref(props.data);
 
@@ -147,6 +171,7 @@ defineExpose({
       :key="index"
       :node="node"
       :level="1"
+      :parent="null"
     >
       <template v-slot:extend="{ cNode }">
         <slot name="extend" :node="cNode"></slot>
@@ -165,6 +190,9 @@ defineExpose({
   cursor: pointer;
   &.active {
     color: var(--an-c-active);
+    > .tree-container-label {
+      background-color: var(--an-active-bg);
+    }
   }
 }
 
@@ -205,10 +233,11 @@ defineExpose({
   cursor: pointer;
   color: var(--an-c-light);
   &.active {
-    color: #ff5f5f;
+    color: var(--an-c-active);
+    background-color: var(--an-active-bg);
   }
   &:hover {
-    color: #ff5f5f;
+    color: var(--an-c-active);
     background-color: var(--an-active-bg);
   }
   .tree-node-label {

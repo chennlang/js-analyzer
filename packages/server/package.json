@@ -1,6 +1,6 @@
 {
   "name": "@js-analyzer/server",
-  "version": "1.0.26",
+  "version": "2.0.12",
   "main": "src/index.js",
   "author": "chennlang",
   "description": "一个可视化可交互的 Web 文件依赖分析工具",
@@ -15,7 +15,7 @@
     "dev": "node ./bin/service.js  --config ./config.js",
     "rm": "rm -rf ./pubblic/data/",
     "login": "npm login  --registry=https://registry.npmjs.org/",
-    "publish": "npm publish  --registry=https://registry.npmjs.org/ --tag beta"
+    "publish": "npm publish  --registry=https://registry.npmjs.org/"
   },
   "bugs": {
     "url": "https://github.com/chennlang/js-analyzer/issues"
@@ -45,6 +45,7 @@
     "koa-static": "^5.0.0",
     "koa2-cors": "^2.0.6",
     "launch-editor": "^2.3.0",
-    "open": "^8.4.0"
+    "open": "^8.4.0",
+    "portfinder": "^1.0.32"
   }
 }

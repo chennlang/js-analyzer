@@ -3,7 +3,6 @@ import * as EChart from 'echarts'
 import { getImport } from '../../api/remote-data'
 import { IChartExtendData, IChartNode, IChartLink } from '@/types/chart'
 import { ImportDeps, UsingItem} from '@js-analyzer/core/types/index';
-import { ChartLayout } from './layout'
 import { chartEmitter } from './event'
 
 
@@ -18,6 +17,7 @@ export enum CHART_VIEW_TYPE {
     fileReversal = 2, // 单文件依赖视图
     fileRelation = 3, // 单文件上游关系图
     folder = 4, // 文件夹依赖图
+    json = 5, // Json 视图
 }
 
 export const VIEW_NAME_MAP  = {
@@ -25,6 +25,7 @@ export const VIEW_NAME_MAP  = {
     [CHART_VIEW_TYPE.fileReversal]: '依赖视图',
     [CHART_VIEW_TYPE.fileRelation]: '上游依赖图',
     [CHART_VIEW_TYPE.folder]: '文件夹关系图',
+    [CHART_VIEW_TYPE.json]: 'JSON',
 } 
 
 // generate uid
@@ -40,6 +41,15 @@ function random (min: number, max: number) {
     return Math.random()*(max-min+1)+min
 }
 
+function dealStream (data: any, fns: ((data: any) => any) []) {
+    let result = data
+    while(fns.length) {
+        const fn = fns.shift()
+        result = fn && fn(result)
+    }
+    return result
+}
+
 // generate echart id
 function createId (fullPath: string) {
   const id = guid()
@@ -49,31 +59,36 @@ function createId (fullPath: string) {
 
 
 function scaleNodeSize (nodes: IChartNode []) {
-    const limit = 600
-    const base = 10
-    const top10 = nodes.map(n => n.extendData.num).sort((a,b) => b-a).slice(0,10)
+    const limit = 150
+    const max = Math.max(...nodes.map(node => node.extendData.num))
+    const base = max > 5 ? 5 : 1
     
     
     nodes.forEach(node => {
         const num = node.extendData.num
+
+        // 太大看不见
         if (num > limit) {
             node.symbolSize = limit
         }
-        if (num < 50) {
-            node.symbolSize = base + num
+
+        // 太小看不见
+        if (num < base) {
+            node.symbolSize = base
         }
 
-        // if (top10.includes(num)) {
-        //     node.label.show = true
-        //     node.name = node.extendData.fullPath.split('/').slice(-2).join('/')
-        // } else {
-        //     node.label.show = false
-        // }
-        node.label.show = true
-        node.name = node.extendData.fullPath.split('/').slice(-2).join('/')
+        // node.label.show = true
+        // node.name = node.extendData.fullPath.split('/').slice(-2).join('/')
     })
+
+    return nodes
 }
 
+function clipNodesLength (nodes: IChartNode [], max: number = 100) {
+    return nodes.sort((a,b) => b.extendData.num - a.extendData.num).slice(0, max)
+}
+
+// 高亮节点
 function setActiveNode (nodes: IChartNode [], id: string, options: any) {
     options.series[0].label.formatter = '{b} ({@value})'
     options.series[0].circular.rotateLabel = false
@@ -88,6 +103,13 @@ function setActiveNode (nodes: IChartNode [], id: string, options: any) {
     })
 }
 
+/**
+ * 获取关联的节点列表
+ * @param fullPath 
+ * @param imports 
+ * @param idMap 
+ * @returns 
+ */
 function getRelationNodeIds (fullPath: string, imports: ImportDeps, idMap: Record<string, string>) {
     const paths = new Set([fullPath])
     const targetUsing  = imports[fullPath].using || []
@@ -177,14 +199,16 @@ function createLinks (nodes: IChartNode[], ID_PATH_MAP: Record<string, string>) 
 }
 
 interface OptionConfig  {
-    layout?: 'none' | 'circular',
-    labelFormatter?: '{@value}' | '{b}'
+    layout?: 'none' | 'circular' | 'force',
+    labelFormatter?: '{@value}' | '{b}' | ''
+    draggable?: boolean
 }
 // get EChart options
 function getChartOption (nodes: IChartNode[], links: IChartLink [], o?: OptionConfig): any {
     const config = Object.assign({
         layout: 'circular',
         labelFormatter: '{@value}',
+        draggable: false
     }, o || {})
 
     return {
@@ -205,12 +229,20 @@ function getChartOption (nodes: IChartNode[], links: IChartLink [], o?: OptionCo
             name: '依赖分析视图',
             type: 'graph',
             layout: config.layout,
+            draggable: config.draggable,
             data: nodes,
             links: links,
             roam: true,
             edgeSymbol: ['arrow', 'circle'],
             circular: {
                 rotateLabel: true
+            },
+            force: {
+                repulsion: 100,
+                gravity: 0.01,
+                edgeLength: [30, 100],
+                friction: 0.8,
+                initLayout: 'circular',
             },
             edgeSymbolSize: 6,
             label: {
@@ -274,7 +306,7 @@ export function updateChartByFile (file: string, reversal = true) {
     const options = getChartOption(newNodes, origin_links)
 
     setActiveNode(newNodes, node.id, options)
-    instance?.setOption(options)
+    updateChartOption(options)
 }
 
 /**
@@ -292,15 +324,14 @@ export function updateChartToRelationView (sortPath: string) {
         const relationLines = origin_links.filter(l => relationIds.some(id => id === l.source || id === l.target))
         const newNodes = JSON.parse(JSON.stringify(relationNodes))
         scaleNodeSize(newNodes)
-        const layoutNodes = ChartLayout.init(JSON.parse(JSON.stringify(newNodes)), relationLines).nodes().filter(Boolean)
-        const options = getChartOption(layoutNodes as any, relationLines, {
-            layout: 'none',
-            labelFormatter: '{b}'
+
+        const options = getChartOption(newNodes, relationLines, {
+            layout: 'force',
+            labelFormatter: '',
         })
 
-        setActiveNode(layoutNodes as any, node.id,  options)
-        instance?.clear()
-        instance?.setOption(options)
+        setActiveNode(newNodes, node.id,  options)
+        updateChartOption(options)
     })
 }
 
@@ -316,13 +347,48 @@ export function updateChartByFolder (sortPath: string) {
         nodes = origin_nodes.filter(node => node.extendData.sortPath.indexOf(sortPath) === 0)
     }
     
-    const newNodes: IChartNode [] = JSON.parse(JSON.stringify(nodes))
+    const newNodes: IChartNode [] = dealStream(nodes, [
+        (data) => JSON.parse(JSON.stringify(data)),
+        // 性能问题，限制最多展示 100 个
+        (data) => clipNodesLength(data, 200),
+        scaleNodeSize,
+    ])
 
-    scaleNodeSize(newNodes)
-    const links = origin_links
-    const options = getChartOption(newNodes, links)
+    const options = getChartOption(newNodes, origin_links)
+    updateChartOption(options)
+}
+
+
+
+
+function updateChartOption (option: any) {
     instance?.clear()
-    instance?.setOption(options)
+    instance?.setOption(option, {
+        replaceMerge: ['xAxis', 'yAxis', 'series'],
+        notMerge: true
+    })
+    if (option.series && Array.isArray(option.series) && option.series[0]) {
+        chartEmitter.emit('dataChange', {
+            nodes: option.series[0].data.map((item: any) => item.extendData),
+            links: option.series[0]!.links,
+        })
+    }
+}
+
+/**
+ * 切换 label 是否显示
+ */
+export function switchChartLabel () {
+    const option = instance?.getOption() ?? {}
+    if (option.series && Array.isArray(option.series) && option.series[0]) {
+        const old = option.series[0].label.show
+        option.series[0].label.show = !old
+        option.series[0].data.forEach((node: any) => {
+            node.label.show = !old
+        })
+    }
+
+    instance?.setOption(option)
 }
 
 /**
@@ -349,6 +415,14 @@ export function switchChartView (type: CHART_VIEW_TYPE, sortPath: string = activ
     }
 }
 
+/**
+ * 获取当前文件/路径
+ * @returns string
+ */
+export function getActiveFile () {
+    return active_file
+}
+
 // chart resize
 $(window).on('resize', () => {
     instance?.resize()
@@ -361,6 +435,8 @@ export function resize () {
 
 // 重置视图
 export function restoreChart () {
+    // const op = instance?.getOption()
+    // op && instance?.setOption(op)
     instance?.dispatchAction({
         type: 'restore',
     })
@@ -370,15 +446,19 @@ export function restoreChart () {
 export function reRoomChart () {
     instance?.dispatchAction({
         type: 'dataZoom',
-        start: 20,
-        end: 30,
+        start: 0, // 设置为原始状态的起始位置
+        end: 100,  // 设置为原始状态的结束位置
+        xAxisIndex: 0, // 如果有多个 x 轴，需要指定 x 轴的索引
+        yAxisIndex: 0  // 如果有多个 y 轴，需要指定 y 轴的索引
     })
 }
 
 export function useChart (ref: HTMLElement | null) {
     if (!ref) throw 'chart ref is not exist!'
     
-    instance = EChart.init(ref)
+    instance = EChart.init(ref, undefined, {
+        renderer: 'canvas',
+    })
 
     const init = getImport().then(res => {
         const nodes = origin_nodes = createNodes(res)

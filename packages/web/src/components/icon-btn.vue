@@ -7,6 +7,8 @@ const map = {
   normal: '16px',
 };
 
+const emit = defineEmits(['click']);
+
 const props = defineProps({
   size: {
     type: String as PropType<keyof typeof map>,
@@ -14,6 +16,7 @@ const props = defineProps({
   },
   icon: String,
   active: Boolean,
+  class: String,
 });
 
 const react = computed(() => {
@@ -30,6 +33,8 @@ const react = computed(() => {
       ...react,
     }"
     class="inline-flex items-center justify-center cursor-pointer hover:bg-active rounded-md"
+    :class="class"
+    @click="(e) => $emit('click', e)"
   >
     <i
       :style="{

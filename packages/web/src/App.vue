@@ -5,12 +5,15 @@ import { getConfig } from '@/api/remote-data';
 import ProjectManage from './components/ProjectManage.vue';
 const route = useRoute();
 
+// relationship packages hot word unknowns
 const menus = [
-  { icon: 'icon-drxx06', path: '/file-chart' },
-  { icon: 'icon-packages', path: '/package-chart' },
-  { icon: 'icon-hot', path: '/hot-word' },
-  { icon: 'icon-menu-unuse', path: '/unknown-chart' },
+  { name: '关系图', icon: 'icon-drxx06', path: '/chart' },
+  { name: '包管理', icon: 'icon-packages', path: '/packages' },
+  { name: '热  词', icon: 'icon-hot', path: '/words' },
+  { name: '隐式引用', icon: 'icon-menu-unuse', path: '/unknowns' },
 ];
+
+const SIDEBAR_WIDTH = 120;
 
 const isActiveMenu = (path: string) => {
   return route.path === path;
@@ -43,21 +46,22 @@ function openProject() {
   <!-- menus -->
   <div class="w-full h-full">
     <ul
-      style="width: 40px"
+      :style="`width: ${SIDEBAR_WIDTH}px`"
       class="relative float-left menu-bar h-full text-sm border-r border-solid border-gray"
     >
       <router-link
         v-for="(item, index) in menus"
         class="flex items-center w-full text-center h-10 cursor-pointer hover:text-active px-2 py-1"
-        :class="{
-          'text-active border-l-2 border-active border-solid': isActiveMenu(
-            item.path,
-          ),
-        }"
+        :class="
+          isActiveMenu(item.path)
+            ? 'text-active bg-active rounded-md'
+            : 'text-normal'
+        "
         :key="index"
         :to="item.path"
       >
         <IconBtn :icon="item.icon" :active="isActiveMenu(item.path)"></IconBtn>
+        <span class="ml-1">{{ item.name }}</span>
       </router-link>
       <div
         class="absolute left-0 bottom-0 w-full py-8 px-2 flex-col justify-center"
@@ -74,7 +78,10 @@ function openProject() {
         </IconBtn>
       </div>
     </ul>
-    <div class="float-left h-full" style="width: calc(100% - 40px)">
+    <div
+      class="float-left h-full"
+      :style="`width: calc(100% - ${SIDEBAR_WIDTH}px)`"
+    >
       <router-view v-slot="{ Component }">
         <keep-alive>
           <component :is="Component" />
@@ -88,22 +95,28 @@ function openProject() {
 <style lang="less">
 :root {
   --an-c-active: #ff7f50;
+  --an-c-active-light: #e3d6d2;
   --an-c-normal: #606266;
   --an-c-black: #1a1a1a;
   --an-c-gray: #f0f2f7;
   --an-c-white: #ffffff;
   --an-c-light: #606266;
   --an-bg: #fff;
+  --an-bg-light: rgba(0, 0, 0, 0.5);
+  --an-bg-gray: #f6f6f6;
   --an-active-bg: rgba(248, 140, 140, 0.1);
 }
 .theme-dark {
   --an-c-active: #ff7f50;
+  --an-c-active-light: #54504e;
   --an-c-normal: #fff;
   --an-c-black: #1a1a1a;
   --an-c-gray: #2c323d;
   --an-bg: #242424;
   --an-c-white: #ffffff;
-  --an-c-light: #8e97a1;
+  --an-c-light: #5d636b;
+  --an-bg-light: rgba(255, 255, 255, 0.3);
+  --an-bg-gray: #f6f6f6;
   --an-active-bg: rgba(248, 140, 140, 0.1);
 }
 * {
@@ -112,6 +125,7 @@ function openProject() {
   box-sizing: border-box;
   /*** 系统全局滚动条设置 ***/
   ::-webkit-scrollbar {
+    transition: opacity 0.3s;
     width: 4px; /* 对垂直流动条有效 */
     height: 10px; /* 对水平流动条有效 */
   }
@@ -124,7 +138,7 @@ function openProject() {
   /* 定义滑块颜色、内阴影及圆角 */
   ::-webkit-scrollbar-thumb {
     width: 4px;
-    background-color: #eaedf0;
+    background-color: rgba(248, 140, 140, 0.1);
     border-radius: 4px;
   }
 }

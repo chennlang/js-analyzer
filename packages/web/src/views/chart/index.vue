@@ -2,6 +2,9 @@
 import Aside from './Aside.vue';
 import Echart from './Echart.vue';
 import InfoDrawer from '@/components/InfoDrawer.vue';
+import Drawer from '@/components/Drawer.vue';
+import VueJsonPretty from 'vue-json-pretty';
+import { chartEmitter } from './event';
 import {
   CHART_VIEW_TYPE,
   switchChartView,
@@ -18,7 +21,14 @@ import { TNode } from '@/components/Tree/Tree.d';
 const router = useRouter();
 const route = useRoute();
 const isShowInfoDrawer = ref(false);
+const isShowJsonDrawer = ref(false);
 let currFile = ref<string>('');
+const json = ref('{}');
+const winHeight = window.innerHeight;
+
+chartEmitter.on('dataChange', ({ nodes }) => {
+  json.value = nodes;
+});
 
 const handleTreeNodeClick = (node: TNode) => {
   getInfoByFile(window.CONFIG.root + node.data.path);
@@ -160,9 +170,16 @@ const getInfoByFile = async (fullPath: string) => {
       { label: '绝对路径', value: sortPath },
     ],
     columns: [
-      { label: '导出变量', prop: 'vars', width: '120px' },
+      { label: '导出变量', prop: 'vars', width: '200px' },
       { label: '引用次数', prop: 'num', width: '80px' },
-      { label: '引用文件', prop: 'using', open: true },
+      {
+        label: '引用文件',
+        prop: 'using',
+        children: {
+          preview: true,
+          open: true,
+        },
+      },
     ],
     data: await getExportInfo(fullPath),
     path: fullPath,
@@ -180,7 +197,11 @@ const getInfoByFile = async (fullPath: string) => {
       <Aside @node-click="handleTreeNodeClick" />
 
       <!-- {{ currTab }} -->
-      <div class="move-line" @mousedown="onMousedown"></div>
+      <div
+        class="move-line"
+        :class="lineInfo.active ? 'active' : ''"
+        @mousedown="onMousedown"
+      ></div>
     </div>
 
     <!-- chart -->
@@ -196,10 +217,20 @@ const getInfoByFile = async (fullPath: string) => {
         @node-dblclick="handleChartNodeDblclick"
         @chart-load="handleChartLoad"
         @action-show-file-detail="isShowInfoDrawer = true"
+        @action-show-json="isShowJsonDrawer = true"
       />
     </div>
 
     <InfoDrawer v-model="isShowInfoDrawer" v-bind="fileInfo" />
+    <Drawer v-model="isShowJsonDrawer" width="800px">
+      <VueJsonPretty
+        v-if="isShowJsonDrawer"
+        :virtual="true"
+        :height="winHeight"
+        :data="json"
+        :deep="4"
+      />
+    </Drawer>
   </div>
 </template>
 
@@ -212,12 +243,37 @@ const getInfoByFile = async (fullPath: string) => {
     position: absolute;
     right: 0;
     top: 0;
-    width: 4px;
+    width: 2px;
     height: 100%;
     user-select: none;
+    background: var(--an-c-active-light);
     &:hover {
+      width: 6px;
       background: var(--an-c-active);
       cursor: col-resize;
+    }
+    &:hover::before {
+      left: -17px;
+      border-top: 10px solid var(--an-c-active);
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -19px;
+      border-top: 10px solid var(--an-c-active-light);
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      transform: translateX(50%);
+    }
+    &.active {
+      width: 6px;
+      background: var(--an-c-active);
+      cursor: col-resize;
+      &::before {
+        left: -17px;
+        border-top: 10px solid var(--an-c-active);
+      }
     }
   }
 }

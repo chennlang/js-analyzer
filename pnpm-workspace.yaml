@@ -1,2 +1,5 @@
 packages:
-  - "packages/*"
+  - "packages/core"
+  - "packages/server"
+  - "packages/shared"
+  - "packages/web"

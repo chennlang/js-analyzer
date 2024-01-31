@@ -1,33 +1,39 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 const props = defineProps({
+  modelValue: Boolean,
   title: {
     type: String,
-    default: '默认标题',
+    default: '',
+  },
+  width: {
+    type: String,
+    default: '600px',
   },
 });
-const title = computed(() => props.title);
+const show = computed(() => props.modelValue);
+const emit = defineEmits(['update:modelValue']);
 
-let show = false;
 const onClose = () => {
-  show = false;
+  emit('update:modelValue', false);
 };
 </script>
 
 <template>
   <teleport to="body">
     <div v-if="show" class="ui-drawer" @click="onClose">
-      <div class="p-4 overflow-y-auto text-sm" @click.stop>
+      <div
+        :style="{
+          width,
+        }"
+        class="p-4 overflow-y-auto text-sm"
+        @click.stop
+      >
         <h3>{{ title }}</h3>
         <div class="ui-drawer-body">
           <slot></slot>
         </div>
       </div>
-      <style>
-        body {
-          filter: blur(1px);
-        }
-      </style>
     </div>
   </teleport>
 </template>
@@ -40,6 +46,8 @@ const onClose = () => {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 999;
   > div {
     width: 600px;
     float: right;
