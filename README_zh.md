@@ -122,7 +122,7 @@ module.exports = {
   // 不需要分析的目录
   ignore: ["**/node_modules/**", "**/dist/**"],
   // 解析没有扩展名的文件时优先查找顺序
-  extensions: [".js", ".ts", ".tsx", ".vue", ".json", "jsx"],
+  extensions: [".js", ".ts", ".tsx", ".vue", ".json", ".jsx"],
   // 项目的别名映射路径
   alias: {
     "@@/": "/",

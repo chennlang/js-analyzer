@@ -122,7 +122,7 @@ module.exports = {
   // Directories that do not need to be analyzed
   ignore: ["**/node_modules/**", "**/dist/**"],
   // Priority search order when parsing files without extensions
-  extensions: [".js", ".ts", ".tsx", ".vue", ".json", "jsx"],
+  extensions: [".js", ".ts", ".tsx", ".vue", ".json", ".jsx"],
   // The project's alias
   alias: {
     "@@/": "/",
