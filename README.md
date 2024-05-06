@@ -7,6 +7,10 @@
 </p>
 </div>
 
+
+https://github.com/chennlang/js-analyzer/assets/41711206/63797bfd-440c-401e-a0d8-833a9c8caef0
+
+
 ## Scenes
 
 - Code refactoring: By analyzing dependencies, we can better understand the structure and logic of the code, making it easier to refactor and optimize the code.
@@ -26,33 +30,6 @@
 - Support package dependency analysis
 - Support unreferenced files, npm package analysis
 - Local storage is `very safe`, does not involve networking and uploading
-
-<h3 style="text-align: center;">Dependent view</h3>
-
-> Double-click a node to enter the dependency view of the node
-
-![单文件](http://oss.ailan.top/20230713103748.png)
-
-<h3 style="text-align: center;">Upstream Dependency Graph</h3>
-
-> After double-clicking a node, click the third positive icon in the upper left corner to switch to the upstream dependency graph
-
-![上游依赖图](http://oss.ailan.top/20230713104701.png)
-
-<h3 style="text-align: center;">File dependency details</h3>
-
-> Click a node in the view to pop up file dependency details
-
-![单个文件依赖详情信息](http://oss.ailan.top/20230713104922.png)
-
-## renew
-
-- Support VUE SETUP
-- Customizable plug-ins to generate the data you want
-- Built-in project hotword plug-in support
-- File dependency view: support dependency view within a single folder
-- Sass, Less, Css and other style file analysis (New, supported)
-- Support project variable hot word map
 
 ## Global Install
 
@@ -178,6 +155,33 @@ module.exports = {
 ```
 
 Custom generated data, default access address 'http://localhost:8087/data/test.json'
+
+<h3 style="text-align: center;">Dependent view</h3>
+
+> Double-click a node to enter the dependency view of the node
+
+![单文件](http://oss.ailan.top/20230713103748.png)
+
+<h3 style="text-align: center;">Upstream Dependency Graph</h3>
+
+> After double-clicking a node, click the third positive icon in the upper left corner to switch to the upstream dependency graph
+
+![上游依赖图](http://oss.ailan.top/20230713104701.png)
+
+<h3 style="text-align: center;">File dependency details</h3>
+
+> Click a node in the view to pop up file dependency details
+
+![单个文件依赖详情信息](http://oss.ailan.top/20230713104922.png)
+
+## renew
+
+- Support VUE SETUP
+- Customizable plug-ins to generate the data you want
+- Built-in project hotword plug-in support
+- File dependency view: support dependency view within a single folder
+- Sass, Less, Css and other style file analysis (New, supported)
+- Support project variable hot word map
 
 ## Invite
 
