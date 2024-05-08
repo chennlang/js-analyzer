@@ -120,7 +120,7 @@ const onClose = () => {
         <h2
           class="absolute left-0 top-0 p-4 w-full overflow-hidden mb-5 border-b border-solid border-gray"
         >
-          <span class="float-left text-lg">{{ title }}</span>
+          <span class="float-left text-base font-bold">{{ title }}</span>
           <IconBtn
             icon="icon-icon-open"
             class="float-right"
@@ -128,7 +128,7 @@ const onClose = () => {
           ></IconBtn>
         </h2>
         <div class="h-full overflow-y-auto mt-6">
-          <h3 class="mb-4 font-bold text-base">基础信息</h3>
+          <h3 class="mb-4 text-base text-light">基础信息</h3>
           <div class="flex">
             <p v-for="(item, index) in baseList" :key="index" class="ml-4">
               <label class="inline-block font-bold text-sm text-light"
@@ -137,7 +137,7 @@ const onClose = () => {
               <span class="ml-2">{{ item.value }}</span>
             </p>
           </div>
-          <h3 class="clear-both mt-5 mb-4 font-bold text-base">
+          <h3 class="clear-both mt-10 mb-4 text-base text-light">
             {{ tableTitle }}
           </h3>
           <table class="table-fixed border border-gray w-full">

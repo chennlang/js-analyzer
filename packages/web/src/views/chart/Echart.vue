@@ -4,7 +4,6 @@ import { chartEmitter } from './event';
 import {
   useChart,
   restoreChart,
-  reRoomChart,
   CHART_VIEW_TYPE,
   VIEW_NAME_MAP,
   switchChartView,
@@ -12,8 +11,8 @@ import {
   getActiveFile,
 } from './echart';
 import { useCodePreview } from '../../components/CodePreview/use-code-preview';
+import Select from '../../components/Select.vue';
 
-const reversal = ref<boolean>(true);
 const emit = defineEmits([
   'node-click',
   'node-dblclick',
@@ -25,14 +24,6 @@ const { openCodePreview } = useCodePreview();
 
 function handleCodePreview() {
   openCodePreview(getActiveFile());
-}
-
-function handleReversalChange() {
-  reversal.value = !reversal.value;
-
-  switchChartView(
-    reversal.value ? CHART_VIEW_TYPE.file : CHART_VIEW_TYPE.fileReversal,
-  );
 }
 
 const viewName = computed(() => VIEW_NAME_MAP[currentViewType.value]);
@@ -60,6 +51,18 @@ onMounted(() => {
     emit('chart-load');
   });
 });
+
+const options = Object.entries(VIEW_NAME_MAP)
+  .map(([key, value]) => {
+    return {
+      text: value,
+      value: parseInt(key, 10),
+      disabled: [CHART_VIEW_TYPE.folder, CHART_VIEW_TYPE.json].includes(
+        parseInt(key, 10),
+      ),
+    };
+  })
+  .filter((m) => m.value !== CHART_VIEW_TYPE.json);
 </script>
 
 <template>
@@ -69,26 +72,20 @@ onMounted(() => {
       class="absolute left-0 top-4 z-10 w-full flex items-center justify-between px-10 h-8 opacity-50"
     >
       <div class="bg-gray rounded-lg px-4 h-8 leading-8">
-        <IconBtn
-          :active="currentViewType === CHART_VIEW_TYPE.file"
-          icon="icon-relation-full"
-          title="被依赖图"
-          @click="handleReversalChange"
-        ></IconBtn>
-        <IconBtn
-          :active="currentViewType === CHART_VIEW_TYPE.fileReversal"
-          icon="icon-relation"
-          class="ml-4"
-          title="依赖图"
-          @click="handleReversalChange"
-        ></IconBtn>
-        <IconBtn
-          :active="currentViewType === CHART_VIEW_TYPE.fileRelation"
-          icon="icon-guanxi"
-          class="ml-4"
-          title="关系视图"
-          @click="switchChartView(CHART_VIEW_TYPE.fileRelation)"
-        ></IconBtn>
+        <Select
+          v-model="currentViewType"
+          :optionsList="options"
+          :disabled="
+            [CHART_VIEW_TYPE.folder, CHART_VIEW_TYPE.json].includes(
+              currentViewType,
+            )
+          "
+          @onChange="
+            (v) => {
+              switchChartView(v);
+            }
+          "
+        ></Select>
       </div>
       <div class="text-normal">{{ viewName }}</div>
       <div class="bg-gray rounded-lg px-4 h-8 leading-8">

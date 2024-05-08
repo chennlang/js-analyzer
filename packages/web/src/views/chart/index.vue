@@ -183,7 +183,7 @@ const getInfoByFile = async (fullPath: string) => {
     ],
     data: await getExportInfo(fullPath),
     path: fullPath,
-    title: sortPath.split('/').pop(),
+    title: '文件详情',
   };
 };
 </script>
