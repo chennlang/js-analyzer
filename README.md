@@ -1,39 +1,30 @@
 <div align="center" style="text-align: center;">
     <h1 style="text-align: center;">🧬Js Analyzer</h1>
-    <p style="text-align: center;"> A visual and interactive front-end dependency analysis tool</p>
-    <p style="text-align: center;">Can be used in any extension project like Vue React Svelte Angular Node</p>
+    <p style="text-align: center;">An interactive, visual front-end dependency analysis tool</p>
+    <p style="text-align: center;">Applicable for any front-end project such as Vue, React, Svelte, Angular, Node</p>
     <p align='center'>
-<b>English</b> | <a href="https://github.com/chennlang/js-analyzer/blob/main/README_zh.md">简体中文</a>
+ <b>English</b> | <a href="https://github.com/chennlang/js-analyzer/blob/main/README_zh.md">简体中文</a>
 </p>
 </div>
 
-
 https://github.com/chennlang/js-analyzer/assets/41711206/63797bfd-440c-401e-a0d8-833a9c8caef0
-
-
-## Scenes
-
-- Code refactoring: By analyzing dependencies, we can better understand the structure and logic of the code, making it easier to refactor and optimize the code.
-- Modular development: By analyzing dependencies, we can split the project into multiple modules, each module has clear responsibilities and dependencies, so as to achieve modular development and management.
-- Code testing: By analyzing dependencies, we can more easily write and run unit tests, thereby improving the quality and reliability of the code.
-- Code maintenance: By analyzing dependencies, we can more easily locate and solve problems in the code, thereby improving the maintainability and scalability of the code.
 
 ## Features
 
-- An interactive integrated `visual` dependency analysis system
-- Support dynamic switching of entry files
-- Support `Dependency Inversion`
-- Supports displaying the number of times a file is cited, as well as the reference address
-- Support displaying the referenced information of exported variables of files
-- Compatible with ES6, CommonJs
+- Interactive, integrated `visual` dependency analysis system
+- Supports dynamic switching of entry files
+- Supports `Dependency Inversion`
+- Displays the number of times a file is referenced, as well as the reference address
+- Displays information on references to the exported variables of a file
+- Suitable for ES6, CommonJS
 - Supported file types: JS, TS, JSX, TSX, Vue, Sass, Less, Css, html
-- Support package dependency analysis
-- Support unreferenced files, npm package analysis
-- Local storage is `very safe`, does not involve networking and uploading
+- Supports package dependency analysis
+- Analyzes unimported files and npm packages
+- Local storage, `Very secure`, does not involve networking and uploading
 
-## Global Install
+## Global Installation
 
-### 1. Install
+### 1. Installation
 
 ```shell
 npm install @js-analyzer/server -g
@@ -41,9 +32,9 @@ npm install @js-analyzer/server -g
 # pnpm install @js-analyzer/server -g
 ```
 
-### 2. Use
+### 2. Usage
 
-Go to the root directory of any project and execute `js-analyzer --root ./`
+Enter the console into any project root directory and execute `js-analyzer --root ./`
 
 ```shell
 cd /xxx/project
@@ -51,9 +42,9 @@ cd /xxx/project
 js-analyzer --root ./
 ```
 
-## Local Install
+## Local Installation
 
-### 1. Install
+### 1. Installation
 
 ```shell
 npm install @js-analyzer/server -D
@@ -61,9 +52,9 @@ npm install @js-analyzer/server -D
 # pnpm install @js-analyzer/server -D
 ```
 
-### 2. Use
+### 2. Usage
 
-#### 1.Add js-analyzer command in scripts
+#### 1. Add the "js-analyzer" command in scripts
 
 ```json
 "scripts": {
@@ -71,18 +62,18 @@ npm install @js-analyzer/server -D
 },
 ```
 
-#### 2.Enter npm run js-analyzer in the console and visit http://localhost:8088/ to see it.
+#### 2. Enter "npm run js-analyzer" in the console and visit http://localhost:8088/ to see it.
 
 ```shell
 npm run js-analyzer
 # Service started：http://localhost:8088/
 ```
 
-## Configuration file
+## Configuration File
 
-An analysis service can be quickly started through the above command, but the overall structure of each project is different. If you want js-analyzer to analyze better and more accurately, you need to configure some necessary information.
+You can quickly start an analysis service using the above commands. However, each project's overall architecture is different, so if you want "js-analyzer" to be better and more accurate, you need to configure some necessary information.
 
-To specify a configuration file, you only need to modify the above startup command
+To specify the configuration file, simply modify the start command as follows
 
 ```json
 "scripts": {
@@ -98,45 +89,54 @@ module.exports = {
   root: "/Users/ll/Downloads/react-admin-master",
   // Directories that do not need to be analyzed
   ignore: ["**/node_modules/**", "**/dist/**"],
-  // Priority search order when parsing files without extensions
+  // Order of preference when parsing files without extensions
   extensions: [".js", ".ts", ".tsx", ".vue", ".json", ".jsx"],
-  // The project's alias
+  // Path mapping of the project's alias
   alias: {
     "@@/": "/",
     "~~/": "/",
     "@/": "/src/",
     "~/": "/src/",
   },
-  // The started server is related to the port
+  // Server and port related information
   server: {
     port: 8088,
     host: "localhost",
-    openBrowser: true, // auto open in the browser
+    openBrowser: true, // Automatically open in browser after startup
   },
 };
 ```
 
+## Updates
+
+- Support for VUE SETUP type
+- Customizable plugins, generate the data you want
+- Support for built-in project hot-word plugins
+- File dependency view: support for the dependency relationship view within a single folder
+- Analysis of Sass, Less, Css, and other style files (New, Supported)
+- Supports project variable hot-word map
+
 ## TODO
 
-- Project component documentation to generate shared modules
-- Cyclic dependency analysis
-- Module stability index analysis
+- Shared module for project component document generation
+- Cycle dependency analysis
+- Module stability indicator analysis
 
-## Plugin development
+## Plugin Development
 
-The principle of this tool is to collect relevant dependency information by parsing AST. In theory, users can also collect any information they want in this process. Therefore, a plug-in method is provided to expose the life cycle of each stage and allow users to execute any logic in the life cycle function.
+The principle of this tool is to parse AST collection of related dependency information, theoretically, users can also collect any information they want in this process. Therefore, a plugin approach is provided, exposing the lifecycle at various stages, allowing users to execute any logic in lifecycle functions.
 
-### Example: A variable name collection plugin used in a project
+### Example: A plugin that collects variable names used inside a project
 
 ```js
 const myCustomPlugin = {
   name: "MyCustomPlugin",
-  // output information
+  // Output information
   output: {
     data: [],
     file: "test.json",
   },
-  // Executed when parsing script
+  // Run when parsing script
   ScriptParser({ file, content }) {
     const self = this;
     return {
@@ -145,7 +145,7 @@ const myCustomPlugin = {
       },
     };
   },
-  // Executed when the script is parsed
+  // Run after parsing script
   AfterScriptParser() {},
 };
 
@@ -154,35 +154,62 @@ module.exports = {
 };
 ```
 
-Custom generated data, default access address 'http://localhost:8087/data/test.json'
+Custom data generation, default access address 'http://localhost:8087/data/test.json'
 
-<h3 style="text-align: center;">Dependent view</h3>
+## Guides
 
-> Double-click a node to enter the dependency view of the node
+### How to clean "Garbage files" in the project
 
-![单文件](http://oss.ailan.top/20230713103748.png)
+What are "Garbage files"? These are files that are not referenced.
 
-<h3 style="text-align: center;">Upstream Dependency Graph</h3>
+- Method one: In the "Relationship Map", in the directory tree on the left, there is a "reference count" at the end of each file, the number `0` indicates no reference.
+- Method two: In the "Relationship Map", under the "Folder Relationship Map" view, you can see the "reference count" for each file, the number `0` indicates no reference.
 
-> After double-clicking a node, click the third positive icon in the upper left corner to switch to the upstream dependency graph
+![](https://cdn.jsdelivr.net/gh/chennlang/doc-images//picGo/20240508175023.png)
 
-![上游依赖图](http://oss.ailan.top/20230713104701.png)
+### How to clean "unused exports" in the project
 
-<h3 style="text-align: center;">File dependency details</h3>
+In the development project, there will be many exported but unused variables or methods in the `const` directory or `api` directory:
 
-> Click a node in the view to pop up file dependency details
+```ts
+// const.ts | api.ts | utils.ts
 
-![单个文件依赖详情信息](http://oss.ailan.top/20230713104922.png)
+export const STATUS = "status"; // Not used
 
-## renew
+export const TEXT = "text"; // Not used
 
-- Support VUE SETUP
-- Customizable plug-ins to generate the data you want
-- Built-in project hotword plug-in support
-- File dependency view: support dependency view within a single folder
-- Sass, Less, Css and other style file analysis (New, supported)
-- Support project variable hot word map
+export const api_fetch_data = () => {}; // Not used
 
-## Invite
+export const api_fetch_result = () => {}; // Not used
+```
 
-More interested people are very welcome to join in
+We can view the export information in "File Details", find the "unused exports", and delete it. So how do we open "File Details"?
+
+- Method one: Any node in the chart on the right side of the "Relationship Map" page corresponds to the file on the left. After clicking the node, the "File Details" will be displayed.
+- Method two: If you have already selected the target file in the left directory, click the file details button in the upper right corner of the chart.
+
+### Discover "Implicit References" in the project
+
+What is an "Implicit Reference"? This refers to those third-party libraries that have not been registered in `package.json` or used in the project.
+
+> Why this scenario would occur, for we installer an npm package `A` in the project, and `A` depends on libraries `a`,`b`. Then, in `node_modules` there would be three libraries `A`,`a`,`b`. Of course, we can use `a` or `b` directly in the project, but this is very risky!
+
+We can find all such references in the "Implicit Reference" page, view the target file, and then register the library in use in `package.json`.
+
+Open "File Details"
+![](https://cdn.jsdelivr.net/gh/chennlang/doc-images//picGo/20240508175202.png)
+
+"File Details"
+![](https://cdn.jsdelivr.net/gh/chennlang/doc-images//picGo/20240508175411.png)
+
+### View the dependency paths of files
+
+Scenario: Sometimes we need to find the dependency context of a file and see which file it is ultimately referenced by. This is to determine the scope of impact of modifying the file.
+
+Use: You can select a single file and switch to the "Upstream Dependency Relationship Map" to view.
+
+![](https://cdn.jsdelivr.net/gh/chennlang/doc-images//picGo/20240508175559.png)
+
+## Invitation
+
+Holding the will to clean code, we hope that more people can join this project. The goal is to build an assistant tool that can help all front-end programmers to refactor/clean code.
