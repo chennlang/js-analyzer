@@ -34,7 +34,7 @@ jobs:
           node-version: "16.15.0"
       - name: 安装依赖
         run: |
-          npm install -g pnpm
+          npm install -g pnpm@latest-8
           pnpm install --no-frozen-lockfile
         working-directory: packages/web
       - name: web打包
@@ -43,10 +43,10 @@ jobs:
       - name: 生成 demo 文件夹
         run: |
           mkdir web
-          cp -r ./packages/server/public/* ./web/
+          cp -r ./packages/web/dist/* ./web/
           cp -r ./materials ./web/data
           ls web
-          
+
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Build with Jekyll

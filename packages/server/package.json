@@ -47,5 +47,13 @@
     "launch-editor": "^2.3.0",
     "open": "^8.4.0",
     "portfinder": "^1.0.32"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^10.0.3",
+    "@semantic-release/npm": "^12.0.0",
+    "@semantic-release/release-notes-generator": "^13.0.0",
+    "semantic-release": "^23.0.8"
   }
 }

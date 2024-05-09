@@ -1,0 +1,33 @@
+# 工作流名称
+name: Build and Deploy
+
+on:
+  # 指明要运行的分支，跟上面配置保持一致
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 签出代码
+        uses: actions/checkout@v3
+
+      - name: 安装 nodejs
+        uses: actions/setup-node@v2.5.2
+        with:
+          node-version: "16.15.0"
+
+      - name: 打包构建
+        run: |
+          chmod +x ./build.sh
+          ./build.sh
+
+      # 执行 semantic-release 发布包
+      - name: 发布 npm 包
+        env:
+          GITHUB_TOKEN: ${{ secrets.PUBLISH_GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.PUBLISH_NPM_TOKEN }}
+        run: npx semantic-release
+        working-directory: packages/server

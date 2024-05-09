@@ -43,7 +43,7 @@ export default defineConfig(({ mode }) => {
     },
     base: './',
     build: {
-      outDir: path.resolve(__dirname, '../server/public'),
+      outDir: 'dist',
       commonjsOptions: {
         include: [/dagre/, /node_modules/],
       },

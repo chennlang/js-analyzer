@@ -10,11 +10,11 @@ export default [{
     output: [
         {
             file: 'dist/js-analyzer-core.es.js',
-            format: 'esm'
+            format: 'esm',
         },
         {
             file: 'dist/js-analyzer-core.cjs.js',
-            format: 'cjs'
+            format: 'cjs',
         },
     ],
     external: [/node_modules/],
