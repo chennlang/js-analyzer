@@ -60,37 +60,24 @@ function defDependencies (filePath: string): {
  * @returns 
  */
 function resolvePath(targetPath: string, filePath: string, config: LocalConfig): string {
-    const relativePathReg = /\.\/|\.\.\//
     const alias = config.alias
 
-    if (alias) {
-        for (const key in alias) {
-            const reg = new RegExp(key)
-            if (reg.test(targetPath)) {
-                return targetPath
-                    .replace(reg, config.root + alias[key])
-                    // 兼容不同写法
-                    .replace(/\/\//g, '/')
-            }
-        }
-    }
-    
+    // 相对|绝对路径
+    const relativePathReg = /^\.\/|^\.\.\//
     if (relativePathReg.test(targetPath)) {
-        // if (targetPath.indexOf('index-card.png') > -1) {
-        //     console.log({
-        //         targetPath,
-        //         filePath,
-        //         dir: path.dirname(filePath),
-        //         res01: path.resolve(filePath, targetPath),
-        //         res0: path.join(filePath, targetPath),
-        //         res1: path.join(path.dirname(filePath), targetPath),
-        //         res2: path.resolve(path.dirname(filePath), targetPath),
-        //     })
-        // }
         const dir = path.dirname(filePath)
         return path.resolve(dir, targetPath)
     }
 
+    // 别名倒序，先匹配较长的：例如 'ant/c' | 'ant' 会先匹配 'ant/c', 匹配到就结束
+    const aliasKeys = Object.keys(alias).sort().reverse()
+    for(const key in aliasKeys) {
+        const val = alias[key]
+        if (targetPath.indexOf(key) === 0) {
+            return path.join(config.root, val, targetPath.substring(key.length))
+        }
+    }
+    
     return targetPath
 }
 
