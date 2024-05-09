@@ -1,11 +1,14 @@
 # 工作流名称
-name: Build and Deploy
+name: Relsase and Publish
 
 on:
   # 指明要运行的分支，跟上面配置保持一致
   push:
     branches: [main]
-
+    
+permissions:
+  contents: write
+  
 jobs:
   build:
     runs-on: ubuntu-latest
