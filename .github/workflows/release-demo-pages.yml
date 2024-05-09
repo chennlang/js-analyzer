@@ -34,7 +34,7 @@ jobs:
           node-version: "16.15.0"
       - name: 安装依赖
         run: |
-          npm install -g pnpm
+          npm install -g pnpm@latest-8
           pnpm install --no-frozen-lockfile
         working-directory: packages/web
       - name: web打包
