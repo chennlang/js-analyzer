@@ -176,8 +176,6 @@ importers:
         specifier: ^23.0.8
         version: 23.0.8
 
-  packages/shared: {}
-
   packages/web:
     dependencies:
       '@highlightjs/vue-plugin':

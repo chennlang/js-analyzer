@@ -5,8 +5,7 @@
   "workspaces": [
     "packages/core",
     "packages/server",
-    "packages/web",
-    "packages/shared"
+    "packages/web"
   ],
   "scripts": {
     "dev": "lerna run --scope '@js-analyzer/core' --scope @js-analyzer/server dev"
