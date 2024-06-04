@@ -2,7 +2,10 @@
   <select
     v-model="selectedValue"
     :disabled="disabled"
-    class="bg-gray-300 focus:bg-gray-300 active:bg-gray-300 rounded"
+    :style="{
+      width: width,
+    }"
+    class="bg-gray active:border-active rounded text-normal h-7 leading-7 cursor-pointer"
     @change="handleChange"
   >
     <option
@@ -39,6 +42,9 @@ const props = defineProps({
   disabled: {
     type: Boolean,
     default: false,
+  },
+  width: {
+    type: String,
   },
 });
 
