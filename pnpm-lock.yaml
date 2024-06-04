@@ -175,6 +175,9 @@ importers:
       semantic-release:
         specifier: ^23.0.8
         version: 23.0.8
+      tslib:
+        specifier: ^2.4.0
+        version: 2.5.0
 
   packages/web:
     dependencies:

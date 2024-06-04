@@ -71,7 +71,7 @@ function resolvePath(targetPath: string, filePath: string, config: LocalConfig):
 
     // 别名倒序，先匹配较长的：例如 'ant/c' | 'ant' 会先匹配 'ant/c', 匹配到就结束
     const aliasKeys = Object.keys(alias).sort().reverse()
-    for(const key in aliasKeys) {
+    for(const key of aliasKeys) {
         const val = alias[key]
         if (targetPath.indexOf(key) === 0) {
             return path.join(config.root, val, targetPath.substring(key.length))

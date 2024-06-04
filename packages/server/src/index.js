@@ -9,7 +9,8 @@ const launch = require("launch-editor");
 const template = require("art-template");
 const portfinder = require("portfinder");
 const { koaBody } = require("koa-body");
-const { JsAnalyzer } = require("@js-analyzer/core");
+const { JsAnalyzer } = require("../libs/core-dist/js-analyzer-core.cjs.js");
+// const { JsAnalyzer } = require("@js-analyzer/core");
 
 const app = new Koa();
 app.use(cors());
