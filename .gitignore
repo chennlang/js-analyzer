@@ -6,4 +6,3 @@ dist-ssr
 public
 walk-file
 vscode-plugin
-**/server/libs/
