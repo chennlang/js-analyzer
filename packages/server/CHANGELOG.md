@@ -1,3 +1,10 @@
+## [2.2.5](https://github.com/chennlang/js-analyzer/compare/v2.2.4...v2.2.5) (2024-06-17)
+
+
+### Bug Fixes
+
+* not find public/data ([f999c56](https://github.com/chennlang/js-analyzer/commit/f999c568b1f3f5973ac760b74dace12e8175a0cb))
+
 ## [2.2.4](https://github.com/chennlang/js-analyzer/compare/v2.2.3...v2.2.4) (2024-06-17)
 
 
