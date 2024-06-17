@@ -3,6 +3,6 @@ node_modules
 dist
 dist-ssr
 *.local
-public
+**/server/public/data/**
 walk-file
 vscode-plugin
