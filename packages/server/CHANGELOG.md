@@ -1,3 +1,10 @@
+## [2.2.6](https://github.com/chennlang/js-analyzer/compare/v2.2.5...v2.2.6) (2024-06-17)
+
+
+### Bug Fixes
+
+* web page js file 404 ([e3fb6bd](https://github.com/chennlang/js-analyzer/commit/e3fb6bd7638334b05fd02645238b473910df4f93))
+
 ## [2.2.5](https://github.com/chennlang/js-analyzer/compare/v2.2.4...v2.2.5) (2024-06-17)
 
 
