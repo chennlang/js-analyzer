@@ -4,5 +4,6 @@ dist
 dist-ssr
 *.local
 **/server/public/data/**
+!**/server/public/data/test.json
 walk-file
 vscode-plugin
