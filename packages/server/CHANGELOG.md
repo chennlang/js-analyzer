@@ -1,3 +1,10 @@
+## [2.2.3](https://github.com/chennlang/js-analyzer/compare/v2.2.2...v2.2.3) (2024-06-17)
+
+
+### Bug Fixes
+
+* Cannot find module js-analyzer-core.cjs.js ([7d3fe28](https://github.com/chennlang/js-analyzer/commit/7d3fe284dc59afe41a6b3ac4296d11d495ac04b2))
+
 ## [2.2.2](https://github.com/chennlang/js-analyzer/compare/v2.2.1...v2.2.2) (2024-06-17)
 
 
