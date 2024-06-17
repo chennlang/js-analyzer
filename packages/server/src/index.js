@@ -16,6 +16,7 @@ const app = new Koa();
 app.use(cors());
 app.use(koaBody());
 app.use(koaStatic(path.join(__dirname, "../public/")));
+app.use(koaStatic(path.join(__dirname, "../libs/web-dist")));
 
 // index.html
 router.get("/", async (ctx) => {
