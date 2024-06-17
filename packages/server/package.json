@@ -29,6 +29,7 @@
   },
   "files": [
     "bin",
+    "libs",
     "public/assets",
     "public/favicon.png",
     "public/index.html",
