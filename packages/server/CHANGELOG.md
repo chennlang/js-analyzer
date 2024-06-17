@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/chennlang/js-analyzer/compare/v2.2.0...v2.2.1) (2024-06-17)
+
+
+### Bug Fixes
+
+* add changelog ([ac403ec](https://github.com/chennlang/js-analyzer/commit/ac403ecdcb303626520263742a0b7dcbe1644494))
+
 # [2.2.0](https://github.com/chennlang/js-analyzer/compare/v2.1.0...v2.2.0) (2024-06-13)
 
 
