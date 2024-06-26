@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { $tf } from '@/language';
 import { onMounted, ref, computed } from 'vue';
 import { chartEmitter } from './event';
 import {
@@ -89,17 +90,21 @@ const options = Object.entries(VIEW_NAME_MAP)
       </div>
       <div class="text-normal">{{ viewName }}</div>
       <div class="bg-gray rounded-lg px-4 h-8 leading-8">
-        <IconBtn icon="icon-reset" title="重置" @click="restoreChart"></IconBtn>
+        <IconBtn
+          icon="icon-reset"
+          :title="$tf('重置')"
+          @click="restoreChart"
+        ></IconBtn>
         <IconBtn
           icon="icon-wenzi"
           class="ml-4"
-          title="显示节点文字"
+          :title="$tf('显示节点文字')"
           @click="switchChartLabel"
         ></IconBtn>
         <!-- <IconBtn
           icon="icon-huanyuanhuabu"
           class="ml-4"
-          title="缩放重置"
+          title=$tf("缩放重置")
           @click="reRoomChart"
         ></IconBtn> -->
         <!-- <IconBtn
@@ -117,7 +122,7 @@ const options = Object.entries(VIEW_NAME_MAP)
             ].includes(currentViewType)
           "
           icon="icon-wenjianxinxi"
-          title="文件详情"
+          :title="$tf('文件详情')"
           class="ml-4"
           @click="$emit('action-show-file-detail')"
         ></IconBtn>
@@ -131,7 +136,7 @@ const options = Object.entries(VIEW_NAME_MAP)
           "
           icon="icon-preview"
           class="ml-4"
-          title="代码预览"
+          :title="$tf('代码预览')"
           @click="handleCodePreview"
         ></IconBtn>
       </div>

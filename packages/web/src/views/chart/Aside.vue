@@ -1,5 +1,6 @@
 <script lang="ts">
 import { getFiles, getImport } from '@/api/remote-data';
+import { $tf } from '@/language';
 </script>
 <script setup lang="ts">
 import { reactive, watch, computed, ref, nextTick } from 'vue';
@@ -109,15 +110,15 @@ const handleTreeNodeClick = (tnode: any) => {
         class="mb-2"
         width="100%"
         :optionsList="[
-          { text: '全部', value: -1 },
-          { text: '未被引用文件', value: 0 },
+          { text: $tf('全部'), value: -1 },
+          { text: $tf('未被引用文件'), value: 0 },
         ]"
       ></Select>
       <input
         v-model="treeInfo.filterText"
         class="ui-input mb-4"
         type="text"
-        placeholder="搜索"
+        :placeholder="$tf('搜索')"
       />
     </div>
     <div class="pt-2 flex-1 overflow-y-auto">

@@ -1,5 +1,6 @@
 <script lang="tsx">
 import { openEditor } from '../api/remote-data';
+import { $tf } from '@/language';
 </script>
 <script lang="tsx" setup>
 import { ref, defineComponent, computed, PropType } from 'vue';
@@ -91,7 +92,7 @@ const props = defineProps({
   },
   tableTitle: {
     type: String,
-    default: '导出信息',
+    default: $tf('导出信息'),
   },
 });
 
@@ -128,7 +129,7 @@ const onClose = () => {
           ></IconBtn>
         </h2>
         <div class="h-full overflow-y-auto mt-6">
-          <h3 class="mb-4 text-base text-light">基础信息</h3>
+          <h3 class="mb-4 text-base text-light">{{ $tf('基础信息') }}</h3>
           <div class="flex">
             <p v-for="(item, index) in baseList" :key="index" class="ml-4">
               <label class="inline-block font-bold text-sm text-light"

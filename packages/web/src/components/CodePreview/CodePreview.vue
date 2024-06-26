@@ -2,6 +2,7 @@
 import Dialog from '../Dialog.vue';
 import { ref, watch, defineEmits, onMounted } from 'vue';
 import { getFileContent } from '../../api/remote-data';
+import { $tf } from '@/language';
 import 'highlight.js/lib/common';
 import hljsVuePlugin from '@highlightjs/vue-plugin';
 
@@ -63,7 +64,7 @@ watch(
 </script>
 <template>
   <Dialog
-    title="代码预览"
+    :title="$tf('代码预览')"
     v-model="show"
     width="80%"
     height="70%"

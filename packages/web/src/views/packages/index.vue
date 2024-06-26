@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue';
 import { useChart } from './echart';
 import { IChartNode } from '@/types/chart';
 import InfoDrawer from '../../components/InfoDrawer.vue';
+import { $tf } from '@/language';
 const isShowInfoDrawer = ref(false);
 const info = ref<Record<string, any>>({});
 
@@ -14,13 +15,13 @@ onMounted(() => {
     info.value = {
       title: data.name,
       baseList: [
-        { label: '名称', value: data.name },
-        { label: '引用次数', value: extendData.num },
+        { label: $tf('名称'), value: data.name },
+        { label: $tf('引用次数'), value: extendData.num },
       ],
       columns: [
-        { label: '引用名', prop: 'vars', width: '120px' },
-        { label: '引用源', prop: 'source', width: '200px' },
-        { label: '引用文件', prop: 'path', open: true, preview: true },
+        { label: $tf('引用名'), prop: 'vars', width: '120px' },
+        { label: $tf('引用源'), prop: 'source', width: '200px' },
+        { label: $tf('引用文件'), prop: 'path', open: true, preview: true },
       ],
       data: extendData.using.map((m) => ({
         ...m,

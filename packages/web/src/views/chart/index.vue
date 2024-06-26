@@ -17,6 +17,7 @@ import { IChartExtendData } from '@/types/chart';
 import { getImport, getExport } from '@/api/remote-data';
 import type { ExportDepItem } from '@js-analyzer/core/types/index';
 import { TNode } from '@/components/Tree/Tree.d';
+import { $tf } from '@/language';
 
 const router = useRouter();
 const route = useRoute();
@@ -165,15 +166,15 @@ const getInfoByFile = async (fullPath: string) => {
   const data = res[fullPath];
   fileInfo.value = {
     baseList: [
-      { label: '文件名', value: fileName },
-      { label: '被引用次数', value: data.num },
-      { label: '绝对路径', value: sortPath },
+      { label: $tf('文件名'), value: fileName },
+      { label: $tf('被引用次数'), value: data.num },
+      { label: $tf('绝对路径'), value: sortPath },
     ],
     columns: [
-      { label: '导出变量', prop: 'vars', width: '200px' },
-      { label: '引用次数', prop: 'num', width: '80px' },
+      { label: $tf('导出变量'), prop: 'vars', width: '200px' },
+      { label: $tf('引用次数'), prop: 'num', width: '80px' },
       {
-        label: '引用文件',
+        label: $tf('引用文件'),
         prop: 'using',
         children: {
           preview: true,
@@ -183,7 +184,7 @@ const getInfoByFile = async (fullPath: string) => {
     ],
     data: await getExportInfo(fullPath),
     path: fullPath,
-    title: '文件详情',
+    title: $tf('文件详情'),
   };
 };
 </script>

@@ -1,6 +1,7 @@
 import * as Echart from 'echarts'
 import { getUnknown } from '../../api/remote-data';
 import { ImportDeps, ImportDepItem } from '@js-analyzer/core/types/index';
+import { $tf } from '@/language';
 
 let instance: any
 
@@ -13,8 +14,8 @@ interface INode {
 const getChartOption = (nodes: INode []): any => {
     return {
         title: {
-          text: '隐式引用',
-          subtext: '引用源未注册到项目中',
+          text: $tf('隐式引用'),
+          subtext: $tf('引用源未注册到项目中'),
           top: 'center',
           left: 'center'
         },
