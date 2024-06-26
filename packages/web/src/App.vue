@@ -3,14 +3,21 @@ import { ref, onBeforeMount } from 'vue';
 import { useRoute } from 'vue-router';
 import { getConfig } from '@/api/remote-data';
 import ProjectManage from './components/ProjectManage.vue';
+import {
+  $tf,
+  languageOptions,
+  switchLanguage,
+  currentLanguage,
+} from './language';
+import Select from './components/Select.vue';
 const route = useRoute();
 
 // relationship packages hot word unknowns
 const menus = [
-  { name: '关系图', icon: 'icon-drxx06', path: '/chart' },
-  { name: '包管理', icon: 'icon-packages', path: '/packages' },
-  { name: '热  词', icon: 'icon-hot', path: '/words' },
-  { name: '隐式引用', icon: 'icon-menu-unuse', path: '/unknowns' },
+  { name: $tf('关系图'), icon: 'icon-drxx06', path: '/chart' },
+  { name: $tf('包管理'), icon: 'icon-packages', path: '/packages' },
+  { name: $tf('热词'), icon: 'icon-hot', path: '/words' },
+  { name: $tf('隐式引用'), icon: 'icon-menu-unuse', path: '/unknowns' },
 ];
 
 const SIDEBAR_WIDTH = 120;
@@ -63,19 +70,25 @@ function openProject() {
         <IconBtn :icon="item.icon" :active="isActiveMenu(item.path)"></IconBtn>
         <span class="ml-1">{{ item.name }}</span>
       </router-link>
-      <div
-        class="absolute left-0 bottom-0 w-full py-8 px-2 flex-col justify-center"
-      >
-        <IconBtn
-          :icon="isDarkModel ? 'icon-settings-fill' : 'icon-settings-fill'"
-          class="mb-4"
-          @click="openProject"
-        ></IconBtn>
-        <IconBtn
-          :icon="isDarkModel ? 'icon-dark' : 'icon-baitianmoshi'"
-          @click="onSwitchTheme"
-        >
-        </IconBtn>
+      <div class="absolute left-0 bottom-0 w-full py-8 px-2">
+        <Select
+          :modelValue="currentLanguage"
+          :optionsList="languageOptions"
+          class="w-full"
+          @onChange="(v) => switchLanguage(v)"
+        ></Select>
+        <p class="my-4 flex">
+          <IconBtn
+            :icon="isDarkModel ? 'icon-settings-fill' : 'icon-settings-fill'"
+            @click="openProject"
+            class="mr-2"
+          ></IconBtn>
+          <IconBtn
+            :icon="isDarkModel ? 'icon-dark' : 'icon-baitianmoshi'"
+            @click="onSwitchTheme"
+          >
+          </IconBtn>
+        </p>
       </div>
     </ul>
     <div

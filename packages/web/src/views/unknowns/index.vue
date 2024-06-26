@@ -3,6 +3,7 @@ import InfoDrawer from '@/components/InfoDrawer.vue';
 import { ref, onMounted } from 'vue';
 import { getUnknown } from '../../api/remote-data';
 import { ImportDepItem } from '@js-analyzer/core/types/index';
+import { $tf } from '@/language';
 
 interface INode {
   name: string;
@@ -29,14 +30,14 @@ async function getList() {
 function openDetail(data: INode) {
   const extendData = data.extendData;
   info.value = {
-    tableTitle: '引用列表',
+    tableTitle: $tf('引用列表'),
     title: data.name,
-    baseList: [{ label: '引用次数', value: extendData.num }],
+    baseList: [{ label: $tf('引用次数'), value: extendData.num }],
     columns: [
-      { label: '引用名', prop: 'vars', width: '120px' },
-      { label: '引用源', prop: 'source', width: '200px' },
+      { label: $tf('引用名'), prop: 'vars', width: '120px' },
+      { label: $tf('引用源'), prop: 'source', width: '200px' },
       {
-        label: '引用文件',
+        label: $tf('引用文件'),
         prop: 'fullPath',
         open: true,
         preview: true,

@@ -1,6 +1,7 @@
 import * as Echart from 'echarts'
 import { getPackage } from '../../api/remote-data'
 import { ImportDeps, ImportDepItem } from '@js-analyzer/core/types/index';
+import { $tf } from '@/language';
 
 let instance: any
 
@@ -40,14 +41,14 @@ const getChartOption = ({ names, values }: NodeResult): any => {
                 const data = params.data.extendData
                 if (!data) return ''
                 return `
-                    文件名：${data.name} <br />
-                    被引用：${data.num} 次 <br />
-                    占比：${params.percent}% <br />
+                    ${$tf('文件名')}:${data.name} <br />
+                    ${$tf('被引用')}:${data.num} 次 <br />
+                    ${$tf('占比')}:${params.percent}% <br />
                 `
             }
         },
         series: [{
-            name: '包名',
+            name: $tf('包名'),
             type: 'pie',
             data: values,
             label: {

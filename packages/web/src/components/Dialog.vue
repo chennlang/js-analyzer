@@ -2,11 +2,12 @@
 import IconBtn from './icon-btn.vue';
 import { computed, watch } from 'vue';
 import { useIndex } from './z-index';
+import { $tf } from '@/language';
 const props = defineProps({
   modelValue: Boolean,
   title: {
     type: String,
-    default: '默认标题',
+    default: $tf('默认标题'),
   },
   width: {
     type: [String, Number],

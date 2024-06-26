@@ -4,6 +4,7 @@ import { getImport } from '../../api/remote-data'
 import { IChartExtendData, IChartNode, IChartLink } from '@/types/chart'
 import { ImportDeps, UsingItem} from '@js-analyzer/core/types/index';
 import { chartEmitter } from './event'
+import { $tf } from '@/language';
 
 
 const ID_PATH_MAP: Record<string, string> = {} // path ---> id
@@ -21,10 +22,10 @@ export enum CHART_VIEW_TYPE {
 }
 
 export const VIEW_NAME_MAP  = {
-    [CHART_VIEW_TYPE.file]: '被依赖视图',
-    [CHART_VIEW_TYPE.fileReversal]: '依赖视图',
-    [CHART_VIEW_TYPE.fileRelation]: '上游依赖图',
-    [CHART_VIEW_TYPE.folder]: '文件夹关系图',
+    [CHART_VIEW_TYPE.file]: $tf('被依赖视图'),
+    [CHART_VIEW_TYPE.fileReversal]: $tf('依赖视图'),
+    [CHART_VIEW_TYPE.fileRelation]: $tf('上游依赖图'),
+    [CHART_VIEW_TYPE.folder]: $tf('文件夹关系图'),
     [CHART_VIEW_TYPE.json]: 'JSON',
 } 
 
@@ -158,7 +159,7 @@ function createNodes (map: ImportDeps) {
         const chartValue = map[file].num
         list.push({
             id: createId(file),
-            name: fileName || '默认',
+            name: fileName || $tf('默认'),
             value: map[file].num,
             symbolSize: chartValue,
             category: 0,
@@ -219,14 +220,14 @@ function getChartOption (nodes: IChartNode[], links: IChartLink [], o?: OptionCo
                 const data = params.data.extendData as IChartExtendData
                 if (!data) return ''
                 return `
-                    文件名：${data.name} <br />
-                    被引用：${data.num} 次 <br />
-                    路径：${data.sortPath} <br />
+                    ${$tf('文件名')}: ${data.name} <br />
+                    ${$tf('被引用')}: ${data.num} <br />
+                    ${$tf('路径')}: ${data.sortPath}% <br />
                 `
             }
         },
         series: [{
-            name: '依赖分析视图',
+            name: $tf('依赖分析视图'),
             type: 'graph',
             layout: config.layout,
             draggable: config.draggable,

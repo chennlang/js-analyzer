@@ -21,7 +21,9 @@ watch(route, () => {
 </script>
 <template>
   <ul class="h-full overflow-y-auto relative py-4">
-    <li v-if="!queue.length" class="p-2 text-normal text-center">无历史数据</li>
+    <li v-if="!queue.length" class="p-2 text-normal text-center">
+      {$tf('无历史数据')}
+    </li>
     <li
       v-for="(item, index) in queue"
       :key="index"

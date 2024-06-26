@@ -2,6 +2,7 @@
 import { ref, watch, reactive } from 'vue';
 import Dialog from './Dialog.vue';
 import { updateConfig } from '@/api/remote-data';
+import { $tf } from '@/language';
 
 const props = defineProps({
   modelValue: Boolean,
@@ -10,7 +11,7 @@ const props = defineProps({
 const emit = defineEmits(['update:modelValue']);
 
 const localForm = reactive({
-  name: '我的项目',
+  name: $tf('我的项目'),
   root: '',
   alias: [{ name: '', map: '' }],
   ignore: '',
@@ -74,37 +75,39 @@ function submit() {
 </script>
 <template>
   <Dialog
-    title="项目管理"
+    :title="$tf('项目管理')"
     :model-value="props.modelValue"
     @update:model-value="(val) => emit('update:modelValue', val)"
   >
     <p class="text-active p-2 border border-active border-dashed mb-2">
-      请尽量完善以下信息，这能分析结果更加准确！
+      {{ $tf('请尽量完善以下信息，这能分析结果更加准确！') }}
     </p>
     <!-- <div class="flex mt-2">
-      <span class="bg-gray p-2 rounded-sm text-active font-bold">项目配置</span>
+      <span class="bg-gray p-2 rounded-sm text-active font-bold">{$tf('项目配置')}</span>
     </div> -->
     <div class="border p-4">
       <div class="flex items-center mt-5">
-        <label class="w-[120px] flex-shrink-0">项目名称</label>
+        <label class="w-[120px] flex-shrink-0">{{ $tf('项目名称') }}</label>
         <input
           v-model="localForm.name"
           type="text"
           class="ui-input ml-4"
-          placeholder="例如：我的项目"
+          :placeholder="$tf('例如：我的项目')"
         />
       </div>
       <div class="flex items-center mt-5">
-        <label class="w-[120px] flex-shrink-0">项目路径</label>
+        <label class="w-[120px] flex-shrink-0">{{ $tf('项目路径') }}</label>
         <input
           v-model="localForm.root"
           type="text"
           class="ui-input ml-4"
-          placeholder="例如：/user/app/my-project"
+          :placeholder="$tf('例如：/user/app/my-project')"
         />
       </div>
       <div class="flex items-center mt-5">
-        <label class="w-[120px] flex-shrink-0 self-start">别名映射</label>
+        <label class="w-[120px] flex-shrink-0 self-start">{{
+          $tf('别名映射')
+        }}</label>
         <div>
           <div
             v-for="(item, index) in localForm.alias"
@@ -114,14 +117,14 @@ function submit() {
               v-model="item.name"
               type="text"
               class="ui-input ml-4"
-              placeholder="别名,例如：@/"
+              :placeholder="$tf('别名,例如：@/')"
             />
             <span class="text-center w-40">~</span>
             <input
               v-model="item.map"
               type="text"
               class="ui-input"
-              placeholder="映射名，例如：src/"
+              :placeholder="$tf('映射名，例如：src/')"
             />
             <span class="ml-2 w-10 flex-shrink-0 text-center cursor-pointer">
               <IconBtn
@@ -136,14 +139,14 @@ function submit() {
         </div>
       </div>
       <div class="flex items-center mt-5">
-        <label class="w-[120px] flex-shrink-0">忽略路径</label>
+        <label class="w-[120px] flex-shrink-0">{{ $tf('忽略路径') }}</label>
         <textarea
           v-model="localForm.ignore"
           :rows="4"
           :cols="50"
           type="textarea"
           class="ui-textarea ml-4"
-          placeholder="逗号隔开，默认：node_modules,dist"
+          :placeholder="$tf('逗号隔开，默认：node_modules,dist')"
         />
       </div>
     </div>
@@ -153,7 +156,7 @@ function submit() {
         class="inline-block leading-8 px-2 cursor-pointer bg-gray"
         @click="submit"
       >
-        {{ submitting ? '更新中...' : '更新' }}
+        {{ submitting ? $tf('更新中...') : $tf('更新') }}
       </button>
     </div>
   </Dialog>
