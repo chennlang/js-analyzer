@@ -3,8 +3,12 @@
     <p style="text-align: center;"> 一个可视化可交互的前端依赖分析工具</p>
     <p style="text-align: center;">可用于 Vue React Svelte Angular Node 等任何前端项目</p>
     <p align='center'>
-<a href="https://github.com/chennlang/js-analyzer/blob/main/README.md">English</a> | <b>简体中文</b>
-</p>
+      <a href="https://github.com/chennlang/js-analyzer/blob/main/README.md">English</a>
+      |
+      <b>简体中文</b>
+      |
+      <a href="https://github.com/chennlang/js-analyzer/blob/main/README_jp.md">日本語</a>
+    </p>
 </div>
 
 https://github.com/chennlang/js-analyzer/assets/41711206/63797bfd-440c-401e-a0d8-833a9c8caef0
