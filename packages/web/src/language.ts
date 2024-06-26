@@ -6,7 +6,7 @@ const defaultLanguage = 'en'
 export const languageOptions = [
     { value: 'en', text: 'English' },
     { value: 'zh_CN', text: '中文(简体)' },
-    { value: 'ja', text: 'りゅ.' },
+    { value: 'ja', text: '日本語' },
 ]
 
 export const languageMap = {

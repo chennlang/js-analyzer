@@ -3,8 +3,12 @@
     <p style="text-align: center;">An interactive, visual front-end dependency analysis tool</p>
     <p style="text-align: center;">Applicable for any front-end project such as Vue, React, Svelte, Angular, Node</p>
     <p align='center'>
- <b>English</b> | <a href="https://github.com/chennlang/js-analyzer/blob/main/README_zh.md">简体中文</a>
-</p>
+      <b>English</b>
+      |
+      <a href="https://github.com/chennlang/js-analyzer/blob/main/README_zh.md">简体中文</a>
+      |
+      <a href="https://github.com/chennlang/js-analyzer/blob/main/README_jp.md">日本語</a>
+    </p>
 </div>
 
 https://github.com/chennlang/js-analyzer/assets/41711206/63797bfd-440c-401e-a0d8-833a9c8caef0
