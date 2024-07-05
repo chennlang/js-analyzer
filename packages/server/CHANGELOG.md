@@ -1,3 +1,10 @@
+## [2.3.1](https://github.com/chennlang/js-analyzer/compare/v2.3.0...v2.3.1) (2024-07-05)
+
+
+### Bug Fixes
+
+* 修复本地启动异常 ([4c83592](https://github.com/chennlang/js-analyzer/commit/4c83592c78f91d033b69fa3665cbfc968e619be7))
+
 # [2.3.0](https://github.com/chennlang/js-analyzer/compare/v2.2.6...v2.3.0) (2024-06-26)
 
 
