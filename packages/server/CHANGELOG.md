@@ -1,3 +1,16 @@
+# [2.3.0](https://github.com/chennlang/js-analyzer/compare/v2.2.6...v2.3.0) (2024-06-26)
+
+
+### Bug Fixes
+
+* remove test.json ([42610ff](https://github.com/chennlang/js-analyzer/commit/42610ffce91f9f31c51044f78f538e6711a356a0))
+
+
+### Features
+
+* 支持国际化语言 ([3989179](https://github.com/chennlang/js-analyzer/commit/3989179c2b678f629d77fe9dc1a3fff19f68407b))
+* 添加日语文档 ([e1adc1f](https://github.com/chennlang/js-analyzer/commit/e1adc1fe0c17e494a56ea7871619adfb5c157e40))
+
 ## [2.2.6](https://github.com/chennlang/js-analyzer/compare/v2.2.5...v2.2.6) (2024-06-17)
 
 
