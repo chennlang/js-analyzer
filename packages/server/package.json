@@ -8,7 +8,8 @@
     "utils",
     "analyzer",
     "js",
-    "management"
+    "management",
+    "dependencies"
   ],
   "license": "MIT",
   "scripts": {
