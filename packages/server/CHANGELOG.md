@@ -1,3 +1,22 @@
+# [2.4.0](https://github.com/chennlang/js-analyzer/compare/v2.3.1...v2.4.0) (2024-07-25)
+
+
+### Bug Fixes
+
+* Cannot find module '../libs/core-dist/js-analyzer-core.cjs.js' ([2a1c47f](https://github.com/chennlang/js-analyzer/commit/2a1c47f0e3413a765b6fc48309f8c1e2bf509b1b))
+* Cannot find module js-analyzer-core.cjs.js ([9889be4](https://github.com/chennlang/js-analyzer/commit/9889be477fdce3e00d5c3cc47a8721e243d5e34e))
+* no such file or directory:public/data ([4dd5219](https://github.com/chennlang/js-analyzer/commit/4dd5219005301d362a9b41a2494e907246d94465))
+* not find public/data ([86c28ab](https://github.com/chennlang/js-analyzer/commit/86c28ab1bd878746ecfd165dd2da96df2f3a9165))
+* remove publish script ([77107da](https://github.com/chennlang/js-analyzer/commit/77107da09e72244badafdfc1d17a60b1daf303df))
+* remove test.json ([0107ae3](https://github.com/chennlang/js-analyzer/commit/0107ae3af7d9afb36ba8ff55bf396324d029e0c6))
+* web page js file 404 ([b04c1e3](https://github.com/chennlang/js-analyzer/commit/b04c1e309abd171f70125a5a27c210af73c46f18))
+
+
+### Features
+
+* 支持国际化语言 ([a778058](https://github.com/chennlang/js-analyzer/commit/a778058751f36d954ca9d16d055f446a2e43a684))
+* 添加日语文档 ([58b40e7](https://github.com/chennlang/js-analyzer/commit/58b40e78579ad4e101a5ec86676340b30c83ba2e))
+
 ## [2.3.1](https://github.com/chennlang/js-analyzer/compare/v2.3.0...v2.3.1) (2024-07-05)
 
 
