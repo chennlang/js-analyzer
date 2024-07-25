@@ -173,28 +173,48 @@ function getFileDeps (file: string, config: LocalConfig): FileDeps {
         // script deps
         let scriptDeps = defEmptyDeps()
         if (descriptor.script || descriptor.scriptSetup) {
-            let content = ''
-            if (descriptor.script) {
-                content = descriptor.script.content
+            const script = descriptor.script || descriptor.scriptSetup || {};
+            const content = script.content || '';
+            const src = script.src
+            if( src ){
+                scriptDeps.importDeps.push({
+                    source: src,
+                    vars:"script@src",
+                    loc: script.loc
+                });
+            }else{
+                scriptDeps = scriptParser(content, file, config)
             }
-            if (descriptor.scriptSetup) {
-                content = descriptor.scriptSetup.content
-            }
-            scriptDeps = scriptParser(content, file, config)
         }
 
         // style deps
         const styleDeps = descriptor.styles.reduce((pre: FileDeps, style: any) => {
-            const d = styleParser(style.content, style.lang, config)
-            Object.assign(pre.importDeps, d.importDeps)
-            Object.assign(pre.exportInfo, d.exportInfo)
+            if(style.src){
+                pre.importDeps.push({
+                    source: style.src,
+                    vars:"style@src",
+                    loc: style.loc
+                });
+            }else{
+                const d = styleParser(style.content, style.lang, config)
+                pre.importDeps = pre.importDeps.concat(d.importDeps);
+                Object.assign(pre.exportInfo, d.exportInfo)
+            }
             return pre
         }, defEmptyDeps())
 
         // html deps
         let htmlDeps = defEmptyDeps()
         if (descriptor.template) {
-            htmlDeps = htmlParser(descriptor.template.content, file, config)
+            if(descriptor.template.src) {
+                htmlDeps.importDeps.push({
+                    source: descriptor.template.src,
+                    loc: descriptor.template.loc,
+                    vars: "template@src"
+                });
+            }else{
+                htmlDeps = htmlParser(descriptor.template.content, file, config)
+            }
         }
 
         return {
