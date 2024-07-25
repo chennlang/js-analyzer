@@ -1,6 +1,6 @@
 {
   "name": "@js-analyzer/server",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "main": "src/index.js",
   "author": "chennlang",
   "description": "一个可视化可交互的 Web 文件依赖分析工具",
@@ -13,10 +13,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "dev": "node ./bin/service.js  --config ./config.js",
-    "rm": "rm -rf ./pubblic/data/",
-    "login": "npm login  --registry=https://registry.npmjs.org/",
-    "publish": "npm publish  --registry=https://registry.npmjs.org/"
+    "dev": "node ./bin/service.js  --config ./config.js"
   },
   "bugs": {
     "url": "https://github.com/chennlang/js-analyzer/issues"
