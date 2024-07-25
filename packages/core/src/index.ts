@@ -189,9 +189,17 @@ function getFileDeps (file: string, config: LocalConfig): FileDeps {
 
         // style deps
         const styleDeps = descriptor.styles.reduce((pre: FileDeps, style: any) => {
-            const d = styleParser(style.content, style.lang, config)
-            pre.importDeps = pre.importDeps.concat(d.importDeps);
-            Object.assign(pre.exportInfo, d.exportInfo)
+            if(style.src){
+                pre.importDeps.push({
+                    source: style.src,
+                    vars:"style@src",
+                    loc: style.loc
+                });
+            }else{
+                const d = styleParser(style.content, style.lang, config)
+                pre.importDeps = pre.importDeps.concat(d.importDeps);
+                Object.assign(pre.exportInfo, d.exportInfo)
+            }
             return pre
         }, defEmptyDeps())
 
