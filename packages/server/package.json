@@ -13,10 +13,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "dev": "node ./bin/service.js  --config ./config.js",
-    "rm": "rm -rf ./pubblic/data/",
-    "login": "npm login  --registry=https://registry.npmjs.org/",
-    "publish": "npm publish  --registry=https://registry.npmjs.org/"
+    "dev": "node ./bin/service.js  --config ./config.js"
   },
   "bugs": {
     "url": "https://github.com/chennlang/js-analyzer/issues"
