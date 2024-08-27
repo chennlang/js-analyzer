@@ -11,7 +11,7 @@ export const languageOptions = [
 
 export const languageMap = {
     "关系图": { "en": "Graph", "ja": "関係図" },
-    "包管理": { "en": "Packages", "ja": "パッケージ管理" },
+    "包管理": { "en": "Packages", "ja": "パッケージ" },
     "热词": { "en": "Hot Words", "ja": "ホットワード" },
     "隐式引用": { "en": "Undeclared", "ja": "暗黙の参照" },
     "默认标题": { "en": "Default Title", "ja": "デフォルトのタイトル" },
