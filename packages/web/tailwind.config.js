@@ -10,6 +10,7 @@ module.exports = {
       backgroundColor: {
         active: 'var(--an-active-bg)',
         gray: 'var(--an-c-gray)',
+        light: 'var(--an-c-light)',
       },
     },
     textColor: {

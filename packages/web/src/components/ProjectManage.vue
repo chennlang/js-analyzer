@@ -75,6 +75,7 @@ function submit() {
 </script>
 <template>
   <Dialog
+    width="800px"
     :title="$tf('项目管理')"
     :model-value="props.modelValue"
     @update:model-value="(val) => emit('update:modelValue', val)"
@@ -85,7 +86,7 @@ function submit() {
     <!-- <div class="flex mt-2">
       <span class="bg-gray p-2 rounded-sm text-active font-bold">{$tf('项目配置')}</span>
     </div> -->
-    <div class="border p-4">
+    <div class="border p-4 text-normal">
       <div class="flex items-center mt-5">
         <label class="w-[120px] flex-shrink-0">{{ $tf('项目名称') }}</label>
         <input
@@ -153,7 +154,7 @@ function submit() {
     <div class="flex justify-end mt-4">
       <button
         :disabled="submitting"
-        class="inline-block leading-8 px-2 cursor-pointer bg-gray"
+        class="inline-block leading-8 px-2 cursor-pointer bg-gray text-normal"
         @click="submit"
       >
         {{ submitting ? $tf('更新中...') : $tf('更新') }}

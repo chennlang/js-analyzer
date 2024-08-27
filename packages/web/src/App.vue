@@ -20,24 +20,36 @@ const menus = [
   { name: $tf('隐式引用'), icon: 'icon-menu-unuse', path: '/unknowns' },
 ];
 
-const SIDEBAR_WIDTH = 120;
-
+const SIDEBAR_WIDTH = 140;
 const isActiveMenu = (path: string) => {
   return route.path === path;
 };
 
 const isDarkModel = ref(false);
-const onSwitchTheme = () => {
+
+const initTheme = () => {
+  const isDark = localStorage.getItem('theme') === 'dark';
+  onSwitchTheme(!isDark);
+};
+
+const handleSwitchTheme = () => {
   const isDark = document.body.classList.contains('theme-dark');
-  if (isDark) {
+  onSwitchTheme(!isDark);
+};
+const onSwitchTheme = (dark: boolean) => {
+  if (!dark) {
     isDarkModel.value = false;
     document.body.classList.remove('theme-dark');
+    localStorage.removeItem('theme');
   } else {
     isDarkModel.value = true;
     document.body.classList.add('theme-dark');
+    localStorage.setItem('theme', 'dark');
   }
 };
+
 onBeforeMount(() => {
+  initTheme();
   getConfig().then((res) => {
     window.CONFIG = res;
   });
@@ -68,7 +80,7 @@ function openProject() {
         :to="item.path"
       >
         <IconBtn :icon="item.icon" :active="isActiveMenu(item.path)"></IconBtn>
-        <span class="ml-1">{{ item.name }}</span>
+        <span class="ml-1 ui-text-justify flex-1">{{ item.name }}</span>
       </router-link>
       <div class="absolute left-0 bottom-0 w-full py-8 px-2">
         <Select
@@ -77,7 +89,7 @@ function openProject() {
           class="w-full"
           @onChange="(v) => switchLanguage(v)"
         ></Select>
-        <p class="my-4 flex">
+        <p class="my-4 flex justify-between">
           <IconBtn
             :icon="isDarkModel ? 'icon-settings-fill' : 'icon-settings-fill'"
             @click="openProject"
@@ -85,7 +97,7 @@ function openProject() {
           ></IconBtn>
           <IconBtn
             :icon="isDarkModel ? 'icon-dark' : 'icon-baitianmoshi'"
-            @click="onSwitchTheme"
+            @click="handleSwitchTheme"
           >
           </IconBtn>
         </p>
@@ -208,5 +220,17 @@ button[disabled] {
   border: 1px solid var(--an-c-light);
   border-radius: 4px;
   transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.ui-text-justify {
+  height: 30px;
+  line-height: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: justify;
+}
+.ui-text-justify::after {
+  display: inline-block;
+  width: 100%;
+  content: '';
 }
 </style>

@@ -126,6 +126,9 @@ importers:
       '@js-analyzer/core':
         specifier: '*'
         version: link:../core
+      '@vue/compiler-dom':
+        specifier: ^3.2.41
+        version: 3.3.4
       art-template:
         specifier: ^4.13.2
         version: 4.13.2
@@ -325,7 +328,7 @@ packages:
     resolution: {integrity: sha512-duORpUiYrEpzKIop6iNbjnwKLAKnJ47csTyRACyEmWj0QdUrm5aqNJGHSSEQSUAvNW0ojX0dOmK9dZduvkfeXA==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': 7.22.3
+      '@babel/types': 7.23.3
     dev: true
 
   /@babel/helper-annotate-as-pure@7.22.5:
@@ -472,7 +475,7 @@ packages:
     resolution: {integrity: sha512-Gl7sK04b/2WOb6OPVeNy9eFKeD3L6++CzL3ykPOWqTn08xgYYK0wz4TUh2feIImDXxcVW3/9WQ1NMKY66/jfZA==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': 7.22.3
+      '@babel/types': 7.23.3
     dev: true
 
   /@babel/helper-member-expression-to-functions@7.23.0:
@@ -528,7 +531,7 @@ packages:
     resolution: {integrity: sha512-HP59oD9/fEHQkdcbgFCnbmgH5vIQTJbxh2yf+CdM89/glUNnuzr87Q8GIjGEnOktTROemO0Pe0iPAYbqZuOUiA==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': 7.22.3
+      '@babel/types': 7.23.3
     dev: true
 
   /@babel/helper-optimise-call-expression@7.22.5:
@@ -568,7 +571,7 @@ packages:
       '@babel/helper-optimise-call-expression': 7.18.6
       '@babel/template': 7.21.9
       '@babel/traverse': 7.22.1
-      '@babel/types': 7.22.3
+      '@babel/types': 7.23.3
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -602,7 +605,7 @@ packages:
     resolution: {integrity: sha512-5y1JYeNKfvnT8sZcK9DVRtpTbGiomYIHviSP3OQWmDPU3DeH4a1ZlT/N2lyQ5P8egjcRaT/Y9aNqUxK0WsnIIg==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': 7.22.3
+      '@babel/types': 7.23.3
     dev: true
 
   /@babel/helper-skip-transparent-expression-wrappers@7.22.5:
@@ -693,7 +696,6 @@ packages:
     hasBin: true
     dependencies:
       '@babel/types': 7.23.3
-    dev: false
 
   /@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression@7.23.3(@babel/core@7.22.1):
     resolution: {integrity: sha512-iRkKcCqb7iGnq9+3G6rZ+Ciz5VywC4XNRHe57lKM+jOeYAoR0lVqdeeDRfh0tQcTfw/+vBhHn926FmQhLtlFLQ==}
@@ -1636,7 +1638,7 @@ packages:
       '@babel/helper-function-name': 7.21.0
       '@babel/helper-hoist-variables': 7.18.6
       '@babel/helper-split-export-declaration': 7.18.6
-      '@babel/parser': 7.22.3
+      '@babel/parser': 7.23.3
       '@babel/types': 7.22.3
       debug: 4.3.4
       globals: 11.12.0
@@ -3644,7 +3646,7 @@ packages:
   /@vue/compiler-core@3.2.31:
     resolution: {integrity: sha512-aKno00qoA4o+V/kR6i/pE+aP+esng5siNAVQ422TkBNM6qA4veXiZbSe8OTXHXquEi/f6Akc+nLfB4JGfe4/WQ==}
     dependencies:
-      '@babel/parser': 7.22.3
+      '@babel/parser': 7.23.3
       '@vue/shared': 3.2.31
       estree-walker: 2.0.2
       source-map: 0.6.1
@@ -3652,7 +3654,7 @@ packages:
   /@vue/compiler-core@3.2.47:
     resolution: {integrity: sha512-p4D7FDnQb7+YJmO2iPEv0SQNeNzcbHdGByJDsT4lynf63AFkOTFN07HsiRSvjGo0QrxR/o3d0hUyNCUnBU2Tig==}
     dependencies:
-      '@babel/parser': 7.22.3
+      '@babel/parser': 7.23.3
       '@vue/shared': 3.2.47
       estree-walker: 2.0.2
       source-map: 0.6.1
@@ -3688,7 +3690,7 @@ packages:
   /@vue/compiler-sfc@3.2.31:
     resolution: {integrity: sha512-748adc9msSPGzXgibHiO6T7RWgfnDcVQD+VVwYgSsyyY8Ans64tALHZANrKtOzvkwznV/F4H7OAod/jIlp/dkQ==}
     dependencies:
-      '@babel/parser': 7.22.3
+      '@babel/parser': 7.23.3
       '@vue/compiler-core': 3.2.31
       '@vue/compiler-dom': 3.2.31
       '@vue/compiler-ssr': 3.2.31
@@ -3754,7 +3756,7 @@ packages:
   /@vue/reactivity-transform@3.2.31:
     resolution: {integrity: sha512-uS4l4z/W7wXdI+Va5pgVxBJ345wyGFKvpPYtdSgvfJfX/x2Ymm6ophQlXXB6acqGHtXuBqNyyO3zVp9b1r0MOA==}
     dependencies:
-      '@babel/parser': 7.22.3
+      '@babel/parser': 7.23.3
       '@vue/compiler-core': 3.2.31
       '@vue/shared': 3.2.31
       estree-walker: 2.0.2
@@ -3763,7 +3765,7 @@ packages:
   /@vue/reactivity-transform@3.2.47:
     resolution: {integrity: sha512-m8lGXw8rdnPVVIdIFhf0LeQ/ixyHkH5plYuS83yop5n7ggVJU+z5v0zecwEnX7fa7HNLBhh2qngJJkxpwEEmYA==}
     dependencies:
-      '@babel/parser': 7.22.3
+      '@babel/parser': 7.23.3
       '@vue/compiler-core': 3.2.47
       '@vue/shared': 3.2.47
       estree-walker: 2.0.2
@@ -3773,7 +3775,7 @@ packages:
   /@vue/reactivity-transform@3.3.4:
     resolution: {integrity: sha512-MXgwjako4nu5WFLAjpBnCj/ieqcjE2aJBINUNQzkZQfzIZA4xn+0fV1tIYBJvvva3N3OvKGofRLvQIwEQPpaXw==}
     dependencies:
-      '@babel/parser': 7.22.3
+      '@babel/parser': 7.23.3
       '@vue/compiler-core': 3.3.4
       '@vue/shared': 3.3.4
       estree-walker: 2.0.2

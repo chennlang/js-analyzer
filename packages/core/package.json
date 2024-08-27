@@ -1,6 +1,6 @@
 {
   "name": "@js-analyzer/core",
-  "version": "1.0.12",
+  "version": "1.0.2",
   "main": "dist/js-analyzer-core.cjs.js",
   "types": "dist/js-analyzer-core.d.ts",
   "author": "chennlang",
@@ -10,8 +10,8 @@
     "dev": "rollup --config rollup.config.ts --watch",
     "build": "rollup --config rollup.config.ts",
     "lint": "eslint ./src/index.ts",
-    "login": "npm login  --registry=https://registry.npmjs.org/",
-    "publish": "npm publish  --registry=https://registry.npmjs.org/ --tag beta"
+    "c-l": "npm login  --registry=https://registry.npmjs.org/",
+    "c-p": "npm publish  --registry=https://registry.npmjs.org/"
   },
   "files": [
     "dist"

@@ -13,6 +13,7 @@ import {
 } from './echart';
 import { useCodePreview } from '../../components/CodePreview/use-code-preview';
 import Select from '../../components/Select.vue';
+import SplitLine from '../../components/SplitLine.vue';
 
 const emit = defineEmits([
   'node-click',
@@ -72,7 +73,7 @@ const options = Object.entries(VIEW_NAME_MAP)
     <div
       class="absolute left-0 top-4 z-10 w-full flex items-center justify-between px-10 h-8 opacity-50"
     >
-      <div class="bg-gray rounded-lg px-4 h-8 leading-8">
+      <div class="flex items-center bg-gray rounded-lg px-4 py-1">
         <Select
           v-model="currentViewType"
           :optionsList="options"
@@ -86,33 +87,23 @@ const options = Object.entries(VIEW_NAME_MAP)
               switchChartView(v);
             }
           "
-        ></Select>
-      </div>
-      <div class="text-normal">{{ viewName }}</div>
-      <div class="bg-gray rounded-lg px-4 h-8 leading-8">
+        >
+        </Select>
+        <SplitLine />
         <IconBtn
           icon="icon-reset"
           :title="$tf('重置')"
           @click="restoreChart"
         ></IconBtn>
+        <SplitLine />
         <IconBtn
           icon="icon-wenzi"
-          class="ml-4"
           :title="$tf('显示节点文字')"
           @click="switchChartLabel"
         ></IconBtn>
-        <!-- <IconBtn
-          icon="icon-huanyuanhuabu"
-          class="ml-4"
-          title=$tf("缩放重置")
-          @click="reRoomChart"
-        ></IconBtn> -->
-        <!-- <IconBtn
-          icon="icon-10json"
-          class="ml-4"
-          title="JSON"
-          @click="$emit('action-show-json')"
-        ></IconBtn> -->
+      </div>
+      <div class="text-normal">{{ viewName }}</div>
+      <div class="bg-gray rounded-lg px-4 py-1">
         <IconBtn
           v-if="
             [
@@ -123,9 +114,9 @@ const options = Object.entries(VIEW_NAME_MAP)
           "
           icon="icon-wenjianxinxi"
           :title="$tf('文件详情')"
-          class="ml-4"
           @click="$emit('action-show-file-detail')"
         ></IconBtn>
+        <SplitLine />
         <IconBtn
           v-if="
             [
@@ -135,7 +126,6 @@ const options = Object.entries(VIEW_NAME_MAP)
             ].includes(currentViewType)
           "
           icon="icon-preview"
-          class="ml-4"
           :title="$tf('代码预览')"
           @click="handleCodePreview"
         ></IconBtn>
