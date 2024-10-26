@@ -37,7 +37,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PUBLISH_GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.PUBLISH_NPM_TOKEN }}
-        run: npx semantic-release
+        run: |
+          npm ci
+          npm run build
+          npx semantic-release
         working-directory: packages/core    
 
       # 执行 semantic-release 发布包
