@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "rollup --config rollup.config.ts --watch",
-    "build": "rollup --config rollup.config.ts",
+    "build": "rollup --config rollup.config.ts  --watch",
     "lint": "eslint ./src/index.ts",
     "c-l": "npm login  --registry=https://registry.npmjs.org/",
     "c-p": "npm publish  --registry=https://registry.npmjs.org/"
@@ -60,6 +60,7 @@
     "postcss-sass": "^0.5.0",
     "postcss-scss": "^4.0.4",
     "tslib": "^2.4.0",
+    "upath": "^2.0.1",
     "winston": "^3.5.1"
   }
 }
