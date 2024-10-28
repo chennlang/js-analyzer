@@ -38,8 +38,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PUBLISH_GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.PUBLISH_NPM_TOKEN }}
         run: |
-          npm ci
-          npm run build
+          pnpm install
+          pnpm run build
           npx semantic-release
         working-directory: packages/core    
 
