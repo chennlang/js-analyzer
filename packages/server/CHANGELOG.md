@@ -1,3 +1,17 @@
+## [2.5.1](https://github.com/chennlang/js-analyzer/compare/v2.5.0...v2.5.1) (2024-10-26)
+
+
+### Bug Fixes
+
+* 不支持 win & 局部配置支持相对路径 ([dea2ab7](https://github.com/chennlang/js-analyzer/commit/dea2ab72c57fa4d95957ebdac1e01c2e42d1782b))
+
+# [2.5.0](https://github.com/chennlang/js-analyzer/compare/v2.4.0...v2.5.0) (2024-08-27)
+
+
+### Features
+
+* application interface style optimization ([0aeb82e](https://github.com/chennlang/js-analyzer/commit/0aeb82e6ee757fce131fdc5d48bbff9c093a34e7))
+
 # [2.4.0](https://github.com/chennlang/js-analyzer/compare/v2.3.1...v2.4.0) (2024-07-25)
 
 
