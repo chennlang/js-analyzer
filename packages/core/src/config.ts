@@ -1,5 +1,5 @@
 
-const path = require("path")
+const path = require("upath")
 import { Config } from '../types/index'
 
 const config: Config = {
