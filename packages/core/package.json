@@ -1,6 +1,6 @@
 {
   "name": "@js-analyzer/core",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "main": "dist/js-analyzer-core.cjs.js",
   "types": "dist/js-analyzer-core.d.ts",
   "author": "chennlang",

@@ -1,6 +1,5 @@
 const fs = require('fs');
-const path = require("path")
-const upath = require('upath')
+const path = require("upath")
 
 const fg = require('fast-glob')
 import injectExportQuoteNum from './inject-export-quote-num'
@@ -229,7 +228,7 @@ function getFileDeps (file: string, config: LocalConfig): FileDeps {
     }
     logger.error(`getFileDeps：未被处理的文件格式${extname}`)
     return defEmptyDeps()
-}
+} 
 
 
 /**
@@ -303,7 +302,7 @@ function injectFileDeps(
  * @returns 
  */
 function getNormalizeFullPath (root: string) {
-    const p = upath.normalize(root)
+    const p = path.normalize(root)
     return path.isAbsolute(p) ? p : path.join(process.cwd(), p)
 }
 
