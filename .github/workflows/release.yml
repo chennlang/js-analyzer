@@ -30,6 +30,7 @@ jobs:
       - name: 构建 web app
         working-directory: ./packages/web
         run: |
+          npm install -g pnpm@latest-8
           pnpm install --no-frozen-lockfile
           pnpm run build
           cp -r dist/* ../server/libs/web-dist/
