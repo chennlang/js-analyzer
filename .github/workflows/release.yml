@@ -1,0 +1,49 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+  packages: write
+  id-token: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 签出代码
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: 安装 nodejs
+        uses: actions/setup-node@v2.5.2
+        with:
+          node-version: "20.8.1"
+
+      - name: 构建 web app
+        working-directory: ./packages/web
+        run: |
+          pnpm install --no-frozen-lockfile
+          pnpm run build
+          cp -r dist/* ../server/libs/web-dist/
+
+      - name: 发布 core npm 包
+        env:
+          GITHUB_TOKEN: ${{ secrets.PUBLISH_GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.PUBLISH_NPM_TOKEN }}
+        run: npx semantic-release
+        working-directory: packages/core
+
+      - name: 发布 server npm 包
+        env:
+          GITHUB_TOKEN: ${{ secrets.PUBLISH_GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.PUBLISH_NPM_TOKEN }}
+        run: npx semantic-release
+        working-directory: packages/server      
