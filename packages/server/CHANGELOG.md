@@ -1,3 +1,10 @@
+## [2.5.2](https://github.com/chennlang/js-analyzer/compare/v2.5.1...v2.5.2) (2024-10-29)
+
+
+### Bug Fixes
+
+* **core:** package 更新 ([af108aa](https://github.com/chennlang/js-analyzer/commit/af108aa4db2df6396bd2dcb3aae2c5c99510b7a0))
+
 ## [2.5.1](https://github.com/chennlang/js-analyzer/compare/v2.5.0...v2.5.1) (2024-10-26)
 
 
