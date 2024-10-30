@@ -92,7 +92,7 @@ js-analyzer.js
 ```js
 module.exports = {
   // ルートディレクトリ
-  root: "/Users/ll/Downloads/react-admin-master",
+  root: "./",
   // 分析不要なディレクトリ
   ignore: ["**/node_modules/**", "**/dist/**"],
   // 拡張子なしのファイルを解析する場合の優先順位

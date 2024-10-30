@@ -90,7 +90,7 @@ js-analyzer.js
 ```js
 module.exports = {
   // Root directory
-  root: "/Users/ll/Downloads/react-admin-master",
+  root: "./",
   // Directories that do not need to be analyzed
   ignore: ["**/node_modules/**", "**/dist/**"],
   // Order of preference when parsing files without extensions

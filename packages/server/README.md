@@ -116,7 +116,7 @@ js-analyzer.js
 ```js
 module.exports = {
   // 根目录
-  root: "/Users/ll/Downloads/react-admin-master",
+  root: "./",
   // 不需要分析的目录
   ignore: ["**/node_modules/**", "**/dist/**"],
   // 解析没有扩展名的文件时优先查找顺序
