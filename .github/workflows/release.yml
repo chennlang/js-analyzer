@@ -39,12 +39,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PUBLISH_GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.PUBLISH_NPM_TOKEN }}
-        run: npx semantic-release
+        run: |
+          npm cache clean --force
+          npx semantic-release
         working-directory: packages/core
 
       - name: 发布 server npm 包
         env:
           GITHUB_TOKEN: ${{ secrets.PUBLISH_GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.PUBLISH_NPM_TOKEN }}
-        run: npx semantic-release
+        run: |
+          npm cache clean --force
+          npx semantic-release
         working-directory: packages/server      
