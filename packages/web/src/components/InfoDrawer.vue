@@ -1,6 +1,7 @@
 <script lang="tsx">
 import { openEditor } from '../api/remote-data';
 import { $tf } from '@/language';
+import { generateUUID } from '@/utils/uuid';
 </script>
 <script lang="tsx" setup>
 import { ref, defineComponent, computed, PropType } from 'vue';
@@ -98,8 +99,18 @@ const props = defineProps({
 
 const show = computed(() => props.modelValue);
 const baseList = computed(() => props.baseList);
-const data = computed(() => props.data);
-const columns = computed(() => props.columns);
+const data = computed(() =>
+  props.data.map((m) => ({
+    ...m,
+    key: generateUUID(),
+  })),
+);
+const columns = computed(() =>
+  props.columns.map((m) => ({
+    ...m,
+    key: generateUUID(),
+  })),
+);
 const title = computed(() => props.title);
 const path = computed(() => props.path);
 const emit = defineEmits(['update:modelValue']);
@@ -145,7 +156,7 @@ const onClose = () => {
             <tr>
               <th
                 v-for="(column, index) in columns"
-                :key="index"
+                :key="column.key"
                 :style="{
                   width: column.width || 'auto',
                 }"
@@ -156,12 +167,12 @@ const onClose = () => {
             </tr>
             <tr
               v-for="(item, index) in data"
-              :key="index"
+              :key="item.key"
               class="border-t border-gray"
             >
               <td
                 v-for="(column, index2) in columns"
-                :key="index2"
+                :key="column.key"
                 class="break-all py-2 px-2 text-gray-500 text-xs align-top"
               >
                 <template v-if="column.children">
