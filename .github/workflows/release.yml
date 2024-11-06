@@ -35,14 +35,14 @@ jobs:
           pnpm run build
           cp -r dist/* ../server/libs/web-dist/
 
-      - name: 发布 core npm 包
-        env:
-          GITHUB_TOKEN: ${{ secrets.PUBLISH_GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.PUBLISH_NPM_TOKEN }}
-        run: |
-          npm cache clean --force
-          npx semantic-release
-        working-directory: packages/core
+      # - name: 发布 core npm 包
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.PUBLISH_GH_TOKEN }}
+      #     NPM_TOKEN: ${{ secrets.PUBLISH_NPM_TOKEN }}
+      #   run: |
+      #     npm cache clean --force
+      #     npx semantic-release
+      #   working-directory: packages/core
 
       - name: 发布 server npm 包
         env:
@@ -51,4 +51,4 @@ jobs:
         run: |
           npm cache clean --force
           npx semantic-release
-        working-directory: packages/server      
+        working-directory: packages/server
