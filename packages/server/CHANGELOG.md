@@ -1,3 +1,10 @@
+## [2.6.2](https://github.com/chennlang/js-analyzer/compare/v2.6.1...v2.6.2) (2024-11-06)
+
+
+### Bug Fixes
+
+* 去除 core 自动发布，改为手动发布 ([320bf93](https://github.com/chennlang/js-analyzer/commit/320bf938bb17ba1f0738fd7c6ad997b1bb0daa00))
+
 ## [2.5.1](https://github.com/chennlang/js-analyzer/compare/v2.5.0...v2.5.1) (2024-10-26)
 
 
