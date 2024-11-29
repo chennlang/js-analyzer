@@ -1,3 +1,10 @@
+# [2.7.0](https://github.com/chennlang/js-analyzer/compare/v2.6.2...v2.7.0) (2024-11-29)
+
+
+### Features
+
+* update node styles & add switch node display level ([3c6518d](https://github.com/chennlang/js-analyzer/commit/3c6518d49fd6ec308b9ffa430436a25b61b1bc58))
+
 ## [2.6.2](https://github.com/chennlang/js-analyzer/compare/v2.6.1...v2.6.2) (2024-11-06)
 
 
