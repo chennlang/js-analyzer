@@ -5,7 +5,10 @@
     :style="{
       width: width,
     }"
-    class="bg-gray border-gray active:border-active rounded text-normal h-7 leading-7 cursor-pointer"
+    :class="[
+      'bg-gray border-gray active:border-active rounded text-normal h-7 leading-7 cursor-pointer',
+      { 'cursor-not-allowed text-light': disabled },
+    ]"
     @change="handleChange"
   >
     <option

@@ -47,7 +47,7 @@ const react = computed(() => {
           'text-normal': !props.active,
         },
       ]"
-      class="inline-block text-xs iconfont hover:text-active"
+      class="inline-block text-normal text-xs iconfont hover:text-active"
     ></i>
     <slot />
   </span>

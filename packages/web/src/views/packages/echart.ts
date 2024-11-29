@@ -37,7 +37,6 @@ const getChartOption = ({ names, values }: NodeResult): any => {
         tooltip: {
             trigger: 'item',
             formatter: (params: any) => {
-                console.log(params, 'params')
                 const data = params.data.extendData
                 if (!data) return ''
                 return `

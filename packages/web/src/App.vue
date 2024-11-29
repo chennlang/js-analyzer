@@ -10,6 +10,7 @@ import {
   currentLanguage,
 } from './language';
 import Select from './components/Select.vue';
+import { switchChartTheme } from './views/chart/echart';
 const route = useRoute();
 
 // relationship packages hot word unknowns
@@ -29,7 +30,7 @@ const isDarkModel = ref(false);
 
 const initTheme = () => {
   const isDark = localStorage.getItem('theme') === 'dark';
-  onSwitchTheme(!isDark);
+  onSwitchTheme(isDark);
 };
 
 const handleSwitchTheme = () => {
@@ -37,6 +38,7 @@ const handleSwitchTheme = () => {
   onSwitchTheme(!isDark);
 };
 const onSwitchTheme = (dark: boolean) => {
+  switchChartTheme(dark ? 'dark' : 'default');
   if (!dark) {
     isDarkModel.value = false;
     document.body.classList.remove('theme-dark');
@@ -121,7 +123,7 @@ function openProject() {
 :root {
   --an-c-active: #ff7f50;
   --an-c-active-light: #e3d6d2;
-  --an-c-normal: #606266;
+  --an-c-normal: #434343;
   --an-c-black: #1a1a1a;
   --an-c-gray: #f0f2f7;
   --an-c-white: #ffffff;

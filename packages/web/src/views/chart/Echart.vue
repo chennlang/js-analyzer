@@ -9,6 +9,7 @@ import {
   VIEW_NAME_MAP,
   switchChartView,
   switchChartLabel,
+  switchChartLabelLevel,
   getActiveFile,
 } from './echart';
 import { useCodePreview } from '../../components/CodePreview/use-code-preview';
@@ -30,6 +31,7 @@ function handleCodePreview() {
 
 const viewName = computed(() => VIEW_NAME_MAP[currentViewType.value]);
 const currentViewType = ref(CHART_VIEW_TYPE.file);
+const showTextLevel = ref(1);
 
 chartEmitter.on('viewChange', (type) => {
   currentViewType.value = type;
@@ -90,17 +92,38 @@ const options = Object.entries(VIEW_NAME_MAP)
         >
         </Select>
         <SplitLine />
+        <!-- <span class="text-normal">节点层级</span> -->
+        <Select
+          v-model="showTextLevel"
+          :disabled="
+            [CHART_VIEW_TYPE.folder, CHART_VIEW_TYPE.json].includes(
+              currentViewType,
+            )
+          "
+          :optionsList="[
+            { text: '节点层级：不显示', value: 0 },
+            { text: '节点层级：1', value: 1 },
+            { text: '节点层级：2', value: 2 },
+            { text: '节点层级：3', value: 3 },
+          ]"
+          @onChange="
+            (v) => {
+              switchChartLabelLevel(v);
+            }
+          "
+        >
+        </Select>
+        <SplitLine />
         <IconBtn
           icon="icon-reset"
           :title="$tf('重置')"
           @click="restoreChart"
         ></IconBtn>
-        <SplitLine />
-        <IconBtn
+        <!-- <IconBtn
           icon="icon-wenzi"
           :title="$tf('显示节点文字')"
           @click="switchChartLabel"
-        ></IconBtn>
+        ></IconBtn> -->
       </div>
       <div class="text-normal">{{ viewName }}</div>
       <div class="bg-gray rounded-lg px-4 py-1">

@@ -12,6 +12,16 @@ let instance: EChart.ECharts | null
 let origin_nodes: IChartNode []
 let origin_links: IChartLink []
 let active_file = ''
+let name_level = 1
+
+const theme = {
+    dark: {
+        labelColor: '#fff',
+    },
+    default: {
+        labelColor: '#000',
+    }
+}
 
 export enum CHART_VIEW_TYPE {
     file = 1, // 单文件文件被依赖视图
@@ -99,8 +109,8 @@ function setActiveNode (nodes: IChartNode [], id: string, options: any) {
                 color: '#FF5F5F'
             }
         } 
-        node.label.show = true
-        node.name = node.extendData.fullPath.split('/').slice(-1).join('/')
+        // node.label.show = true
+        // node.name = node.extendData.fullPath.split('/').slice(-name_level).join('/')
     })
 }
 
@@ -154,8 +164,9 @@ function getColorByFileType (fileName: string = '') {
 // generate EChart nodes
 function createNodes (map: ImportDeps) {
     const list: IChartNode[] = []
+    const styles = localStorage.getItem('theme') === 'dark' ? theme['dark'] : theme['default'];
     Object.keys(map).forEach(file => {
-        const fileName = file.split('/').pop() || ''
+        const fileName = file.split('/').slice(-name_level).join('/') || ''
         const chartValue = map[file].num
         list.push({
             id: createId(file),
@@ -167,14 +178,16 @@ function createNodes (map: ImportDeps) {
                 color: getColorByFileType(fileName)
             },
             label: {
-                show: map[file].num > 10
+                // show: map[file].num > 10
+                color: styles.labelColor,
+                show: true
             },
             extendData: {
                 ...map[file],
                 fullPath: file,
                 sortPath: file.replace(window.CONFIG.root, ''),
-                name: fileName,
-                ext: fileName.split('.').pop(),
+                name: file.split('/').pop(),
+                ext: file.split('/').pop()?.split('.').pop() ?? '',
                 num: map[file].num
             },
         })
@@ -374,6 +387,7 @@ function updateChartOption (option: any) {
             links: option.series[0]!.links,
         })
     }
+    switchChartLabelLevel()
 }
 
 /**
@@ -391,6 +405,39 @@ export function switchChartLabel () {
 
     instance?.setOption(option)
 }
+
+/**
+ * 切换 label 显示层级
+ */
+export function switchChartLabelLevel (level: number = name_level) {
+    name_level = level
+    const option = instance?.getOption() ?? {}
+    if (option.series && Array.isArray(option.series) && option.series[0]) {
+        option.series[0].label.show = true
+        option.series[0].data.forEach((node: any) => {
+            node.label.show = level !== 0
+            node.name  = node.extendData.fullPath.split('/').slice(-name_level).join('/')
+        })
+    }
+
+    instance?.setOption(option)
+}
+
+/**
+ * 切换主题
+ */
+export function switchChartTheme (type: 'dark' | 'default') {
+    const option = instance?.getOption() ?? {}
+    if (option.series && Array.isArray(option.series) && option.series[0]) {
+        option.series[0].label.show = true
+        option.series[0].data.forEach((node: any) => {
+            node.label.color = theme[type].labelColor
+        })
+    }
+
+    instance?.setOption(option)
+}
+
 
 /**
  * 切换视图

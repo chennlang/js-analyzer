@@ -64,7 +64,6 @@ const filterTreeData = (matchText = '', num = -1) => {
     const isMatchNum =
       num === -1 ? true : num === (fileImportInfo.value[path]?.num ?? 0);
 
-    console.log(isMatchNum, path);
     return isMatchKeyWords && isMatchNum;
   });
 
@@ -84,7 +83,6 @@ const filterTreeData = (matchText = '', num = -1) => {
 // 输入监听
 let timer: any = null;
 watch([() => treeInfo.filterText, () => treeInfo.citedNum], () => {
-  console.log('123');
   if (timer) {
     clearTimeout(timer);
     timer = null;
