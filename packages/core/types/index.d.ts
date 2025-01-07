@@ -63,7 +63,8 @@ export interface Config {
     alias?: Record<string, string>,
     path?: string,
     outputPath?: string,
-    plugins?: Plugin []
+    plugins?: Plugin [],
+    ide?: string
 }
 
 

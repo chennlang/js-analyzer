@@ -23,6 +23,7 @@ const defaultConfig = {
     openBrowser: false,
   },
   plugins: [AnalyPluginNames],
+  ide: "code"
 };
 
 program
