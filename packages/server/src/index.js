@@ -58,7 +58,7 @@ router.put("/config", async (ctx) => {
 // open file in editor
 router.get("/launch", async (ctx) => {
   const file = ctx.query.file;
-  launch(file, "code", (name, error) => {
+  launch(file, app.context.config.ide, (name, error) => {
     ctx.body = error;
   });
   ctx.body = "ok";

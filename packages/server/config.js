@@ -16,4 +16,5 @@ module.exports = {
     "~@p/": "/packages/",
   },
   plugins: [],
+  ide: "cursor"
 };
