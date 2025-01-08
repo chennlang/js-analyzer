@@ -1,3 +1,10 @@
+# [2.8.0](https://github.com/chennlang/js-analyzer/compare/v2.7.0...v2.8.0) (2025-01-08)
+
+
+### Features
+
+* 切换打开编辑器的插件&支持在config中配置使用什么编辑器打开，默认值为vscode ([45dc22e](https://github.com/chennlang/js-analyzer/commit/45dc22e4ce6c95f399697ebe7f394130e5eec92e))
+
 # [2.7.0](https://github.com/chennlang/js-analyzer/compare/v2.6.2...v2.7.0) (2024-11-29)
 
 

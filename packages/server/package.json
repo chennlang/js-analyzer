@@ -1,6 +1,6 @@
 {
   "name": "@js-analyzer/server",
-  "version": "2.7.0",
+  "version": "2.8.0",
   "main": "src/index.js",
   "author": "chennlang",
   "description": "一个可视化可交互的 Web 文件依赖分析工具",
