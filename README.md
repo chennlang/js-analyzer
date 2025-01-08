@@ -30,8 +30,8 @@ https://github.com/chennlang/js-analyzer/assets/41711206/63797bfd-440c-401e-a0d8
 
 Thank you to the following contributors for supporting this project! 🎉
 
-- [@mannymu]([https://github.com/username1](https://github.com/mannymu))
-- [@rxx-qingyi]([https://github.com/username2](https://github.com/rxx-qingyi))
+- [@mannymu](https://github.com/mannymu)
+- [@rxx-qingyi](https://github.com/rxx-qingyi)
 
 _✨ Thank you for your contributions!_
 
