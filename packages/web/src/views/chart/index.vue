@@ -208,7 +208,7 @@ const getInfoByFile = async (fullPath: string) => {
     <!-- chart -->
     <div ref="rightChartContainer" class="chart-container h-full float-left">
       <div
-        class="px-5 w-full h-10 leading-10 flex text-normal justify-between items-center border-b border-gray"
+        class="px-5 w-full h-10 leading-10 flex text-light justify-between items-center border-b border-gray"
       >
         <span>{{ currFile }}</span>
       </div>

@@ -21,7 +21,6 @@ const menus = [
   { name: $tf('隐式引用'), icon: 'icon-menu-unuse', path: '/unknowns' },
 ];
 
-const SIDEBAR_WIDTH = 140;
 const isActiveMenu = (path: string) => {
   return route.path === path;
 };
@@ -65,50 +64,64 @@ function openProject() {
 
 <template>
   <!-- menus -->
-  <div class="w-full h-full">
-    <ul
-      :style="`width: ${SIDEBAR_WIDTH}px`"
-      class="relative float-left menu-bar h-full text-sm border-r border-solid border-gray"
-    >
-      <router-link
-        v-for="(item, index) in menus"
-        class="flex items-center w-full text-center h-10 cursor-pointer hover:text-active px-2 py-1"
-        :class="
-          isActiveMenu(item.path)
-            ? 'text-active bg-active rounded-md'
-            : 'text-normal'
-        "
-        :key="index"
-        :to="item.path"
-      >
-        <IconBtn :icon="item.icon" :active="isActiveMenu(item.path)"></IconBtn>
-        <span class="ml-1 ui-text-justify flex-1">{{ item.name }}</span>
-      </router-link>
-      <div class="absolute left-0 bottom-0 w-full py-8 px-2">
+  <div class="flex flex-col w-full h-full">
+    <div class="flex justify-between border-b border-solid border-gray">
+      <div class="text-normal flex items-center px-4 text-xl">
+        🧬 Js Analyzer
+      </div>
+      <ul class="menu-bar text-sm py-1 flex-shrink-0 flex justify-center">
+        <router-link
+          v-for="(item, index) in menus"
+          class="flex items-center text-center h-8 cursor-pointer hover:text-active px-2 relative"
+          :class="
+            isActiveMenu(item.path)
+              ? 'text-active bg-active rounded-md'
+              : 'text-normal'
+          "
+          :key="index"
+          :to="item.path"
+        >
+          <IconBtn
+            :icon="item.icon"
+            :active="isActiveMenu(item.path)"
+          ></IconBtn>
+          <span class="ml-1 ui-text-justify flex-1">{{ item.name }}</span>
+          <div
+            v-if="index !== menus.length - 1"
+            style="width: 1px; top: 8px"
+            class="absolute right-0 h-4 bg-gray"
+          ></div>
+        </router-link>
+      </ul>
+      <div class="flex items-center text-sm">
         <Select
           :modelValue="currentLanguage"
           :optionsList="languageOptions"
-          class="w-full"
+          class="w-full mr-4"
           @onChange="(v) => switchLanguage(v)"
         ></Select>
-        <p class="my-4 flex justify-between">
-          <IconBtn
-            :icon="isDarkModel ? 'icon-settings-fill' : 'icon-settings-fill'"
-            @click="openProject"
-            class="mr-2"
-          ></IconBtn>
+        <p class="flex justify-between">
           <IconBtn
             :icon="isDarkModel ? 'icon-dark' : 'icon-baitianmoshi'"
+            class="mr-4"
             @click="handleSwitchTheme"
           >
           </IconBtn>
+          <IconBtn
+            :icon="isDarkModel ? 'icon-settings-fill' : 'icon-settings-fill'"
+            @click="openProject"
+            class="mr-4"
+          ></IconBtn>
+          <a
+            href="https://github.com/chennlang/js-analyzer"
+            class="text-normal text-sm mr-4"
+            target="_blank"
+            >Github</a
+          >
         </p>
       </div>
-    </ul>
-    <div
-      class="float-left h-full"
-      :style="`width: calc(100% - ${SIDEBAR_WIDTH}px)`"
-    >
+    </div>
+    <div class="w-full h-full flex-1">
       <router-view v-slot="{ Component }">
         <keep-alive>
           <component :is="Component" />
