@@ -8,7 +8,9 @@
     "packages/web"
   ],
   "scripts": {
-    "dev": "lerna run --scope '@js-analyzer/core' --scope @js-analyzer/server dev"
+    "dev:core": "lerna run dev --stream --scope @js-analyzer/core",
+    "dev:server": "lerna run dev --stream --scope @js-analyzer/server",
+    "dev:web": "lerna run dev --stream --scope @js-analyzer/web"
   },
   "devDependencies": {
     "lerna": "^4.0.0"
