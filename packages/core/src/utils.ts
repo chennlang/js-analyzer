@@ -38,8 +38,29 @@ export function isObject (v: unknown) {
 export async function clearDist(outputPath: string | undefined) {
     // logger.info('清除文件...：' + outputPath)
     if (fs.existsSync(outputPath)) {
-        await del.sync([`${outputPath}/**`, '!publicDir'], {
+        await del.sync([`${outputPath}/**`, `!${outputPath}/test.json`, '!publicDir'], {
             force: true
         })
+    }
+}
+
+/**
+ * 清理指定文件
+ * @param {String} outputPath 输出路径
+ * @param {Array} fileNames 要清理的文件名列表
+ */
+export async function cleanFiles(outputPath: string, fileNames: string[]) {
+    if (!fs.existsSync(outputPath)) {
+        logger.info(`输出路径不存在: ${outputPath}`)
+        return
+    }
+
+    const patterns = fileNames.map(fileName => path.resolve(outputPath, fileName))
+
+    try {
+        const deletedPaths = await del(patterns, { force: true })
+        logger.info(`已清理 ${deletedPaths.length} 个文件`)
+    } catch (error) {
+        logger.error(`清理文件失败: ${error}`)
     }
 }

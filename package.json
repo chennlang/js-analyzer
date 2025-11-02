@@ -10,7 +10,8 @@
   "scripts": {
     "dev:core": "lerna run dev --stream --scope @js-analyzer/core",
     "dev:server": "lerna run dev --stream --scope @js-analyzer/server",
-    "dev:web": "lerna run dev --stream --scope @js-analyzer/web"
+    "dev:web": "lerna run dev --stream --scope @js-analyzer/web",
+    "dev": "node scripts/dev.js"
   },
   "devDependencies": {
     "lerna": "^4.0.0"
