@@ -1,0 +1,206 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# JS-Analyzer 项目结构说明文档
+
+## 项目概述
+
+JS-Analyzer 是一个交互式可视化的前端依赖分析工具，适用于各种前端项目，如 Vue、React、Svelte、Angular、Node 等。该工具可以分析项目中的文件依赖关系，帮助开发者清理项目中的无用文件和导出变量，识别隐式引用，并提供可视化的依赖关系图表。
+
+主要特点：
+- 交互式、集成的可视化依赖分析系统
+- 支持动态切换入口文件
+- 支持依赖倒置（Dependency Inversion）
+- 显示文件被引用的次数及引用地址
+- 显示文件导出变量的引用信息
+- 适用于 ES6、CommonJS
+- 支持的文件类型：JS、TS、JSX、TSX、Vue、Sass、Less、Css、html
+- 支持包依赖分析
+- 分析未导入的文件和 npm 包
+- 本地存储，安全性高，不涉及网络和上传
+
+## 项目结构
+
+该项目使用 lerna 和 pnpm 进行多包管理，主要由以下几个包组成：
+
+```
+js-analyzer/
+├── packages/            # 项目包目录
+│   ├── core/            # 核心分析工具包
+│   ├── server/          # 服务端包
+│   ├── web/             # 前端界面包
+├── materials/           # 项目资源文件
+├── .github/             # GitHub 配置文件
+└── ...                  # 其他配置文件
+```
+
+### 核心包 (@js-analyzer/core)
+
+该包是 JS-Analyzer 的核心工具包，负责解析和分析 JavaScript、TypeScript、CSS 等文件的依赖关系。
+
+```
+packages/core/
+├── src/                 # 源代码目录
+│   ├── index.ts         # 入口文件
+│   ├── script-parser.ts # 脚本解析器
+│   ├── style-parser.ts  # 样式解析器
+│   ├── html-parser.ts   # HTML 解析器
+│   ├── utils.ts         # 工具函数
+│   ├── config.ts        # 配置相关
+│   └── ...              # 其他源文件
+├── types/               # 类型定义
+├── dist/                # 编译输出目录
+├── test/                # 测试目录
+├── package.json         # 包配置信息
+└── ...                  # 其他配置文件
+```
+
+核心依赖：
+- @babel/core - Babel 核心库，用于解析 JavaScript/TypeScript
+- @babel/parser - 代码解析器
+- @babel/traverse - AST 遍历工具
+- @vue/compiler-sfc - Vue 单文件组件解析器
+- postcss 相关库 - 用于解析 CSS/SCSS/LESS 等样式文件
+
+### 服务端包 (@js-analyzer/server)
+
+该包提供了 JS-Analyzer 的服务端功能，负责启动服务器，处理 API 请求，并与核心分析工具进行交互。
+
+```
+packages/server/
+├── src/                 # 源代码目录
+│   └── index.js         # 入口文件
+├── bin/                 # 可执行文件目录
+├── libs/                # 库文件目录
+├── plugins/             # 插件目录
+├── public/              # 静态资源目录
+├── package.json         # 包配置信息
+└── ...                  # 其他配置文件
+```
+
+该包可以全局安装或作为项目依赖安装，提供了 `js-analyzer` 命令行工具。
+
+### 前端包 (@js-analyzer/web)
+
+该包包含了 JS-Analyzer 的 Web 界面，提供了可视化的依赖分析图表和交互功能。
+
+```
+packages/web/
+├── src/                 # 源代码目录
+│   ├── main.ts          # 入口文件
+│   ├── App.vue          # 主组件
+│   ├── router.ts        # 路由配置
+│   ├── components/      # 组件目录
+│   ├── views/           # 视图目录
+│   ├── api/             # API 接口目录
+│   ├── utils/           # 工具函数目录
+│   ├── assets/          # 资源文件目录
+│   └── css/             # 样式目录
+├── public/              # 静态资源目录
+├── dist/                # 编译输出目录
+├── package.json         # 包配置信息
+└── ...                  # 其他配置文件
+```
+
+## 使用方法
+
+### 全局安装
+
+```shell
+npm install @js-analyzer/server -g
+```
+
+使用：
+
+```shell
+cd /your/project
+js-analyzer --root ./
+```
+
+### 本地安装
+
+```shell
+npm install @js-analyzer/server -D
+```
+
+在 package.json 中添加脚本：
+
+```json
+"scripts": {
+  "js-analyzer": "js-analyzer --root ./"
+}
+```
+
+运行：
+
+```shell
+npm run js-analyzer
+```
+
+默认访问地址：http://localhost:8088/
+
+## 配置文件
+
+可以通过配置文件自定义 JS-Analyzer 的行为：
+
+```js
+module.exports = {
+  // 根目录
+  root: "./",
+  // 不需要分析的目录
+  ignore: ["**/node_modules/**", "**/dist/**"],
+  // 解析无扩展名文件时的优先顺序
+  extensions: [".js", ".ts", ".tsx", ".vue", ".json", ".jsx"],
+  // 项目别名的路径映射
+  alias: {
+    "@@/": "/",
+    "~~/": "/",
+    "@/": "/src/",
+    "~/": "/src/",
+  },
+  // 服务器和端口相关信息
+  server: {
+    port: 8088,
+    host: "localhost",
+    openBrowser: true, // 启动后自动在浏览器中打开
+  },
+  // 自定义插件
+  plugins: []
+};
+```
+
+## 插件开发
+
+JS-Analyzer 支持插件开发，用户可以在分析过程中收集自定义信息。
+
+插件示例：
+
+```js
+const myCustomPlugin = {
+  name: "MyCustomPlugin",
+  // 输出信息
+  output: {
+    data: [],
+    file: "test.json",
+  },
+  // 解析脚本时运行
+  ScriptParser({ file, content }) {
+    const self = this;
+    return {
+      VariableDeclarator(tPath) {
+        tPath.node.id && self.output.data.push(tPath.node.id.name);
+      },
+    };
+  },
+  // 解析脚本后运行
+  AfterScriptParser() {},
+};
+
+module.exports = {
+  plugins: [myCustomPlugin],
+};
+```
+
+插件生成的数据默认可通过 `http://localhost:8087/data/test.json` 访问。 

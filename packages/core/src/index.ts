@@ -8,7 +8,7 @@ import styleParser from './style-parser'
 import htmlParser from './html-parser'
 import logger from '../logger'
 const { parse: vueParse } = require('@vue/compiler-sfc')
-import { writeFile, clearDist } from './utils'
+import { writeFile, cleanFiles } from './utils'
 
 import type {
     FileDeps,
@@ -407,7 +407,13 @@ export class JsAnalyzer {
      */
     async init (config: Partial<LocalConfig>): Promise<MaterialPackage> {
         this.config = Object.assign(this.config, config)
-        this.config.outputPath && await clearDist(this.config.outputPath)
+        this.config.outputPath && await cleanFiles(this.config.outputPath, [
+            'import-files.json',
+            'import-package.json',
+            'import-unknown.json',
+            'files.json',
+            'export.json',
+        ])
 
         return main(this.config)
             .then(res => {
