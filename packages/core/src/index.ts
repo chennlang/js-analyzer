@@ -6,6 +6,8 @@ import injectExportQuoteNum from './inject-export-quote-num'
 import scriptParser from './script-parser'
 import styleParser from './style-parser'
 import htmlParser from './html-parser'
+import { AutoImportParser } from './auto-import-parser'
+import { TemplateUsageAnalyzer } from './template-usage-analyzer'
 import logger from '../logger'
 const { parse: vueParse } = require('@vue/compiler-sfc')
 import { writeFile, cleanFiles } from './utils'
@@ -19,7 +21,8 @@ import type {
     ExportDepItem,
     Config,
     DataCollector,
-    MaterialPackage
+    MaterialPackage,
+    AutoImportDeps
 } from '../types'
 
 type LocalConfig = Required<Config>
@@ -320,8 +323,14 @@ async function main(config: LocalConfig): Promise<DataCollector> {
     const fileQuote: FileQuote = {}
     const exportQuote: ExportDeps = {}
     const unknownQuote: ImportDeps = {}
+    const autoImports: AutoImportDeps = {}
     const configPath = getNormalizeFullPath(config.path || config.root)
     config.root = configPath
+
+    // 初始化自动导入解析器
+    const autoImportParser = new AutoImportParser(config)
+    const autoImportData = autoImportParser.getAllAutoImports(configPath)
+    Object.assign(autoImports, autoImportData)
     
     const searchPath = path.normalize(
         fs.lstatSync(configPath).isDirectory()
@@ -360,11 +369,35 @@ async function main(config: LocalConfig): Promise<DataCollector> {
 
     files.forEach(file => {
         try {
-            const { importDeps, exportInfo } = getFileDeps(file, config)
-            fileQuote[file].deps = importDeps
-            
-            injectFileDeps(importDeps, file, fileQuote, packageQuote, dependencies, unknownQuote, config)
-            injectExportInfo(exportInfo, file, exportQuote)
+            const fileName = path.basename(file)
+
+            // 如果是自动导入声明文件，直接解析并将解析结果作为导出信息
+            if (fileName === 'components.d.ts' || fileName === 'auto-imports.d.ts') {
+                const autoImportData = autoImportParser.parseDeclarationFile(file)
+                const exportInfo: ExportDepItem = {}
+
+                // 将自动导入数据转换为导出信息格式
+                autoImportData.forEach(autoImport => {
+                    exportInfo[autoImport.name] = {
+                        num: 0,
+                        using: [],
+                        autoImport: true,
+                        autoImportType: autoImport.type,
+                        autoImportPath: autoImport.importPath,
+                        autoImportExportName: autoImport.exportName,
+                        sourceFile: autoImport.sourceFile
+                    }
+                })
+
+                injectExportInfo(exportInfo, file, exportQuote)
+            } else {
+                // 普通文件处理
+                const { importDeps, exportInfo } = getFileDeps(file, config)
+                fileQuote[file].deps = importDeps
+
+                injectFileDeps(importDeps, file, fileQuote, packageQuote, dependencies, unknownQuote, config)
+                injectExportInfo(exportInfo, file, exportQuote)
+            }
         } catch (error) {
             logger.error(error, {
                 fn: 'main',
@@ -372,6 +405,26 @@ async function main(config: LocalConfig): Promise<DataCollector> {
             })
         }
     })
+
+    // 分析 Vue 模板中的自动导入使用情况
+    const vueFiles = files.filter(file => path.extname(file) === '.vue')
+    if (vueFiles.length > 0 && Object.keys(autoImports).length > 0) {
+        logger.info('开始分析 Vue 模板中的自动导入使用情况')
+
+        const templateAnalyzer = new TemplateUsageAnalyzer(autoImports)
+        const templateUsages = templateAnalyzer.analyzeVueTemplateUsings(vueFiles)
+
+        // 将模板使用情况添加到依赖分析中
+        Object.entries(templateUsages).forEach(([vueFile, usages]) => {
+            if (usages.length > 0) {
+                fileQuote[vueFile].deps.push(...usages)
+                injectFileDeps(usages, vueFile, fileQuote, packageQuote, dependencies, unknownQuote, config)
+                logger.info(`Vue 文件 ${vueFile} 模板中发现 ${usages.length} 个自动导入使用`)
+            }
+        })
+
+        logger.info('Vue 模板自动导入使用分析完成')
+    }
     injectExportQuoteNum({
         packageQuote,
         unknownQuote,
@@ -383,8 +436,12 @@ async function main(config: LocalConfig): Promise<DataCollector> {
         exportQuote,
         packageQuote,
         unknownQuote,
+        autoImports,
     }
 }
+
+export { AutoImportParser } from './auto-import-parser'
+export { TemplateUsageAnalyzer } from './template-usage-analyzer'
 
 export class JsAnalyzer {
     private config: LocalConfig
@@ -394,6 +451,7 @@ export class JsAnalyzer {
         'import-unknown': {},
         'files': [],
         'export': {},
+        'auto-imports': {},
     }
     
     constructor (config: LocalConfig){
@@ -413,6 +471,7 @@ export class JsAnalyzer {
             'import-unknown.json',
             'files.json',
             'export.json',
+            'auto-imports.json',
         ])
 
         return main(this.config)
@@ -423,6 +482,7 @@ export class JsAnalyzer {
                     'import-unknown': res.unknownQuote,
                     'files': res.files,
                     'export': res.exportQuote,
+                    'auto-imports': res.autoImports,
                 }
 
                 this.config.outputPath && this.write()
@@ -467,5 +527,4 @@ export class JsAnalyzer {
     }
 
 }
-
 

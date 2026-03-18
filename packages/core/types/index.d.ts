@@ -4,7 +4,10 @@ export interface UsingItem {
     source: string,
     vars: string,
     fullPath?: string,
-    loc: SourceLocation
+    loc: SourceLocation,
+    autoImport?: boolean,
+    autoImportType?: 'vue-component' | 'auto-import' | 'type-re-export',
+    autoImportName?: string
 }
 
 export interface ImportDepItem {
@@ -20,7 +23,12 @@ export interface ImportDeps {
 export interface ExportDepItem {
     [vars: string]: {
         num: number,
-        using: string []
+        using: string [],
+        autoImport?: boolean,
+        autoImportType?: 'vue-component' | 'auto-import' | 'type-re-export',
+        autoImportPath?: string,
+        autoImportExportName?: string,
+        sourceFile?: string
     }
 }
 
@@ -75,6 +83,29 @@ export interface DataCollector {
     exportQuote: ExportDeps,
     packageQuote: ImportDeps,
     unknownQuote: ImportDeps,
+    autoImports: AutoImportDeps,
+}
+
+// 自动导入相关的数据结构
+export interface AutoImportQuote {
+    name: string          // 变量名/组件名
+    importPath: string    // 导入路径
+    exportName: string    // 导出名
+    type: 'vue-component' | 'auto-import' | 'type-re-export'
+    sourceFile: string    // 来源的声明文件
+    globalDeclaration?: boolean // 是否为全局变量声明
+}
+
+export interface ComponentQuote {
+    name: string          // 组件名
+    importPath: string    // 导入路径
+    exportName: string    // 导出名，通常是 'default'
+    type: 'vue-component'
+    sourceFile: string    // 来源的声明文件
+}
+
+export interface AutoImportDeps {
+    [path: string]: AutoImportQuote[]
 }
 
 export interface MaterialPackage {
@@ -83,4 +114,5 @@ export interface MaterialPackage {
     'export': ExportDeps,
     'import-package': ImportDeps,
     'import-unknown': ImportDeps,
+    'auto-imports': AutoImportDeps,
 }

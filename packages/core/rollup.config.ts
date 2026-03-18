@@ -17,7 +17,7 @@ export default [{
             format: 'cjs',
         },
     ],
-    external: [/node_modules/],
+    external: [/node_modules/, 'typescript', 'upath', 'fast-glob', 'winston', '@babel/core', '@babel/parser', '@babel/traverse', '@babel/types', '@vue/compiler-sfc', '@vue/compiler-core', '@vue/compiler-dom', 'postcss', 'tslib', 'del'],
     watch: {
       include: 'src/**/*',
     },

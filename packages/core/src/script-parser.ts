@@ -12,7 +12,11 @@ import { ExportDepItem, UsingItem, FileDeps, Config } from '../types'
  * @returns importDeps 引用信息
  * @returns exportInfo 导出信息
  */
-export default function scriptParser (content: string, file: string, config: Config):FileDeps  {
+export default function scriptParser (
+    content: string,
+    file: string,
+    config: Config
+):FileDeps  {
     // 收集依赖
     const importDeps: UsingItem [] = []
     const exportInfo: ExportDepItem = {}
