@@ -26,7 +26,7 @@ https://github.com/chennlang/js-analyzer/assets/41711206/63797bfd-440c-401e-a0d8
 - 支持未引用 文件、npm 包分析
 - 本地存储 `非常安全`，不涉及联网和上传
 
-## 全局安装
+## 全局安装（推荐）
 
 ### 1. 安装
 
@@ -36,53 +36,42 @@ npm install @js-analyzer/server -g
 # pnpm install @js-analyzer/server -g
 ```
 
-### 2. 使用
+### 2. 启动服务
 
-控制台进入到任意项目根目录下，执行 `js-analyzer --root ./`
-
-```shell
-cd /xxx/project
-
-js-analyzer --root ./
-```
-
-## 局部安装
-
-### 1. 安装
+直接在控制台执行 `js-analyzer` 即可，无需进入某个项目目录，因为项目可以直接在页面上添加和配置。
 
 ```shell
-npm install @js-analyzer/server -D
-# yarn add @js-analyzer/server -D
-# pnpm install @js-analyzer/server -D
-```
-
-### 2. 使用
-
-#### 1.在 scripts 中添加 js-analyzer 命令
-
-```json
-"scripts": {
-  "js-analyzer": "js-analyzer --root ./"
-},
-```
-
-#### 2.在控制台输入 npm run js-analyzer，访问 http://localhost:8088/ 就能看到了。
-
-```shell
-npm run js-analyzer
+js-analyzer
 # Service started：http://localhost:8088/
 ```
 
+然后访问 http://localhost:8088/ 打开分析页面。
+
+### 3. 在页面上手动添加项目
+
+1. 点击页面右上角的齿轮图标（⚙️），打开【项目管理】弹窗。
+2. 点击【手动添加项目】，在右侧的 JSON 编辑器中填写项目配置：
+   - `name`：项目名称
+   - `root`：项目根目录的绝对路径（必填）
+   - `ignore`：不需要分析的目录，例如 `["**/node_modules/**", "**/dist/**"]`
+   - `extensions`：实际使用的源码扩展名，例如 `[".js", ".ts", ".tsx", ".vue", ".json", ".jsx"]`
+   - `alias`：路径别名映射，例如 `{ "@/": "/src/" }`
+   - `ide`：用于打开文件的 IDE，默认为 `"code"`
+3. 点击【保存配置】，服务会自动分析该项目并展示依赖信息。
+4. 可以添加多个项目，通过页头项目下拉框切换当前项目，也可以在【项目管理】中对每个项目进行刷新或删除。
+
+> 💡 也可以使用 [AI 生成项目配置](#使用-ai-生成项目配置)，无需手动编写配置。
+
+> ⚠️ 不再推荐局部安装。由于项目现在可以直接在页面上添加和配置，一次全局安装即可满足所有项目。
+
 ## 配置文件
 
-通过上面的命令已经能很快启动一个分析服务了，可是每个项目的整体架构不同，想要 js-analyzer 更好的更准确的分析，还需要配置一些必要信息。
+通过上面的命令已经能很快启动一个分析服务了，可是每个项目的整体架构不同，想要 js-analyzer 更好的更准确的分析，还需要配置一些必要信息。（此为可选项，同样的配置也可以在页面的【项目管理】中直接编辑。）
 
-指定配置文件只需要将上面的启动命令修改一下
+指定配置文件，使用 `--config` 参数启动服务即可
 
-```json
-"scripts": {
-  "js-analyzer": "js-analyzer --config ./js-analyzer.js"
-},
+```shell
+js-analyzer --config ./js-analyzer.js
 ```
 
 js-analyzer.js
@@ -110,6 +99,16 @@ module.exports = {
   },
 };
 ```
+
+## 使用 AI 生成项目配置
+
+添加新项目时，可以使用 [js-analyzer-config-prompt.md](./js-analyzer-config-prompt.md) 中的中文提示词来自动生成项目配置。
+
+1. 打开提示词文件并复制其中的内容。
+2. 将提示词粘贴给你的 AI 助手，并提供要分析的项目绝对路径。
+3. 将返回的 JSON 复制到项目配置表单中，或调整后用于 `js-analyzer.js`。
+
+提示词会要求 AI 检查项目的 package 元数据、TypeScript 或 JavaScript 配置、构建配置、忽略规则以及源码文件扩展名，并要求响应中只包含 JSON 配置对象。
 
 ## 更新
 

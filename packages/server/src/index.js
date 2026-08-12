@@ -9,7 +9,6 @@ const launch = require('launch-editor');
 const template = require('art-template');
 const portfinder = require('portfinder');
 const { koaBody } = require('koa-body');
-const { execFile } = require('child_process');
 const { ProjectManager, createEmptyMaterialPackage } = require('./project-manager');
 
 const app = new Koa();
@@ -64,30 +63,6 @@ function resolveLaunchFile(filePath, rootPath) {
   }
 
   return filePath;
-}
-
-function selectLocalDirectory() {
-  return new Promise((resolve, reject) => {
-    if (process.platform === 'darwin') {
-      execFile(
-        'osascript',
-        [
-          '-e',
-          'POSIX path of (choose folder with prompt "Select a project directory for Js Analyzer")',
-        ],
-        (error, stdout) => {
-          if (error) {
-            reject(error);
-            return;
-          }
-          resolve(String(stdout || '').trim());
-        }
-      );
-      return;
-    }
-
-    reject(new Error(`Directory picker is not supported on ${process.platform}`));
-  });
 }
 
 router.get('/', async (ctx) => {
@@ -155,17 +130,6 @@ router.post('/api/projects/import', async (ctx) => {
     };
   } catch (error) {
     sendError(ctx, error);
-  }
-});
-
-router.get('/api/system/select-directory', async (ctx) => {
-  try {
-    const root = await selectLocalDirectory();
-    ctx.body = {
-      root,
-    };
-  } catch (error) {
-    sendError(ctx, error, 500);
   }
 });
 

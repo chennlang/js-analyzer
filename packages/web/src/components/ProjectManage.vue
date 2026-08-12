@@ -1,26 +1,26 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue';
+import { ref, watch } from 'vue';
 import Dialog from './Dialog.vue';
 import { $tf } from '@/language';
 import JsonEditorVue from 'json-editor-vue';
 import 'vanilla-jsoneditor/themes/jse-theme-dark.css';
 import {
   projectState,
+  createNewProject,
+  createProjectDraft,
   refreshActiveProject,
   removeProject,
   updateExistingProject,
-  importNewProjectFromPicker,
   getEditableProject,
 } from '@/store/project';
 import { EditableProjectConfig } from '@/types/project';
 
 const jsonEditorRef = ref<any>(null);
 const submitting = ref(false);
-const importing = ref(false);
 const selectedProjectId = ref('');
 const editingProjectId = ref('');
 const configValue = ref<EditableProjectConfig | null>(null);
-const lastImportedRoot = ref('');
+const isCreatingProject = ref(false);
 
 const props = defineProps({
   modelValue: Boolean,
@@ -49,6 +49,7 @@ function syncSelectedProject(projectId?: string) {
     selectedProjectId.value = '';
     editingProjectId.value = '';
     configValue.value = null;
+    isCreatingProject.value = false;
     return;
   }
 
@@ -57,12 +58,14 @@ function syncSelectedProject(projectId?: string) {
     selectedProjectId.value = '';
     editingProjectId.value = '';
     configValue.value = null;
+    isCreatingProject.value = false;
     return;
   }
 
   selectedProjectId.value = project.id;
   editingProjectId.value = project.id;
   configValue.value = getEditableProject(project);
+  isCreatingProject.value = false;
 }
 
 watch(
@@ -88,6 +91,13 @@ function pickProject(projectId: string) {
   syncSelectedProject(projectId);
 }
 
+function handleCreateProject() {
+  selectedProjectId.value = '';
+  editingProjectId.value = '';
+  configValue.value = createProjectDraft();
+  isCreatingProject.value = true;
+}
+
 function getPayload() {
   const value = configValue.value;
   if (!value) {
@@ -106,7 +116,7 @@ function getPayload() {
 
 async function submit() {
   const error = jsonEditorRef.value?.jsonEditor?.validate?.();
-  if (error || !editingProjectId.value) {
+  if (error || (!editingProjectId.value && !isCreatingProject.value)) {
     return;
   }
 
@@ -117,21 +127,15 @@ async function submit() {
 
   submitting.value = true;
   try {
-    await updateExistingProject(editingProjectId.value, payload);
-    syncSelectedProject(editingProjectId.value);
+    if (isCreatingProject.value) {
+      await createNewProject(payload);
+      syncSelectedProject(projectState.activeProjectId);
+    } else {
+      await updateExistingProject(editingProjectId.value, payload);
+      syncSelectedProject(editingProjectId.value);
+    }
   } finally {
     submitting.value = false;
-  }
-}
-
-async function handleImport() {
-  importing.value = true;
-  try {
-    const result = await importNewProjectFromPicker();
-    lastImportedRoot.value = result.root;
-    syncSelectedProject(projectState.activeProjectId);
-  } finally {
-    importing.value = false;
   }
 }
 
@@ -173,9 +177,6 @@ async function handleRefresh() {
             <div class="project-side-head__title">{{ $tf('项目列表') }}</div>
             <div class="project-side-head__count">{{ projectState.projects.length }} {{ $tf('个项目') }}</div>
           </div>
-          <button class="project-btn project-btn--primary" :disabled="importing" @click="handleImport">
-            {{ importing ? $tf('正在选择目录...') : $tf('选择本地目录') }}
-          </button>
         </div>
         <ul class="project-manage__list">
           <li
@@ -199,6 +200,9 @@ async function handleRefresh() {
           </li>
         </ul>
         <div class="project-side-actions">
+          <button class="project-btn project-btn--primary" @click="handleCreateProject">
+            {{ $tf('手动添加项目') }}
+          </button>
           <button class="project-btn" :disabled="!editingProjectId" @click="handleRefresh">
             {{ $tf('刷新项目') }}
           </button>
@@ -228,9 +232,9 @@ async function handleRefresh() {
           </div>
         </template>
         <div v-else class="project-manage__empty">
-          <div class="project-manage__empty-title">{{ $tf('先导入一个本地项目') }}</div>
+          <div class="project-manage__empty-title">{{ $tf('手动添加项目') }}</div>
           <p class="text-light text-sm mt-2">
-            {{ $tf('点击左侧按钮选择目录，系统会自动创建新项目配置。') }}
+            {{ $tf('请输入本地项目目录') }}
           </p>
         </div>
       </section>

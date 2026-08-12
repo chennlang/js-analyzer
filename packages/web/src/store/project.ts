@@ -1,11 +1,10 @@
 import { computed, reactive } from 'vue';
 import {
   clearRemoteCache,
+  createProject,
   deleteProject,
   getProjects,
-  importProjectByRoot,
   refreshProject,
-  selectProjectDirectory,
   setProjectRequestContext,
   switchProject,
   updateProject,
@@ -105,23 +104,11 @@ export async function refreshActiveProject(projectId?: string) {
   });
 }
 
-export async function importNewProject(root: string) {
+export async function createNewProject(config: EditableProjectConfig) {
   return withSync(async () => {
-    const snapshot = await importProjectByRoot(root);
+    const snapshot = await createProject(config);
     applySnapshot(snapshot);
     return snapshot;
-  });
-}
-
-export async function importNewProjectFromPicker() {
-  return withSync(async () => {
-    const selected = await selectProjectDirectory();
-    const snapshot = await importProjectByRoot(selected.root);
-    applySnapshot(snapshot);
-    return {
-      root: selected.root,
-      snapshot,
-    };
   });
 }
 

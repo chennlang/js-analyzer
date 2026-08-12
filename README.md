@@ -35,7 +35,7 @@ Thank you to the following contributors for supporting this project! 🎉
 
 _✨ Thank you for your contributions!_
 
-## Global Installation
+## Global Installation (Recommended)
 
 ### 1. Installation
 
@@ -45,53 +45,42 @@ npm install @js-analyzer/server -g
 # pnpm install @js-analyzer/server -g
 ```
 
-### 2. Usage
+### 2. Start the service
 
-Enter the console into any project root directory and execute `js-analyzer --root ./`
-
-```shell
-cd /xxx/project
-
-js-analyzer --root ./
-```
-
-## Local Installation
-
-### 1. Installation
+Execute `js-analyzer` directly in the console. There is no need to enter a specific project directory, since the project is added and configured directly on the page.
 
 ```shell
-npm install @js-analyzer/server -D
-# yarn add @js-analyzer/server -D
-# pnpm install @js-analyzer/server -D
-```
-
-### 2. Usage
-
-#### 1. Add the "js-analyzer" command in scripts
-
-```json
-"scripts": {
-  "js-analyzer": "js-analyzer --root ./"
-},
-```
-
-#### 2. Enter "npm run js-analyzer" in the console and visit http://localhost:8088/ to see it.
-
-```shell
-npm run js-analyzer
+js-analyzer
 # Service started：http://localhost:8088/
 ```
 
+Then visit http://localhost:8088/ to open the analysis page.
+
+### 3. Manually add a project on the page
+
+1. Click the gear icon (⚙️) in the upper right corner of the header to open the **"Project Management"** dialog.
+2. Click **"Manually Add Project"**, and fill in the project configuration in the JSON editor on the right:
+   - `name`: project name
+   - `root`: absolute path of the project root directory (required)
+   - `ignore`: directories that do not need to be analyzed, e.g. `["**/node_modules/**", "**/dist/**"]`
+   - `extensions`: source file extensions actually used, e.g. `[".js", ".ts", ".tsx", ".vue", ".json", ".jsx"]`
+   - `alias`: path alias mapping, e.g. `{ "@/": "/src/" }`
+   - `ide`: the IDE used to open files, default is `"code"`
+3. Click **"Save Config"**, and the service will automatically analyze the project and display the dependency information.
+4. Multiple projects can be added, and you can switch the current project through the project dropdown in the header. Each project can also be refreshed or deleted in the **"Project Management"** dialog.
+
+> 💡 You can also use [AI to generate the project configuration](#use-ai-to-generate-project-configuration), so you don't need to write the configuration manually.
+
+> ⚠️ Local installation is no longer recommended. Since the project is now added and configured directly on the page, a single global installation is enough for all projects.
+
 ## Configuration File
 
-You can quickly start an analysis service using the above commands. However, each project's overall architecture is different, so if you want "js-analyzer" to be better and more accurate, you need to configure some necessary information.
+You can quickly start an analysis service using the above commands. However, each project's overall architecture is different, so if you want "js-analyzer" to be better and more accurate, you need to configure some necessary information. (This is optional — the same configuration can also be done directly in the **"Project Management"** dialog on the page.)
 
-To specify the configuration file, simply modify the start command as follows
+To specify the configuration file, start the service with the `--config` option as follows
 
-```json
-"scripts": {
-  "js-analyzer": "js-analyzer --config ./js-analyzer.js"
-},
+```shell
+js-analyzer --config ./js-analyzer.js
 ```
 
 js-analyzer.js
@@ -119,6 +108,16 @@ module.exports = {
   },
 };
 ```
+
+## Use AI to Generate Project Configuration
+
+When adding a new project, you can use the Chinese prompt in [js-analyzer-config-prompt.md](./js-analyzer-config-prompt.md) to generate the project configuration automatically.
+
+1. Open the prompt file and copy its contents.
+2. Paste the prompt into your AI assistant, then provide the absolute path of the project to analyze.
+3. Copy the returned JSON into the project's configuration form or adapt it to `js-analyzer.js`.
+
+The prompt asks the AI to inspect the project's package metadata, TypeScript or JavaScript configuration, build configuration, ignore rules, and source file extensions. It also requires the response to contain only the JSON configuration object.
 
 ## Updates
 

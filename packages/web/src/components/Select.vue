@@ -92,22 +92,22 @@ const handleChange = (event: Event) => {
   appearance: none;
   height: 32px;
   padding: 0 12px;
-  border: 1px solid #d8d9dc;
+  border: 1px solid var(--an-c-border);
   border-radius: 10px;
-  background: #ffffff;
-  color: #181819;
+  background: var(--an-bg-control);
+  color: var(--an-c-normal);
   line-height: 30px;
   transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .ui-select:hover:not(:disabled),
 .ui-select:focus {
-  border-color: #ff7f50;
+  border-color: var(--an-c-active);
   outline: none;
 }
 
 .ui-select:disabled {
-  background: #f4f6f8;
-  color: #9da1a7;
+  background: var(--an-c-gray);
+  color: var(--an-c-light);
 }
 </style>

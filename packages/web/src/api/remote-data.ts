@@ -6,8 +6,10 @@ import {
   ProjectSnapshot,
 } from '@/types/project';
 
+const DEV_API_PROXY = (import.meta.env.VITE_API_PROXY || 'http://localhost:8088').replace(/\/$/, '');
+
 const BASE_URL = import.meta.env.DEV
-  ? import.meta.env.VITE_API_PROXY
+  ? DEV_API_PROXY
   : location.origin +
     (import.meta.env.VITE_HAS_API_PATH_PREFIX ? location.pathname : '');
 
@@ -169,10 +171,6 @@ export const createProject = (config: EditableProjectConfig) => {
 
 export const importProjectByRoot = (root: string) => {
   return request<ProjectResponse>('post', '/api/projects/import', { root });
-};
-
-export const selectProjectDirectory = () => {
-  return load<{ root: string }>('/api/system/select-directory');
 };
 
 export const updateProject = (projectId: string, config: EditableProjectConfig) => {

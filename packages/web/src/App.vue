@@ -147,11 +147,11 @@ function openProject() {
             {{ activeProjectStatus }}
           </span>
           <button
-            class="app-header__button"
+            class="app-header__refresh"
             :disabled="projectState.syncing || !projectState.activeProjectId"
             @click="handleRefreshProject"
           >
-            {{ projectState.syncing ? $tf('刷新中...') : $tf('刷新项目') }}
+            <i class="iconfont icon-reset"></i>
           </button>
         </div>
         <div class="app-header__group">
@@ -213,9 +213,12 @@ function openProject() {
   --an-c-gray: #f0f2f7;
   --an-c-white: #ffffff;
   --an-c-light: #606266;
+  --an-c-border: #e4e8eb;
+  --an-c-hover: #eceeef;
   --an-bg: #fff;
   --an-bg-light: rgba(0, 0, 0, 0.5);
   --an-bg-gray: #f6f6f6;
+  --an-bg-control: #ffffff;
   --an-active-bg: rgba(248, 140, 140, 0.1);
 }
 .theme-dark {
@@ -227,8 +230,11 @@ function openProject() {
   --an-bg: #242424;
   --an-c-white: #ffffff;
   --an-c-light: #5d636b;
+  --an-c-border: #2c323d;
+  --an-c-hover: #303744;
   --an-bg-light: rgba(255, 255, 255, 0.3);
-  --an-bg-gray: #f6f6f6;
+  --an-bg-gray: #1f232b;
+  --an-bg-control: #1f232b;
   --an-active-bg: rgba(248, 140, 140, 0.1);
 }
 
@@ -239,8 +245,8 @@ function openProject() {
   gap: 16px;
   min-height: 64px;
   padding: 0 20px;
-  border-bottom: 1px solid @header-border;
-  background: @surface;
+  border-bottom: 1px solid var(--an-c-border);
+  background: var(--an-bg);
   flex-shrink: 0;
 }
 
@@ -248,7 +254,7 @@ function openProject() {
   display: flex;
   align-items: center;
   flex: 0 0 auto;
-  color: @text-primary;
+  color: var(--an-c-normal);
   font-size: 20px;
   font-weight: 600;
   line-height: 1;
@@ -277,7 +283,7 @@ function openProject() {
 }
 
 .app-header__menu-item:hover {
-  background: @hover;
+  background: var(--an-c-hover);
 }
 
 .app-header__menu-item--active {
@@ -306,7 +312,7 @@ function openProject() {
 }
 
 .app-header__label {
-  color: @text-secondary;
+  color: var(--an-c-light);
   white-space: nowrap;
 }
 
@@ -326,10 +332,10 @@ function openProject() {
 .app-header__button {
   height: 32px;
   padding: 0 12px;
-  border: 1px solid @border;
+  border: 1px solid var(--an-c-border);
   border-radius: 10px;
-  background: @surface;
-  color: @text-primary;
+  background: var(--an-bg-control);
+  color: var(--an-c-normal);
 }
 
 .app-header__button:hover:not(:disabled) {
@@ -339,16 +345,43 @@ function openProject() {
 }
 
 .app-header__button:disabled {
-  color: @text-secondary;
-  background: #f4f6f8;
+  color: var(--an-c-light);
+  background: var(--an-c-gray);
 }
 
 .app-header__icon-btn {
   flex: 0 0 auto;
 }
 
+.app-header__refresh {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px !important;
+  height: 32px !important;
+  padding: 0;
+  border: 1px solid var(--an-c-border);
+  border-radius: 10px;
+  background: var(--an-bg-control);
+  color: var(--an-c-normal);
+  cursor: pointer;
+}
+
+.app-header__refresh:hover:not(:disabled) {
+  border-color: var(--an-c-active);
+  color: var(--an-c-active);
+  background: var(--an-active-bg);
+}
+
+.app-header__refresh:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  color: var(--an-c-light);
+  background: var(--an-c-gray);
+}
+
 .app-header__link {
-  color: @text-primary;
+  color: var(--an-c-normal);
   white-space: nowrap;
 }
 
@@ -433,21 +466,29 @@ button[disabled] {
 
 .ui-input {
   -webkit-appearance: none;
-  background-color: var(--an-bg);
+  background-color: var(--an-bg-control);
   background-image: none;
-  border-radius: 4px;
-  border: 1px solid var(--an-c-light);
+  border-radius: 10px;
+  border: 1px solid var(--an-c-border);
   box-sizing: border-box;
-  color: var(--an-c-light);
+  color: var(--an-c-normal);
   display: inline-block;
   font-size: inherit;
-  height: 28px;
-  line-height: 28px;
+  height: 32px;
+  line-height: 30px;
   outline: none;
-  padding: 0 15px;
+  padding: 0 12px;
   transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
   width: 100%;
   font-size: 12px;
+}
+
+.ui-input:focus {
+  border-color: var(--an-c-active);
+}
+
+.ui-input::placeholder {
+  color: var(--an-c-light);
 }
 .ui-textarea {
   display: block;
@@ -457,11 +498,11 @@ button[disabled] {
   box-sizing: border-box;
   width: 100%;
   font-size: inherit;
-  color: var(--an-c-light);
-  background-color: var(--an-bg);
+  color: var(--an-c-normal);
+  background-color: var(--an-bg-control);
   background-image: none;
-  border: 1px solid var(--an-c-light);
-  border-radius: 4px;
+  border: 1px solid var(--an-c-border);
+  border-radius: 10px;
   transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .ui-text-justify {
