@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { ref, onBeforeMount } from 'vue';
-import { useRoute } from 'vue-router';
-import { getConfig } from '@/api/remote-data';
+import { computed, onBeforeMount, ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 import ProjectManage from './components/ProjectManage.vue';
 import {
   $tf,
@@ -11,9 +10,17 @@ import {
 } from './language';
 import Select from './components/Select.vue';
 import { switchChartTheme } from './views/chart/echart';
-const route = useRoute();
+import {
+  activeProject,
+  loadProjectSnapshot,
+  projectState,
+  refreshActiveProject,
+  switchActiveProject,
+} from './store/project';
 
-// relationship packages hot word unknowns
+const route = useRoute();
+const router = useRouter();
+
 const menus = [
   { name: $tf('关系图'), icon: 'icon-drxx06', path: '/chart' },
   { name: $tf('包管理'), icon: 'icon-packages', path: '/packages' },
@@ -26,6 +33,27 @@ const isActiveMenu = (path: string) => {
 };
 
 const isDarkModel = ref(false);
+const showProject = ref(false);
+const routeViewKey = computed(() => {
+  return `${route.path}:${projectState.activeProjectId}:${projectState.viewVersion}`;
+});
+const projectOptions = computed(() => {
+  return projectState.projects.map((item) => ({
+    text: item.name,
+    value: item.id,
+  }));
+});
+const activeProjectStatus = computed(() => {
+  if (!activeProject.value) {
+    return '';
+  }
+
+  if (activeProject.value.status === 'error') {
+    return $tf('配置异常');
+  }
+
+  return $tf('已就绪');
+});
 
 const initTheme = () => {
   const isDark = localStorage.getItem('theme') === 'dark';
@@ -49,82 +77,115 @@ const onSwitchTheme = (dark: boolean) => {
   }
 };
 
-onBeforeMount(() => {
+async function handleProjectChange(projectId: string | number) {
+  const nextProjectId = String(projectId || '');
+  if (!nextProjectId || nextProjectId === projectState.activeProjectId) {
+    return;
+  }
+
+  await switchActiveProject(nextProjectId);
+  router.replace({ path: route.path, query: {} });
+}
+
+async function handleRefreshProject() {
+  if (!projectState.activeProjectId) {
+    return;
+  }
+
+  await refreshActiveProject(projectState.activeProjectId);
+  router.replace({ path: route.path, query: {} });
+}
+
+onBeforeMount(async () => {
   initTheme();
-  getConfig().then((res) => {
-    window.CONFIG = res;
-  });
+  await loadProjectSnapshot();
 });
 
-const showProject = ref(false);
 function openProject() {
   showProject.value = true;
 }
 </script>
 
 <template>
-  <!-- menus -->
   <div class="flex flex-col w-full h-full">
-    <div class="flex justify-between border-b border-solid border-gray">
-      <div class="text-normal flex items-center px-4 text-xl">
+    <header class="app-header">
+      <div class="app-header__brand">
         🧬 Js Analyzer
       </div>
-      <ul class="menu-bar text-sm py-1 flex-shrink-0 flex justify-center">
+      <ul class="app-header__menu menu-bar text-sm">
         <router-link
           v-for="(item, index) in menus"
-          class="flex items-center text-center h-8 cursor-pointer hover:text-active px-2 relative"
+          class="app-header__menu-item"
           :class="
             isActiveMenu(item.path)
-              ? 'text-active bg-active rounded-md'
+              ? 'text-active app-header__menu-item--active'
               : 'text-normal'
           "
           :key="index"
           :to="item.path"
         >
-          <IconBtn
-            :icon="item.icon"
-            :active="isActiveMenu(item.path)"
-          ></IconBtn>
-          <span class="ml-1 ui-text-justify flex-1">{{ item.name }}</span>
-          <div
-            v-if="index !== menus.length - 1"
-            style="width: 1px; top: 8px"
-            class="absolute right-0 h-4 bg-gray"
-          ></div>
+          <IconBtn :icon="item.icon" :active="isActiveMenu(item.path)"></IconBtn>
+          <span class="app-header__menu-text">{{ item.name }}</span>
         </router-link>
       </ul>
-      <div class="flex items-center text-sm">
-        <Select
-          :modelValue="currentLanguage"
-          :optionsList="languageOptions"
-          class="w-full mr-4"
-          @onChange="(v) => switchLanguage(v)"
-        ></Select>
-        <p class="flex justify-between">
+      <div class="app-header__actions text-sm">
+        <div class="app-header__group project-switcher">
+          <span class="app-header__label">{{ $tf('当前项目') }}</span>
+          <Select
+            :modelValue="projectState.activeProjectId"
+            :optionsList="projectOptions"
+            width="200px"
+            class="app-header__select"
+            :disabled="projectState.syncing || !projectOptions.length"
+            @onChange="handleProjectChange"
+          ></Select>
+          <span
+            v-if="activeProjectStatus"
+            class="app-header__status project-status"
+            :class="activeProject?.status === 'error' ? 'is-error' : 'is-ready'"
+          >
+            {{ activeProjectStatus }}
+          </span>
+          <button
+            class="app-header__button"
+            :disabled="projectState.syncing || !projectState.activeProjectId"
+            @click="handleRefreshProject"
+          >
+            {{ projectState.syncing ? $tf('刷新中...') : $tf('刷新项目') }}
+          </button>
+        </div>
+        <div class="app-header__group">
+          <Select
+            :modelValue="currentLanguage"
+            :optionsList="languageOptions"
+            width="112px"
+            class="app-header__select"
+            @onChange="(v) => switchLanguage(v)"
+          ></Select>
           <IconBtn
             :icon="isDarkModel ? 'icon-dark' : 'icon-baitianmoshi'"
-            class="mr-4"
+            class="app-header__icon-btn"
             @click="handleSwitchTheme"
           >
           </IconBtn>
           <IconBtn
             :icon="isDarkModel ? 'icon-settings-fill' : 'icon-settings-fill'"
             @click="openProject"
-            class="mr-4"
+            class="app-header__icon-btn"
           ></IconBtn>
           <a
             href="https://github.com/chennlang/js-analyzer"
-            class="text-normal text-sm mr-4"
+            class="app-header__link text-sm"
             target="_blank"
             >Github</a
           >
-        </p>
+        </div>
       </div>
-    </div>
+    </header>
     <div class="w-full h-full flex-1">
       <router-view v-slot="{ Component }">
         <keep-alive>
-          <component :is="Component" />
+          <component :is="Component" :key="routeViewKey" />
         </keep-alive>
       </router-view>
     </div>
@@ -133,6 +194,17 @@ function openProject() {
 </template>
 
 <style lang="less">
+@header-border: #e4e8eb;
+@surface: #ffffff;
+@background: #f8f9fa;
+@text-primary: #181819;
+@text-secondary: #70767f;
+@border: #d8d9dc;
+@hover: #eceeef;
+@primary: #ff7f50;
+@primary-hover: #ff9b7a;
+@danger: #e02020;
+
 :root {
   --an-c-active: #ff7f50;
   --an-c-active-light: #e3d6d2;
@@ -159,23 +231,179 @@ function openProject() {
   --an-bg-gray: #f6f6f6;
   --an-active-bg: rgba(248, 140, 140, 0.1);
 }
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 64px;
+  padding: 0 20px;
+  border-bottom: 1px solid @header-border;
+  background: @surface;
+  flex-shrink: 0;
+}
+
+.app-header__brand {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  color: @text-primary;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.app-header__menu {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1 1 auto;
+  min-width: 0;
+  justify-content: center;
+}
+
+.app-header__menu-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 10px;
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+
+.app-header__menu-item:hover {
+  background: @hover;
+}
+
+.app-header__menu-item--active {
+  background: fade(@primary, 10%);
+}
+
+.app-header__menu-text {
+  line-height: 1;
+}
+
+.app-header__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.app-header__group {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  flex: 0 0 auto;
+}
+
+.app-header__label {
+  color: @text-secondary;
+  white-space: nowrap;
+}
+
+.app-header__select {
+  flex: 0 0 auto;
+}
+
+.app-header__status {
+  height: 28px;
+  line-height: 26px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.app-header__button {
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid @border;
+  border-radius: 10px;
+  background: @surface;
+  color: @text-primary;
+}
+
+.app-header__button:hover:not(:disabled) {
+  border-color: @primary;
+  color: @primary;
+  background: fade(@primary, 4%);
+}
+
+.app-header__button:disabled {
+  color: @text-secondary;
+  background: #f4f6f8;
+}
+
+.app-header__icon-btn {
+  flex: 0 0 auto;
+}
+
+.app-header__link {
+  color: @text-primary;
+  white-space: nowrap;
+}
+
+.app-header__link:hover {
+  color: @primary;
+}
+
+@media (max-width: 1280px) {
+  .app-header {
+    padding: 0 16px;
+    gap: 12px;
+  }
+
+  .app-header__menu-text {
+    display: none;
+  }
+
+  .app-header__label {
+    display: none;
+  }
+}
+
+@media (max-width: 1080px) {
+  .app-header {
+    flex-wrap: wrap;
+    padding: 12px 16px;
+  }
+
+  .app-header__menu {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .app-header__actions {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /*** 系统全局滚动条设置 ***/
   ::-webkit-scrollbar {
     transition: opacity 0.3s;
-    width: 4px; /* 对垂直流动条有效 */
-    height: 10px; /* 对水平流动条有效 */
+    width: 4px;
+    height: 10px;
   }
 
-  /* 定义滚动条的轨道颜色、内阴影及圆角 */
   ::-webkit-scrollbar-track {
     background-color: transparent;
   }
 
-  /* 定义滑块颜色、内阴影及圆角 */
   ::-webkit-scrollbar-thumb {
     width: 4px;
     background-color: rgba(248, 140, 140, 0.1);
@@ -247,5 +475,21 @@ button[disabled] {
   display: inline-block;
   width: 100%;
   content: '';
+}
+.project-switcher {
+  max-width: 460px;
+}
+.project-status {
+  border: 1px solid transparent;
+}
+.project-status.is-ready {
+  color: #ff7f50;
+  border-color: rgba(255, 127, 80, 0.2);
+  background: rgba(255, 127, 80, 0.08);
+}
+.project-status.is-error {
+  color: #d64545;
+  border-color: rgba(214, 69, 69, 0.2);
+  background: rgba(214, 69, 69, 0.08);
 }
 </style>

@@ -7,3 +7,4 @@ dist-ssr
 !**/server/public/data/test.json
 walk-file
 vscode-plugin
+.js-analyzer

@@ -148,10 +148,15 @@ async function main() {
         await new Promise(resolve => setTimeout(resolve, 1000));
         await startServices();
       } else if (serviceName === 'server') {
-        // server 更新只重启 web
-        webProcess && webProcess.kill();
+        // server 更新时需要重启后端进程，前端可以继续复用现有 dev server
+        serverProcess && serverProcess.kill();
         await new Promise(resolve => setTimeout(resolve, 1000));
-        webProcess = await startProcess('web', 'npm', ['run', 'dev'], path.join(packagesDir, 'web'));
+        serverProcess = await startProcess(
+          'server',
+          'npm',
+          ['run', 'dev'],
+          path.join(packagesDir, 'server')
+        );
       }
     };
 

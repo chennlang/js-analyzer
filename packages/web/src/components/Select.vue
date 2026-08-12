@@ -6,7 +6,7 @@
       width: width,
     }"
     :class="[
-      'bg-gray border-gray active:border-active rounded text-normal h-7 leading-7 cursor-pointer',
+      'ui-select text-normal cursor-pointer',
       { 'cursor-not-allowed text-light': disabled },
     ]"
     @change="handleChange"
@@ -85,3 +85,29 @@ const handleChange = (event: Event) => {
   emit('onChange', value); // 触发自定义的 change 事件，将选中的值传出
 };
 </script>
+
+<style scoped lang="less">
+.ui-select {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid #d8d9dc;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #181819;
+  line-height: 30px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.ui-select:hover:not(:disabled),
+.ui-select:focus {
+  border-color: #ff7f50;
+  outline: none;
+}
+
+.ui-select:disabled {
+  background: #f4f6f8;
+  color: #9da1a7;
+}
+</style>

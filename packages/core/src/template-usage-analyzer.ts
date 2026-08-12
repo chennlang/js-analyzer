@@ -1,4 +1,5 @@
 const fs = require('fs')
+const { parse: parseVueSfc } = require('@vue/compiler-sfc')
 import { UsingItem, AutoImportDeps, AutoImportQuote } from '../types'
 import logger from '../logger'
 
@@ -52,13 +53,13 @@ export class TemplateUsageAnalyzer {
         const content = fs.readFileSync(vueFile, 'utf-8')
         const usages: UsingItem[] = []
 
-        // 提取模板内容
-        const templateMatch = content.match(/<template[^>]*>([\s\S]*?)<\/template>/)
-        if (!templateMatch) {
+        // Parse the SFC so nested template blocks (for example, named slots)
+        // do not cause a regular expression to stop at the first closing tag.
+        const descriptor = parseVueSfc(content, { filename: vueFile }).descriptor
+        const templateContent = descriptor.template?.content
+        if (templateContent == null) {
             return usages
         }
-
-        const templateContent = templateMatch[1]
 
         // 分析组件使用
         const componentUsages = this.extractComponentUsages(templateContent, autoImportIndex.components)

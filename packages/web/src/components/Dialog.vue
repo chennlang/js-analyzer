@@ -60,18 +60,16 @@ const onClose = () => {
     >
       <div
         :style="{ width: width, height: height }"
-        class="p-8 text-sm pt-12 relative"
+        class="ui-dialog__panel text-sm relative"
         @click.stop
       >
-        <h2
-          class="absolute left-0 top-0 p-4 w-full overflow-hidden mb-5 font-bold flex justify-between text-normal"
-        >
-          <span class="float-left">{{ title }}</span>
+        <h2 class="ui-dialog__title">
+          <span class="ui-dialog__title-text">{{ title }}</span>
           <span class="cursor-pointer" @click="onClose">
             <IconBtn icon="icon-close"></IconBtn>
           </span>
         </h2>
-        <div class="h-full overflow-y-auto">
+        <div class="ui-dialog__body">
           <slot></slot>
         </div>
       </div>
@@ -93,9 +91,38 @@ const onClose = () => {
   backdrop-filter: blur(4px);
   > div {
     margin-top: -5%;
-    width: 600px;
     background: var(--an-bg);
-    border-radius: 8px;
+    border-radius: 12px;
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);
   }
+}
+
+.ui-dialog__panel {
+  padding: 16px 20px 20px;
+  max-height: min(84vh, 900px);
+  overflow: hidden;
+}
+
+.ui-dialog__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  color: var(--an-c-black);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.ui-dialog__title-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ui-dialog__body {
+  height: calc(100% - 44px);
+  overflow-y: auto;
 }
 </style>

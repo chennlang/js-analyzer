@@ -9,6 +9,14 @@ import hljs from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
 import hljsVuePlugin from "@highlightjs/vue-plugin";
 
+window.CONFIG = {
+    root: '',
+    ignore: [],
+    extensions: [],
+    alias: {},
+    ide: 'code',
+}
+
 const app = createApp(App)
 app.use(router)
 app.use(hljsVuePlugin)

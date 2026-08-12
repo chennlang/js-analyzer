@@ -45,6 +45,18 @@ const getParser = (lang: Lang): any => {
     }
 }
 
+/** Extract the imported file path from CSS @import parameters. */
+function getImportSource(params: string): string {
+    const value = params.trim()
+    const urlMatch = value.match(/^url\(\s*(['"]?)(.*?)\1\s*\)(?:\s+.*)?$/i)
+    if (urlMatch) {
+        return urlMatch[2]
+    }
+
+    const quotedMatch = value.match(/^(['"])(.*?)\1(?:\s+.*)?$/)
+    return quotedMatch ? quotedMatch[2] : value.split(/\s+/)[0]
+}
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
  export default function styleParser (content: string, lang: Lang = 'css', _config: Config) {
     // 收集依赖
@@ -72,7 +84,7 @@ const getParser = (lang: Lang): any => {
     root.walkAtRules((rule: any) => {
         if (rule.name === 'import') {
             importDeps.push({
-                source: rule.params.replace(/['"]/g, ''),
+                source: getImportSource(rule.params),
                 vars: 'css@import',
                 loc: {}
             })

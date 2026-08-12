@@ -1,5 +1,5 @@
 module.exports = {
-  root: "/Users/ll/Desktop/work/deepexi/textin-open-demo",
+  root: "/Users/alang/Desktop/code/work/deepexi-datafacts-web/apps/copilot",
   extensions: [".js", ".ts", ".tsx", ".vue", ".json", ".jsx"],
   ignore: ["**/node_modules/**", "**/dist/**", "**/static/**"],
   server: {
@@ -8,6 +8,7 @@ module.exports = {
   alias: {
     "@@/": "/src/.umi/",
     "@/": "/src/",
+    "~/": "/src/",
   },
   plugins: [],
   ide: "cursor"

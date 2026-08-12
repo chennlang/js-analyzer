@@ -509,6 +509,8 @@ export function useChart (ref: HTMLElement | null) {
     })
 
     const init = getImport().then(res => {
+        Object.keys(ID_PATH_MAP).forEach(key => delete ID_PATH_MAP[key])
+        active_file = ''
         const nodes = origin_nodes = createNodes(res)
         origin_links = createLinks(nodes, ID_PATH_MAP)
     })

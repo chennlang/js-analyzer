@@ -7,7 +7,7 @@ const width = document.body.clientWidth;
 const height = document.body.clientHeight;
 
 onMounted(async () => {
-  const list = await getNames();
+  const list = (await getNames()) as [string, number][];
   const target = document.getElementById('hot_word');
   target &&
     WordCloud(target, {
