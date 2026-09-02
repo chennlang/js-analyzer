@@ -1,3 +1,15 @@
+# [2.9.0](https://github.com/chennlang/js-analyzer/compare/v2.8.0...v2.9.0) (2026-09-02)
+
+
+### Features
+
+* 优化项目管理 UI，支持 JSON 配置 ([ff59ecb](https://github.com/chennlang/js-analyzer/commit/ff59ecba991c6fa9153c45bb74e329d46e67fff4))
+* 优化项目选择&优化readme ([3e1fdc7](https://github.com/chennlang/js-analyzer/commit/3e1fdc79e6dfdce7148e6f4d7a5026387ee11455))
+* 发布流程更新 ([0140690](https://github.com/chennlang/js-analyzer/commit/0140690d3d80e0033fc8ecd97fab3ed2935565aa))
+* 支持 unplugin-auto-import 和 unplugin-vue-component 自动引入的内容 [#6](https://github.com/chennlang/js-analyzer/issues/6) ([276e9c2](https://github.com/chennlang/js-analyzer/commit/276e9c2db831610ef287c7f463398c01b4ce7aa7))
+* 支持多项目管理 & 优化项目依赖计算 ([39eef5c](https://github.com/chennlang/js-analyzer/commit/39eef5c4aef92505a8be9ac4f360ea206273499c))
+* 调整页面布局，修复部分样式问题 ([8b0b4ff](https://github.com/chennlang/js-analyzer/commit/8b0b4ffd8915f149ec40c4bdaaf3e5090d199381))
+
 # [2.8.0](https://github.com/chennlang/js-analyzer/compare/v2.7.0...v2.8.0) (2025-01-08)
 
 
