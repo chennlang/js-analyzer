@@ -17,15 +17,17 @@ jobs:
 
     steps:
       - name: 签出代码
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           persist-credentials: false
 
+      # 注意：trusted publishing(OIDC) 要求 Node >= 22.14，且不要设置 registry-url
+      # （registry-url 会写入 .npmrc，干扰 semantic-release 的 OIDC 认证，报 EINVALIDNPMTOKEN）
       - name: 安装 nodejs
-        uses: actions/setup-node@v2.5.2
+        uses: actions/setup-node@v4
         with:
-          node-version: "20.8.1"
+          node-version: "24"
 
       - name: 构建 web app
         working-directory: ./packages/web
@@ -37,17 +39,17 @@ jobs:
 
       # - name: 发布 core npm 包
       #   env:
-      #     GITHUB_TOKEN: ${{ secrets.PUBLISH_GH_TOKEN }}
-      #     NPM_TOKEN: ${{ secrets.PUBLISH_NPM_TOKEN }}
+      #     GITHUB_TOKEN: ${{ secrets.PUBLISH_GH_TOKEN }}  # 仅用于 GitHub Release，与 npm 无关
       #   run: |
       #     npm cache clean --force
       #     npx semantic-release
       #   working-directory: packages/core
 
+      # 发布 server npm 包（改用 npm Trusted Publishing，不再需要 NPM_TOKEN）
+      # npm 通过 OIDC(id-token) 自动完成认证并附带 provenance，GITHUB_TOKEN 只用于建 Release/回写 changelog
       - name: 发布 server npm 包
         env:
           GITHUB_TOKEN: ${{ secrets.PUBLISH_GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.PUBLISH_NPM_TOKEN }}
         run: |
           npm cache clean --force
           npx semantic-release
